@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import homePic from './assets/HomePagePic.jpeg'
 import './App.css'
-import Header from './Header.jsx'
-import Login from './Login.jsx'
-import NavigationBar from './Components/NavigationBar/NavigationBar.jsx'
+import ElevateAppBar from './Components/ElevateAppBar/ElevateAppBar.jsx'
+import Footer from './Components/Footer/Footer.jsx'
+import SideParagraph from './Components/SideParagraph/SideParagraph.jsx'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -13,7 +13,12 @@ function App() {
   const iconsList = [reactLogo]
   return (
     <div className='container'>
-      <NavigationBar title = "DONATR" list = {itemsList} buttons = {buttonsList} />
+      <ElevateAppBar></ElevateAppBar>
+      <div className='imageAndText'>
+          <img className='homeImage' src = {homePic} alt="home image"></img>
+          <SideParagraph></SideParagraph>
+      </div>
+      <Footer></Footer>
     </div>
   )
 }
