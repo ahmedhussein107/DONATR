@@ -1,0 +1,26 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+.container{
+  width: 100vw;
+  min-height: 100vh;
+  background: #fff;
+}
+
+button{
+    color: #fff;
+    padding: 12px 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition-2);
+    display: inline-block;
+    margin: 10px 10px;
+    min-width: 150px;
+    cursor: pointer;
+}
