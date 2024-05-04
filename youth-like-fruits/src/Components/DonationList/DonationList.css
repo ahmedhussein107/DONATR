@@ -1,0 +1,9 @@
+ul{
+    min-width: 100%;
+    min-height: 70px;
+    background: #3c4f59;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

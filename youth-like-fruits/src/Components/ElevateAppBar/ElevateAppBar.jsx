@@ -42,11 +42,11 @@ export default function ElevateAppBar(props) {
               DONATR
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' }}> Home</Button>
-              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' }}>About</Button>
-              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' }}>News</Button>
-              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' }}>Contact</Button>
+            <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}> Home</Button>
+              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>About</Button>
+              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>News</Button>
+              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>Contact</Button>
             </Box>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: 'flex', alignItems: 'center' }}>

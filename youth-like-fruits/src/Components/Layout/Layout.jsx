@@ -30,7 +30,7 @@ function TextLayout(props) {
   };
 
   const buttonStyle = {
-    marginTop: '70px', // Add more space between paragraphs and button
+    marginTop: '50px', // Add more space between paragraphs and button
     backgroundColor: '#1D8AC5',
     fontSize: '16px',
     fontWeight: 'bold',
@@ -57,6 +57,13 @@ function TextLayout(props) {
       <p style={paragraphStyle}>
         <span style={{ fontFamily: 'times new roman' , color: 'black' , fontStyle: 'italic', fontSize: '18px' , fontWeight: '150'}}>
         In a world where inequalities and needs abound, donations allow people to offer assistance to those in need, fostering greater unity within communities.
+        </span>
+      </p>
+      <br></br>
+      <br></br>
+      <p>
+        <span style={{ fontFamily: 'times new roman' , color: 'black' , fontStyle: 'italic', fontSize: '18px' , fontWeight: '150'}}>
+        Sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua suspendisse ultrices gravida.
         </span>
       </p>
       <Button variant="contained" color="primary" style={buttonStyle}>
