@@ -14,7 +14,7 @@ function App() {
   const donationCardList = [
       {icon: reactLogo , title: "React" , description: "This is React!"}, 
       {icon: reactLogo , title: "React" , description: "This is React!"},
-      {icon: reactLogo , title: "React" , description: "This is React!"},
+      {icon: reactLogo , title: "React" , description: "This is Not React!"},
       {icon: reactLogo , title: "React" , description: "This is React!"}
     ]
   return (
