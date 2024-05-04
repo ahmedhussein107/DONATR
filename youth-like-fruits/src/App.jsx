@@ -5,6 +5,7 @@ import './App.css'
 import ElevateAppBar from './Components/ElevateAppBar/ElevateAppBar.jsx'
 import Footer from './Components/Footer/Footer.jsx'
 import SideParagraph from './Components/SideParagraph/SideParagraph.jsx'
+import TextLayout from './Components/Layout/Layout.jsx'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -16,7 +17,7 @@ function App() {
       <ElevateAppBar></ElevateAppBar>
       <div className='imageAndText'>
           <img className='homeImage' src = {homePic} alt="home image"></img>
-          <SideParagraph></SideParagraph>
+          <TextLayout></TextLayout>
       </div>
       <Footer></Footer>
     </div>

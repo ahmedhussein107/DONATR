@@ -43,10 +43,10 @@ export default function ElevateAppBar(props) {
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Button color="inherit" sx={{ fontSize: '1rem' , fontFamily: 'Roboto' }}>Home</Button>
-              <Button color="inherit" sx={{ fontSize: '1rem' , fontFamily: 'Roboto' }}>About</Button>
-              <Button color="inherit" sx={{ fontSize: '1rem' , fontFamily: 'Roboto' }}>News</Button>
-              <Button color="inherit" sx={{ fontSize: '1rem' , fontFamily: 'Roboto' }}>Contact</Button>
+              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' }}> Home</Button>
+              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' }}>About</Button>
+              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' }}>News</Button>
+              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' }}>Contact</Button>
             </Box>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -57,6 +57,7 @@ export default function ElevateAppBar(props) {
                     textTransform: 'none',
                     '&:hover': { backgroundColor: '#155E85' },
                     padding: '8px 25px',
+                    minWidth: '140px',
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
                   }}
                   variant="contained"
@@ -72,6 +73,7 @@ export default function ElevateAppBar(props) {
                     textTransform: 'none',
                     '&:hover': { backgroundColor: '#2B4A7D' },
                     padding: '8px 25px',
+                    minWidth: '140px',
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
                   }}
                   variant="contained"
