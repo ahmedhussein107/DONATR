@@ -1,10 +1,19 @@
+import React, { useState } from 'react';
 import MyButton from '../../Components/MyButton/MyButton';
 import { Link } from 'react-router-dom';
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 function Layout1() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div
       style={{
@@ -18,7 +27,7 @@ function Layout1() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '200px',
+        padding: '0%',
       }}
     >
       <h2
@@ -47,18 +56,18 @@ function Layout1() {
         Let's continue your journey of making a difference.
       </p>
 
-      <Box>
+      <Box style={{ position: 'relative' }}>
         <TextField
           id="username"
-          label="UserName"
-          variant="outlined"
+          label="Username"
+          variant="filled"
           sx={{
-            borderRadius: '8px', // Add border radius
-            boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Add box shadow
+            borderRadius: '8px',
+            boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
             width: 370,
-            maxWidth: '100%', // Set the width to 100% to make it expand to the container width
+            maxWidth: '100%',
             '&:focus': {
-              borderColor: 'blue', // Change border color on focus
+              borderColor: 'blue',
             },
           }}
         />
@@ -67,17 +76,31 @@ function Layout1() {
         <TextField
           id="pass"
           label="Password"
-          variant="outlined"
+          type={showPassword ? 'text' : 'password'}
+          variant="filled"
           sx={{
-            borderRadius: '8px', // Add border radius
-            boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Add box shadow
+            borderRadius: '8px',
+            boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
             width: 370,
-            maxWidth: '100%', // Set the width to 100% to make it expand to the container width
+            maxWidth: '100%',
             '&:focus': {
-              borderColor: 'blue', // Change border color on focus
+              borderColor: 'blue',
             },
           }}
         />
+        {/* Toggle visibility button */}
+        <IconButton
+          onClick={handleTogglePasswordVisibility}
+          sx={{
+            position: 'absolute',
+            right: '10px',
+            top: '50%',
+            transform: 'translateY(50%)',
+            color: '#292F33',
+          }}
+        >
+          {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+        </IconButton>
       </Box>
 
       <Link
@@ -108,14 +131,14 @@ function Layout1() {
       <div
         style={{
           position: 'absolute',
-          bottom: 0, // Position at the bottom
-          left: 0, // Align to the left
-          width: '100%', // Span the entire width
+          bottom: '5%',
+          left: 0,
+          width: '100%',
           display: 'flex',
-          justifyContent: 'center', // Center the content horizontally
-          alignItems: 'center', // Center the content vertically (optional)
-          padding: '10px', // Add some padding if needed
-          backgroundColor: '#D5E0E6', // Match background color (optional)
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: '10px',
+          backgroundColor: '#D5E0E6',
         }}
       >
         <span style={{ color: 'black' }}>New to our platform?
