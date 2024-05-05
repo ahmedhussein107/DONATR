@@ -1,6 +1,6 @@
 import React from 'react'
 import ElevateAppBar from '../Components/ElevateAppBar/ElevateAppBar'
-import PersistentDrawerLeft from './PersistentDrawerLeft'
+import PersistentDrawerLeft from './MiniDrawer'
 
 function AdminPage() {
   return (
