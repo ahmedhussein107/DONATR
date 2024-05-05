@@ -26,18 +26,7 @@ function TextLayout(props) {
   };
 
   const paragraphStyle = {
-    marginBottom: '5px', // Adjust spacing between paragraphs
-  };
-
-  const buttonStyle = {
-    marginTop: '50px', // Add more space between paragraphs and button
-    backgroundColor: '#1D8AC5',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    maxWidth: '200px',
-    minHeight: '80px',
-    alignProperty: 'center',
-    marginLeft: '100px'
+    marginBottom: '3%', // Adjust spacing between paragraphs
   };
 
   const donateButton =  <MyButton 
@@ -51,8 +40,8 @@ function TextLayout(props) {
                           fontSize={'16px'}
                           paddingHeight={26}
                           paddingWidth={26}
-                          marginLeft={'120px'}
-                          marginTop={'50px'}
+                          marginLeft={'31%'}
+                          marginTop={'12%'}
                         />
 
   return (
@@ -74,10 +63,8 @@ function TextLayout(props) {
         In a world where inequalities and needs abound, donations allow people to offer assistance to those in need, fostering greater unity within communities.
         </span>
       </p>
-      <br></br>
-      <br></br>
       <p>
-        <span style={{ fontFamily: 'times new roman' , color: 'black' , fontStyle: 'italic', fontSize: '18px' , fontWeight: '150'}}>
+        <span style={{ fontFamily: 'times new roman' , color: 'black' , fontStyle: 'italic', fontSize: '18px' , fontWeight: '150' , marginTop: '200px'}}>
         Sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua suspendisse ultrices gravida.
         </span>
       </p>
