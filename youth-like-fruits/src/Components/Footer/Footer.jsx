@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer style={{ color: 'white', backgroundColor: '#292F33', width: '100%', height: '100px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
+    <footer style={{ color: 'white', backgroundColor: '#292F33', width: '100%', height: '70px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
     <div style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
       <a href="/privacy-policy" 
       style=

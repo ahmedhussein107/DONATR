@@ -8,7 +8,7 @@ function LeftSide() {
     justifyContent: 'center',
     alignItems: 'center',
     width: '50%',
-    minHeight: '93.5vh',
+    minHeight: '80vh',
   };
 
   const contentStyle = {
