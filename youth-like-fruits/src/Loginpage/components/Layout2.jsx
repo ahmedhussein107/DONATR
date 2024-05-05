@@ -11,29 +11,28 @@ function Layout2() {
   };
 
   const contentStyle = {
-    color: 'white', // Set text color to white
-    fontSize: '1.2rem', // Adjust font size as needed
+    color: 'white', 
+    fontSize: '1.2rem', 
   };
 
   const titleStyle = {
-    fontWeight: 'Lato', // Make the title bold
-    marginBottom: '1.5rem', // Add margin bottom for spacing between title and other items
-    lineHeight: '1.4', // Set line height for the title (consider a global setting)
-    fontSize: '2.8rem', // Set font size for titles
-    color: 'WHITE', // Example color (check contrast against background)
+    fontFamily: 'Josefin Sans',
+    fontWeight: 'Lato', 
+    marginBottom: '1.5rem', 
+    lineHeight: '1.4', 
+    fontSize: '2.8rem', 
+    color: 'WHITE', 
   };
   
   const listItemStyle = {
-    fontWeight: 'Lato', // Make the title bold
-    marginBottom: '1rem', // Add some bottom margin to each list item for spacing
-    fontSize: '1.3rem', // Set font size for list items
-    color: 'WHITE', // Example color (check contrast against background)
+    fontFamily: 'Josefin Sans',
+    fontWeight: 'Lato', 
+    marginBottom: '1rem', 
+    fontSize: '1.3rem', 
+    color: 'WHITE', 
   };
   const buttonStyle = {
-    height: 80, // Adjust height as desired (in pixels)
-    // OR (if MyButton component supports height prop)
-    // ...MyButton.defaultProps,
-    // height: 50, // Set height in MyButton props
+    height: 80, 
   };
   return (
     <div style={gradientStyle}>
