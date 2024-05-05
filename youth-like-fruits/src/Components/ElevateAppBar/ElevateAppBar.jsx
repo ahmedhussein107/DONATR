@@ -44,10 +44,9 @@ export default function ElevateAppBar(props) {
                           normalColor={item.normalColor}
                           hoverColor={item.hoverColor}
                         />)]
-                                                  
-  const buttonsList = <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        {list}
-                      </Box>
+
+  const buttonsList = <Box sx={{ display: 'flex', alignItems: 'center' }}>{list}</Box>
+  
   return (
     <React.Fragment>
       <CssBaseline />

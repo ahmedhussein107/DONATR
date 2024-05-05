@@ -43,13 +43,15 @@ function TextLayout(props) {
   const donateButton =  <MyButton 
                           label={'Donate now'}
                           directory={'/login'}
+                          minimumWidth={225}
+                          minimumHeight={78}
                           normalColor={'#1D8AC5'}
                           hoverColor={'#155E85'}
                           fontWeight={'bold'}
                           fontSize={'16px'}
                           paddingHeight={26}
                           paddingWidth={26}
-                          marginLeft={'150px'}
+                          marginLeft={'120px'}
                           marginTop={'50px'}
                         />
 
