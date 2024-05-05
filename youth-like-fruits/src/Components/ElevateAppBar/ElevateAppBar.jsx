@@ -31,7 +31,9 @@ ElevationScroll.propTypes = {
 
 export default function ElevateAppBar(props) {
   const actionsList = <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+                        <Link to = '/'>
                         <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}> Home</Button>
+                        </Link>
                         <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>About</Button>
                         <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>News</Button>
                         <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>Contact</Button>
@@ -72,3 +74,7 @@ export default function ElevateAppBar(props) {
     </React.Fragment>
   );
 }
+
+ElevateAppBar.defaultProps = {
+  buttonsList : []
+};

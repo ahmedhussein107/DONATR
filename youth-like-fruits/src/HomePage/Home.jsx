@@ -16,7 +16,7 @@ function Home() {
     
     const buttonsList = [
         {label: 'Login' , directory: '/login' , normalColor: '#1D8AC5' , hoverColor: '#155E85'},
-        {label: 'Register' , directory: '/register/step_1' , normalColor: '#3A69AE' , hoverColor: '#2B4A7D'},
+        {label: 'Register' , directory: '/register' , normalColor: '#3A69AE' , hoverColor: '#2B4A7D'},
     ]        
 
     return (
