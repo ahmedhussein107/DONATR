@@ -60,7 +60,7 @@ function Layout2() {
           normalColor='#1D8AC5'
           hoverColor={'#155E85'}
           minimumWidth={300}
-          style={buttonStyle} // Apply inline styles for height
+          minimumHeight={85}
         />
       </p>
     </div>
