@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
-import { alignProperty } from '@mui/material/styles/cssUtils';
 
 function TextLayout(props) {
   const { backgroundColor, textColor, text, marginLeft } = props;

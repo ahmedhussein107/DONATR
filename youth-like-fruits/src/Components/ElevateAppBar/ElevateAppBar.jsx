@@ -8,6 +8,7 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -51,20 +52,22 @@ export default function ElevateAppBar(props) {
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <Box sx={{ marginRight: 1 }}>
-                <Button
-                  sx={{
-                    backgroundColor: '#1D8AC5',
-                    textTransform: 'none',
-                    '&:hover': { backgroundColor: '#155E85' },
-                    padding: '8px 25px',
-                    minWidth: '140px',
-                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
-                  }}
-                  variant="contained"
-                  color="primary"
-                >
-                  Login
-                </Button>
+                <Link to = '/login'>
+                  <Button
+                    sx={{
+                      backgroundColor: '#1D8AC5',
+                      textTransform: 'none',
+                      '&:hover': { backgroundColor: '#155E85' },
+                      padding: '8px 25px',
+                      minWidth: '140px',
+                      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
+                    }}
+                    variant="contained"
+                    color="primary"
+                  >
+                    Login
+                  </Button>
+                </Link>
               </Box>
               <Box>
                 <Button
