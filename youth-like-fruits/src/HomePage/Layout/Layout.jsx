@@ -52,7 +52,7 @@ function TextLayout(props) {
         <br></br>
       </p>
       <p>
-        <span style={{ color: 'black' , fontFamily:"Roboto" , fontSize: '38px' }}>Give Love For Saving</span>
+        <span style={{ color: 'black' , fontFamily:"Roboto" , fontSize: '38px' }}>Give Love and Help</span>
         <br></br>
         <span style={{ fontWeight: 'bolder' , color: 'black' , fontFamily:"Roboto" , fontSize: '38px'}}>Fellow Humans</span>
         <br></br>

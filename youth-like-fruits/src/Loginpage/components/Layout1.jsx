@@ -119,7 +119,7 @@ function Layout1() {
 
       <MyButton
         label="Login"
-        directory="/LoginPage"
+        directory="/AdminPage"
         normalColor="#1D8AC5"
         hoverColor="#135E86"
         paddingWidth={14}
