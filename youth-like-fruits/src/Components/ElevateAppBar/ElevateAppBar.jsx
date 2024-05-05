@@ -8,6 +8,7 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import MyButton from '../MyButton/MyButton';
 import { Link } from 'react-router-dom';
 
 function ElevationScroll(props) {
@@ -29,6 +30,24 @@ ElevationScroll.propTypes = {
 };
 
 export default function ElevateAppBar(props) {
+  const actionsList = <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+                        <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}> Home</Button>
+                        <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>About</Button>
+                        <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>News</Button>
+                        <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>Contact</Button>
+                      </Box>;
+
+  const list = [props.buttonsList.map(
+                item => <MyButton 
+                          label={item.label}
+                          directory={item.directory}
+                          normalColor={item.normalColor}
+                          hoverColor={item.hoverColor}
+                        />)]                                         
+                          
+  const buttonsList = <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        {list}
+                      </Box>
   return (
     <React.Fragment>
       <CssBaseline />
@@ -43,56 +62,14 @@ export default function ElevateAppBar(props) {
               DONATR
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: 'flex', justifyContent: 'center'}}>
-              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}> Home</Button>
-              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>About</Button>
-              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>News</Button>
-              <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>Contact</Button>
-            </Box>
+            {actionsList}
             <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Box sx={{ marginRight: 1 }}>
-                <Link to = '/login'>
-                  <Button
-                    sx={{
-                      backgroundColor: '#1D8AC5',
-                      textTransform: 'none',
-                      '&:hover': { backgroundColor: '#155E85' },
-                      padding: '8px 25px',
-                      minWidth: '140px',
-                      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
-                    }}
-                    variant="contained"
-                    color="primary"
-                  >
-                    Login
-                  </Button>
-                </Link>
-              </Box>
-              <Box>
-                <Button
-                  sx={{
-                    backgroundColor: '#3A69AE',
-                    textTransform: 'none',
-                    '&:hover': { backgroundColor: '#2B4A7D' },
-                    padding: '8px 25px',
-                    minWidth: '140px',
-                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
-                  }}
-                  variant="contained"
-                  color="primary"
-                >
-                  Register
-                </Button>
-              </Box>
-            </Box>
+            {buttonsList}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
       <Toolbar />
-      <Container>
-        
-      </Container>
+      <Container></Container>
     </React.Fragment>
   );
 }

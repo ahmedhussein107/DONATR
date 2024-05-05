@@ -7,23 +7,29 @@ import DonationList from '.././HomePage/DonationList/DonationList.jsx'
 
 function Home() {
   // const [count, setCount] = useState(0)
-  const donationCardList = [
-      {icon: reactLogo , title: "React" , description: "This is React!"}, 
-      {icon: reactLogo , title: "React" , description: "This is React!"},
-      {icon: reactLogo , title: "React" , description: "This is Not React!"},
-      {icon: reactLogo , title: "React" , description: "This is React!"}
+    const donationCardList = [
+        {icon: reactLogo , title: "React" , description: "This is React!"}, 
+        {icon: reactLogo , title: "React" , description: "This is React!"},
+        {icon: reactLogo , title: "React" , description: "This is Not React!"},
+        {icon: reactLogo , title: "React" , description: "This is React!"}
     ]
-  return (
-    <div className='container'>
-      <ElevateAppBar></ElevateAppBar>
-      <div className='imageAndText'>
-          <img className='homeImage' src = {homePic} alt="home image"></img>
-          <TextLayout></TextLayout>
-      </div>
-      <DonationList list = {donationCardList}/>
-      <Footer></Footer>
-    </div>
-  )
+    
+    const buttonsList = [
+        {label: 'Login' , directory: '/login' , normalColor: '#1D8AC5' , hoverColor: '#155E85'},
+        {label: 'Register' , directory: '/register/step_1' , normalColor: '#3A69AE' , hoverColor: '#2B4A7D'},
+    ]        
+
+    return (
+        <div className='container'>
+        <ElevateAppBar buttonsList = {buttonsList}/>
+        <div className='imageAndText'>
+            <img className='homeImage' src = {homePic} alt="home image"></img>
+            <TextLayout></TextLayout>
+        </div>
+        <DonationList list = {donationCardList}/>
+        <Footer></Footer>
+        </div>
+    )
 }
 
 export default Home

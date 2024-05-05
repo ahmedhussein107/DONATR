@@ -1,7 +1,5 @@
 
 import React from 'react'
-import DonationList from './Components/HomePage/DonationList/DonationList'
-import reactLogo from './assets/react.svg'
 
 function Test() {
   return (
