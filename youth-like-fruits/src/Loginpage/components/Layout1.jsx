@@ -1,39 +1,40 @@
 import React from 'react';
+import MyButton from '../../Components/MyButton/MyButton';
+import { Link } from 'react-router-dom';
 
 function Layout1() {
   return (
     <div style={{
-      position: 'absolute', // Ensure right-side positioning
-      right: 0, // Align to the right edge
-      top: 0, // Start from the top
-      width: '50%', // Occupy half the screen width
-      height: '100vh', // Stretch to full viewport height
+      position: 'absolute', 
+      right: 0, 
+      top: 0, 
+      width: '50%', 
+      height: '100vh', 
       backgroundColor: '#D5E0E6',
-      display: 'flex', // Enable vertical alignment
-      flexDirection: 'column', // Stack elements vertically
-      alignItems: 'center', // Center elements horizontally
-      justifyContent: 'center', // Center elements vertically within the layout
-      padding: '200px', // Add some padding for aesthetics
+      display: 'flex', 
+      flexDirection: 'column', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      padding: '200px', 
     }}>
-      <h2 style={{ color: 'black', marginBottom: '20px', position: 'absolute', top: '264px', fontSize: '44px', fontFamily: 'Josefin Sans' }}>Welcome back!</h2>
+      <h2 style={{marginBottom: '10px', marginTop: '-80px', fontSize: '44px', fontFamily: 'Josefin Sans', fontWeight: '400', color: '#292F33'}}>Welcome Back!</h2>
       
-      
-      <p style={{ position: 'absolute', top: '322px', fontSize: '16px', fontFamily: 'Inter', textAlign: 'center' , color: '#000'}}>Let's continue your journey of making a difference.</p>
+      <p style={{ fontSize: '16px', fontFamily: 'Inter', textAlign: 'center' , color: '#292F33', marginBottom: '100px', fontWeight: '500' }}>Let's continue your journey of making a difference.</p>
 
-        <input
+      <input
         id="username"
         type="text"
         placeholder="Username"
         style={{
-          width: '100%', // Span the full width
+          width: '100%', 
           padding: '10px',
           border: '1px solid #ccc',
           borderRadius: '5px',
           marginBottom: '10px',
+          color: 'black',
         }}
       />
 
-      
       <input
         id="password"
         type="password"
@@ -44,36 +45,35 @@ function Layout1() {
           border: '1px solid #ccc',
           borderRadius: '5px',
           marginBottom: '10px',
+          color: 'black',
         }}
       />
 
-      <a href="#" style={{ position: 'absolute', top: '607px', fontSize: '18px', fontFamily: 'Roboto', color: '#666' }}>
+  
+
+      <Link to="/forgot-password" style={{ marginLeft: '250px',   textDecoration: 'none', marginTop: '10px', color: '#666', fontSize: '16px', marginBottom: '30px' }}>
         Forgot your password?
-      </a>
+      </Link>
 
-      <button
-        style={{
-          position: 'absolute',
-          top: '700px',
-          width: '120px',
-          height: '53px',
-          padding: '10px 20px',
-          backgroundColor: '#1D8AC5', // Blue button color
-          color: '#F9F9F9',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-          fontSize: '18px',
-          fontFamily: 'Roboto',
-        }}
-      >
-        Login
-      </button>
+      <MyButton
+        label="Login"
+        directory="/LoginPage"
+        normalColor="#1D8AC5"
+        hoverColor="#135E86"
+        paddingWidth={10}
+        paddingHeight={20}
+        minimumWidth={140}
+      />
+      
 
-      {/* "New to our platform? Register..." text */}
-      <p style={{ position: 'absolute', bottom: '50px', fontSize: '18px', fontFamily: 'Roboto', color: '#000', textAlign: 'center' }}>
-        New to our platform? <strong style={{ fontWeight: 'bold', textDecoration: 'underline' , color: '#000'}}>Register</strong> to start making a difference!
+      <p style={{ fontSize: '16px', color: '#292F33' }}>
+        New to our platform?{" "}
+        <Link to="/register" style={{ fontWeight: 'bold', textDecoration: 'underline', color: '#292F33' }}>
+          Register
+        </Link>{" "}
+        to start making a difference!
       </p>
+      
     </div>
   );
 }
