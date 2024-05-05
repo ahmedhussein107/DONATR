@@ -43,8 +43,8 @@ export default function ElevateAppBar(props) {
                           directory={item.directory}
                           normalColor={item.normalColor}
                           hoverColor={item.hoverColor}
-                        />)]                                         
-                          
+                        />)]
+                                                  
   const buttonsList = <Box sx={{ display: 'flex', alignItems: 'center' }}>
                         {list}
                       </Box>

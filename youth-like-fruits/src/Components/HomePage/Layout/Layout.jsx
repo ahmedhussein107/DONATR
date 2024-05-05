@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
+import MyButton from '../../MyButton/MyButton';
 
 function TextLayout(props) {
   const { backgroundColor, textColor, text, marginLeft } = props;
@@ -39,6 +40,19 @@ function TextLayout(props) {
     marginLeft: '100px'
   };
 
+  const donateButton =  <MyButton 
+                          label={'Donate now'}
+                          directory={'/login'}
+                          normalColor={'#1D8AC5'}
+                          hoverColor={'#155E85'}
+                          fontWeight={'bold'}
+                          fontSize={'16px'}
+                          paddingHeight={26}
+                          paddingWidth={26}
+                          marginLeft={'150px'}
+                          marginTop={'50px'}
+                        />
+
   return (
     <div style={layoutStyle}>
       <p style={titleStyle}>
@@ -65,9 +79,7 @@ function TextLayout(props) {
         Sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua suspendisse ultrices gravida.
         </span>
       </p>
-      <Button variant="contained" color="primary" style={buttonStyle}>
-        Donate now
-      </Button>
+      {donateButton}
     </div>
   );
 }
@@ -79,4 +91,4 @@ TextLayout.propTypes = {
   marginLeft: PropTypes.string,
 };
 
-export default TextLayout;
+export default TextLayout;
