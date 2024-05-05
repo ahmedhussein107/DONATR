@@ -1,9 +1,9 @@
-import reactLogo from '../.././assets/react.svg'
-import homePic from '../.././assets/HomePagePic.jpeg'
-import ElevateAppBar from '.././ElevateAppBar/ElevateAppBar.jsx'
-import Footer from '.././Footer/Footer.jsx'
-import TextLayout from '.././HomePage/Layout/Layout.jsx'
-import DonationList from '.././HomePage/DonationList/DonationList.jsx'
+import reactLogo from '.././assets/react.svg'
+import homePic from '.././assets/HomePagePic.jpeg'
+import ElevateAppBar from '.././Components/ElevateAppBar/ElevateAppBar.jsx'
+import Footer from '.././Components/Footer/Footer.jsx'
+import TextLayout from './Layout/Layout.jsx'
+import DonationList from './DonationList/DonationList.jsx'
 
 function Home() {
   // const [count, setCount] = useState(0)

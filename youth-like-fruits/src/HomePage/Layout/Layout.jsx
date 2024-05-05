@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
-import MyButton from '../../MyButton/MyButton';
+import MyButton from '../../Components/MyButton/MyButton';
 
 function TextLayout(props) {
   const { backgroundColor, textColor, text, marginLeft } = props;
