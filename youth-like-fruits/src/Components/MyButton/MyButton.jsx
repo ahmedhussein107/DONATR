@@ -13,6 +13,11 @@ function MyButton(props) {
     const paddingWidth = props.paddingWidth;
     const paddingHeight = props.paddingHeight;
     const minimumWidth = props.minimumWidth;
+    const minimumHeight = props.minimumHeight;
+    const fontWeight = props.fontWeight;
+    const fontSize = props.fontSize;
+    const marginLeft = props.marginLeft;
+    const marginTop = props.marginTop;
     return (
         <Box sx={{ marginRight: 1 }}>
             <Link to = {directory}>
@@ -23,7 +28,13 @@ function MyButton(props) {
                     '&:hover': { backgroundColor: hoverColor },
                     padding: `${paddingWidth}px ${paddingHeight}px`,
                     minWidth: `${minimumWidth}px`,
+                    minHeight: minimumHeight == null ? null : `${minimumHeight}px`,
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
+                    fontWeight: fontWeight,
+                    fontSize: fontSize,
+                    marginLeft: marginLeft,
+                    marginTop: marginTop,
+                    alignProperty: 'center'
                 }}
                 variant="contained"
                 color="primary"
@@ -43,6 +54,11 @@ MyButton.propTypes = {
     paddingWidth: PropTypes.number,
     paddingHeight: PropTypes.number,
     minimumWidth: PropTypes.number,
+    minimumHeight: PropTypes.number,
+    fontWeight: PropTypes.string,
+    fontSize: PropTypes.string,
+    marginLeft: PropTypes.string,
+    marginTop: PropTypes.string
 };
 
 MyButton.defaultProps = {
@@ -53,6 +69,11 @@ MyButton.defaultProps = {
     paddingWidth: 8,
     paddingHeight: 25,
     minimumWidth: 140,
+    minimumHeight: null,
+    fontWeight: '500',
+    fontSize: '18px',
+    marginLeft: '0px',
+    marginTop: '0px'
 };
 
 export default MyButton
