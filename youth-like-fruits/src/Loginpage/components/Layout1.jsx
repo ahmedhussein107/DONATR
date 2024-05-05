@@ -15,11 +15,13 @@ function Layout1() {
       justifyContent: 'center', // Center elements vertically within the layout
       padding: '200px', // Add some padding for aesthetics
     }}>
-      {/* Text at the top */}
-      <h2 style={{ color: 'black', marginBottom: '20px' }}>Login</h2>
+      <h2 style={{ color: 'black', marginBottom: '20px', position: 'absolute', top: '264px', fontSize: '44px', fontFamily: 'Josefin Sans' }}>Welcome back!</h2>
+      
+      
+      <p style={{ position: 'absolute', top: '322px', fontSize: '16px', fontFamily: 'Inter', textAlign: 'center' , color: '#000'}}>Let's continue your journey of making a difference.</p>
 
-      {/* Username field */}
-      <input
+        <input
+        id="username"
         type="text"
         placeholder="Username"
         style={{
@@ -31,8 +33,9 @@ function Layout1() {
         }}
       />
 
-      {/* Password field */}
+      
       <input
+        id="password"
         type="password"
         placeholder="Password"
         style={{
@@ -44,24 +47,33 @@ function Layout1() {
         }}
       />
 
-      {/* Login button */}
+      <a href="#" style={{ position: 'absolute', top: '607px', fontSize: '18px', fontFamily: 'Roboto', color: '#666' }}>
+        Forgot your password?
+      </a>
+
       <button
         style={{
+          position: 'absolute',
+          top: '700px',
+          width: '120px',
+          height: '53px',
           padding: '10px 20px',
-          backgroundColor: '#007bff', // Blue button color
-          color: 'white',
+          backgroundColor: '#1D8AC5', // Blue button color
+          color: '#F9F9F9',
           border: 'none',
           borderRadius: '5px',
           cursor: 'pointer',
+          fontSize: '18px',
+          fontFamily: 'Roboto',
         }}
       >
         Login
       </button>
 
-      {/* "Forgot your password?" link */}
-      <a href="#" style={{ fontSize: '12px', color: '#666', marginTop: '10px' }}>
-        Forgot your password?
-      </a>
+      {/* "New to our platform? Register..." text */}
+      <p style={{ position: 'absolute', bottom: '50px', fontSize: '18px', fontFamily: 'Roboto', color: '#000', textAlign: 'center' }}>
+        New to our platform? <strong style={{ fontWeight: 'bold', textDecoration: 'underline' , color: '#000'}}>Register</strong> to start making a difference!
+      </p>
     </div>
   );
 }
