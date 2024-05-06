@@ -22,7 +22,7 @@ function AdminPage() {
                     marginLeft: '3%',
                 }}>Overview</p>
                 <SelectVariants/>
-                <div style={{display : 'flex' , flexDirection:'row',gap:'5%' ,marginLeft : '5%',marginTop : '1.5%'}}>
+                <div style={{display : 'flex' , flexDirection:'row',gap:'11%' ,marginLeft : '5%',marginTop : '1.5%'}}>
                 <OutlinedCard/>
                 <OutlinedCard/>
                 <OutlinedCard/>

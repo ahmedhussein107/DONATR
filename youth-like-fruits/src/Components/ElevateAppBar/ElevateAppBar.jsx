@@ -39,16 +39,24 @@ export default function ElevateAppBar(props) {
                         <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>Contact</Button>
                       </Box>;
 
-  const list = [props.buttonsList.map(
+  const listOfButtons = [props.buttonsList.map(
                 item => <MyButton 
                           label={item.label}
                           directory={item.directory}
                           normalColor={item.normalColor}
                           hoverColor={item.hoverColor}
                         />)]
-
-  const buttonsList = <Box sx={{ display: 'flex', alignItems: 'center' }}>{list}</Box>
+                      
   
+  const listOfIcons = props.iconsList;
+
+  const emptyButtonsList = props.buttonsList.length === 0;
+  const emptyIconsList = props.iconsList.length === 0;
+
+  const buttonsList = <Box sx={{ display: 'flex', alignItems: 'center' }}>{listOfButtons}</Box>
+  
+  const iconsList = <Box sx={{ display: 'flex', alignItems: 'center' , gap: '1vw'}}>{listOfIcons}</Box>
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -65,7 +73,8 @@ export default function ElevateAppBar(props) {
             <Box sx={{ flexGrow: 1 }} />
             {actionsList}
             <Box sx={{ flexGrow: 1 }} />
-            {buttonsList}
+            {!emptyButtonsList && buttonsList}
+            {!emptyIconsList && iconsList}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
@@ -76,5 +85,11 @@ export default function ElevateAppBar(props) {
 }
 
 ElevateAppBar.defaultProps = {
-  buttonsList : []
+  buttonsList : [],
+  iconsList : []
 };
+
+ElevateAppBar.propTypes = {
+  buttonsList : PropTypes.array,
+  iconsList : PropTypes.array,
+}

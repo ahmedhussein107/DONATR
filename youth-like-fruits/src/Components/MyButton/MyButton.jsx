@@ -19,6 +19,7 @@ function MyButton(props) {
     const marginLeft = props.marginLeft;
     const marginTop = props.marginTop;
     const hidden = props.hidden;
+    const clickHandler = props.clickHandler;
     return (
         <Box sx={{ marginRight: 1 }}>
             <Link to = {directory}>
@@ -41,6 +42,7 @@ function MyButton(props) {
                 }}
                 variant="contained"
                 color="primary"
+                onClick={clickHandler}
                 >
                 {label}
                 </Button>
@@ -62,7 +64,8 @@ MyButton.propTypes = {
     fontSize: PropTypes.string,
     marginLeft: PropTypes.string,
     marginTop: PropTypes.string,
-    hidden: PropTypes.bool
+    hidden: PropTypes.bool,
+    clickHandler: PropTypes.func
 };
 
 MyButton.defaultProps = {
@@ -78,7 +81,8 @@ MyButton.defaultProps = {
     fontSize: '18px',
     marginLeft: '0px',
     marginTop: '0px',
-    hidden: false
+    hidden: false,
+    clickHandler: () => {}
 };
 
 export default MyButton

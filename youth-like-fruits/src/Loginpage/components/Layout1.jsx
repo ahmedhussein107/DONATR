@@ -14,6 +14,17 @@ function Layout1() {
     setShowPassword(!showPassword);
   };
 
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
   return (
     <div
       style={{
@@ -70,6 +81,7 @@ function Layout1() {
               borderColor: 'blue',
             },
           }}
+          onChange={handleUsernameChange}
         />
         <br />
         <br />
@@ -87,6 +99,7 @@ function Layout1() {
               borderColor: 'blue',
             },
           }}
+          onChange={handlePasswordChange}
         />
         {/* Toggle visibility button */}
         <IconButton
@@ -119,15 +132,19 @@ function Layout1() {
 
       <MyButton
         label="Login"
-        directory="/admin"
+        directory=""
         normalColor="#1D8AC5"
         hoverColor="#135E86"
         paddingWidth={14}
         paddingHeight={20}
         minimumWidth={200}
+        clickHandler={() => {
+          if(username === 'admin' && password === 'pass'){
+            window.location.href = '/admin';
+          }
+        }}
       />
-
-      {/* New line at bottom, positioned absolutely */}
+      
       <div
         style={{
           position: 'absolute',
