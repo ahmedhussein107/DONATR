@@ -6,14 +6,14 @@ function LeftSide() {
     background: `linear-gradient(to bottom, #3C4F59, #426D84)`,
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    width: '50%',
-    minHeight: '80vh',
+    // alignItems: 'center',
+    width: '50%', 
   };
 
   const contentStyle = {
     color: 'white', // Set text color to white
     fontSize: '1.2rem', // Adjust font size as needed
+    marginTop: '20%'
   };
 
   const titleStyle = {
