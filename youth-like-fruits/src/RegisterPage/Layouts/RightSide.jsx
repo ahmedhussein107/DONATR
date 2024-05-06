@@ -74,15 +74,17 @@ function RightSide() {
             </div>
           ))}
         </div>
-        {selectedOption === '' ? <></>:
-          <MyButton 
-          label= 'Next'
-          directory= {`/register/${selectedOption}`}
-          normalColor = '#1D8AC5'
-          hoverColor = '#155E85'
-          
-        />
-        }
+        <div>
+          {
+            <MyButton 
+            label= 'Next'
+            directory= {`/register/${selectedOption}`}
+            normalColor = '#1D8AC5'
+            hoverColor = '#155E85'
+            hidden = {selectedOption === ''}
+            />
+          }
+        </div>
         
       </div>
       

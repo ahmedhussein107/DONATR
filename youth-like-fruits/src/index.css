@@ -11,8 +11,8 @@
 }
 
 .container{
-  width: 100vw;
-  min-height: 100vh;
+  width: auto;
+  height: auto;
   background: #D5E0E6;
 }
 

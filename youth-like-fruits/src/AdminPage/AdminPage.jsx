@@ -1,15 +1,17 @@
 import React from 'react'
 import ElevateAppBar from '../Components/ElevateAppBar/ElevateAppBar'
-import MiniDrawer from './MiniDrawer'
 import SideBar from './SideBar'
+import Footer from '../Components/Footer/Footer'
 
 function AdminPage() {
+  
   return (
     <div className='container'>
         <ElevateAppBar/>
-        <div style = {{display: 'flex' , flexDirection: 'row' , alignItems: 'center' , marginTop: '5%'}}>
+        <div style = {{display: 'flex' , flexDirection: 'row'}}>
           <SideBar/>
         </div>
+        <Footer/>
     </div>
   )
 }

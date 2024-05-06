@@ -18,6 +18,7 @@ function MyButton(props) {
     const fontSize = props.fontSize;
     const marginLeft = props.marginLeft;
     const marginTop = props.marginTop;
+    const hidden = props.hidden;
     return (
         <Box sx={{ marginRight: 1 }}>
             <Link to = {directory}>
@@ -34,7 +35,9 @@ function MyButton(props) {
                     fontSize: fontSize,
                     marginLeft: marginLeft,
                     marginTop: marginTop,
-                    alignProperty: 'center'
+                    alignProperty: 'center',
+                    opacity: hidden ? 0 : 1,
+                    transition: 'opacity 0.2s ease'
                 }}
                 variant="contained"
                 color="primary"
@@ -58,12 +61,13 @@ MyButton.propTypes = {
     fontWeight: PropTypes.string,
     fontSize: PropTypes.string,
     marginLeft: PropTypes.string,
-    marginTop: PropTypes.string
+    marginTop: PropTypes.string,
+    hidden: PropTypes.bool
 };
 
 MyButton.defaultProps = {
     label: "",
-    directory: "/",
+    directory: "",
     normalColor: '#000',
     hoverColor: '#222222',
     paddingWidth: 8,
@@ -73,7 +77,8 @@ MyButton.defaultProps = {
     fontWeight: '500',
     fontSize: '18px',
     marginLeft: '0px',
-    marginTop: '0px'
+    marginTop: '0px',
+    hidden: false
 };
 
 export default MyButton
