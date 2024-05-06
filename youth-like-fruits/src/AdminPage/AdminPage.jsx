@@ -12,6 +12,10 @@ import StackBars from './Dashboard/StackBars'
 
 function AdminPage() {
 
+  const [isOpen , setIsOpen] = useState(false);
+
+  const togglePopup = () => setIsOpen(!isOpen);
+
   const listOfIcons = [
     <div onClick={togglePopup}>
       <NotificationsNoneIcon style={{cursor: 'pointer' , fontSize: '2vw'}}/>
@@ -25,7 +29,8 @@ function AdminPage() {
     <div className='container'>
         <ElevateAppBar iconsList={listOfIcons}/>
         <div style = {{display: 'flex' , flexDirection: 'row'}}>
-          <SideBar/>
+        {isOpen && <Popup onClose={togglePopup}/>}
+        <SideBar/>
        <div style = {{display : 'flex' , flexDirection : 'column',marginTop :'2%'}}>
           <p style={{
           fontSize: '44px',
