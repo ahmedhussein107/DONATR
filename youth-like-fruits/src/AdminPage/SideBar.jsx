@@ -61,7 +61,7 @@ function SideBar() {
                             <div>{item.icon}</div>
                             <div style=
                                 {{
-                                    display: open ? "block" : "none" ,
+                                    display: open ? "block" : "none",
                                     fontSize: '1.2vw',
                                 }}>
                                     {item.name}
