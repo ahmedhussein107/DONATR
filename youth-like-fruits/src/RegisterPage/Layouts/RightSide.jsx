@@ -3,6 +3,7 @@ import DonorIcon from '../.././assets/donor_icon.png';
 import OrganizationIcon from '../.././assets/organization_icon.png';
 import { Link } from 'react-router-dom';
 import MyButton from '../../Components/MyButton/MyButton';
+import { useNavigate } from 'react-router-dom';
 
 const options = [
   { value: 'Donor', imageUrl: DonorIcon, label: 'Donor' },
@@ -11,11 +12,17 @@ const options = [
 
 function RightSide() {
   const [selectedOption, setSelectedOption] = useState('');
+  const navigate = useNavigate();
 
   const handleOptionClick = (optionValue) => {
     setSelectedOption(optionValue);
   };
 
+  const handleButtonClick = () => {
+    alert('Im here')
+    navigate(`/register/${selectedOption}`)
+  }
+  
   return (
     <div
       style={{
@@ -67,13 +74,18 @@ function RightSide() {
             </div>
           ))}
         </div>
-        <MyButton 
+        {selectedOption === '' ? <></>:
+          <MyButton 
           label= 'Next'
-          directory= '/register'
+          directory= {`/register/${selectedOption}`}
           normalColor = '#1D8AC5'
           hoverColor = '#155E85'
+          
         />
+        }
+        
       </div>
+      
       <div style={{
             position: 'relative',
             width: '100%',
