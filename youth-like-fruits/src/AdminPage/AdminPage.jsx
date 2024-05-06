@@ -10,8 +10,6 @@ import { MenuItem } from '@mui/material';
 
 function AdminPage() {
 
-  const [auth, setAuth] = React.useState(true);
-
   const listOfIcons = [
     <div onClick={togglePopup}>
       <NotificationsNoneIcon style={{cursor: 'pointer' , fontSize: '2vw'}}/>
