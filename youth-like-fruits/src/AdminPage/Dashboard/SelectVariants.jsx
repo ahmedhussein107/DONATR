@@ -13,7 +13,7 @@ export default function SelectVariants() {
 
   return (
     <div>
-      <FormControl variant="filled" sx={{ m: 1, minWidth: 120,marginLeft:6 }}>
+      <FormControl variant="filled" sx={{ minWidth: 120,}}>
         <InputLabel id="demo-simple-select-filled-label" >Year</InputLabel>
         <Select
           labelId="demo-simple-select-filled-label"

@@ -11,8 +11,9 @@ export default function StackBars() {
         { data: [2, 8, 1, 3, 1], stack: 'B', label: 'Series B2' },
         { data: [10, 6, 5, 8, 9], label: 'Series C1' },
       ]}
-      width={950}
+      // width={950}
       height={390}
+      sx={{transition: 'all 0.1s'}}
     />
   );
 }

@@ -46,7 +46,7 @@ function SideBar() {
             width: open ? "20vw" : "4vw", 
             background: `linear-gradient(to bottom, #3C4F59, #426D84)`,
             color: `#fff`,
-            height: `92vh`,
+            height: `100%`,
             transition: `all 0.2s`,
             }}>
                <div className="top_section">

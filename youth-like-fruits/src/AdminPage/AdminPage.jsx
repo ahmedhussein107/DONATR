@@ -9,6 +9,8 @@ import OutlinedCard from './Dashboard/OutlinedCard'
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Popup from './Popup'
+import MyButton from '../Components/MyButton/MyButton'
+import { Box } from '@mui/material'
 
 
 function AdminPage() {
@@ -33,7 +35,7 @@ function AdminPage() {
   ]
 
   return (
-    <div className='container'>
+    <div className='container'  >
         <ElevateAppBar iconsList={listOfIcons}/>
         <div style=
                     {{
@@ -49,19 +51,21 @@ function AdminPage() {
                   flexDirection: 'column' ,
                   background: '#292F33' ,
                   alignItems: 'center' ,
-                  gap: '1.2vh' ,
-                  padding: '15px 30px'
+                  textAlign: 'center',
+                  // gap: '1.2vh' ,
+                  // padding: '15px 30px'
                 }}>
-                <div style={{hover: {backgroundColor: 'light grey'} , cursor: 'pointer'}} onClick={() => {
+                <Box sx={{'&:hover': {backgroundColor: '#2F3F4F'}, width: '100%', height: '100%', cursor: 'pointer', padding: '15px 30px'}} onClick={() => {
                   window.location.href = '/settings'
                 }}>
                   <p>My Profile</p>
-                </div>
-                <div style={{hover: {backgroundColor: 'light grey'} , cursor: 'pointer'}} onClick={() => {
-                  window.location.href = '/'
+                </Box>
+                <Box sx={{'&:hover': {backgroundColor: '#2F3F4F'},width:'100%' , cursor: 'pointer', padding: '15px 30px'}} onClick={() => {
+                  window.location.href = '/login'
                 }}>
-                  <p>Log out</p>
-                </div>
+                  <p>Log Out</p>
+                </Box>
+                {/* <MyButton directory= '/settings' label='My Profile' hoverColor='light grey' normalColor='#292F33'/> */}
               </div>
             )}
         </div>
@@ -69,26 +73,25 @@ function AdminPage() {
           <div style = {{display: 'flex' , flexDirection: 'row'}}>
           {isOpen && <Popup onClose={togglePopup}/>}
           <SideBar/>
-          <div style={{display: 'flex', flexDirection: 'column', marginTop: '2%'}}>
+          <div style={{display: 'flex', flexDirection: 'column', padding: '2% 4%'}}>
                 <p style={{
                     fontSize: '44px',
                     fontFamily: 'Josefin Sans',
                     fontWeight: '400',
                     color: '#292F33',
-                    marginLeft: '3%',
                 }}>Overview</p>
                 <SelectVariants/>
-                <div style={{display : 'flex' , flexDirection:'row',gap:'11%' ,marginLeft : '5%',marginTop : '1.5%'}}>
+                <div style={{display : 'flex' , flexDirection:'row',gap:'7.27%' ,marginTop : '1.5%'}}>
                 <OutlinedCard/>
                 <OutlinedCard/>
                 <OutlinedCard/>
                 <OutlinedCard/>
                 </div>
-                <div style={{display: 'flex', flexDirection: 'row', marginTop: '2%', position: 'relative'}}>
+                <div style={{display: 'flex', flexDirection: 'row', gap: '2%', marginTop: '2%', position: 'relative', maxWidth: '88%'}}>
                     <div style={{
-                        minWidth: '35%',
+                        minWidth: '50%',
+                        // width: '40%',
                         backgroundColor: '#D5E0E6',
-                        marginLeft: '3%',
                         alignContent: 'center',
                         borderRadius: '5px',
                         boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)',
@@ -106,8 +109,8 @@ function AdminPage() {
                     </div>
                     <div style={{
                         minWidth: '65%',
+                        // width: '70%',
                         backgroundColor: '#D5E0E6',
-                        marginLeft: '1%',
                         borderRadius: '5px',
                         boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)',
                         padding: '20px'
