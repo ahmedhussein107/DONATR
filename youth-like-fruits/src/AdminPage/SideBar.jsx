@@ -48,6 +48,7 @@ function SideBar() {
             color: `#fff`,
             height: `100%`,
             transition: `all 0.2s`,
+            // position: `fixed`
             }}>
                <div className="top_section">
                    <div style={{marginLeft: open ? "15vw" : "0vw" , transition: `all 0.2s`}} 

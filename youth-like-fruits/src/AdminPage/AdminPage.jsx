@@ -9,7 +9,6 @@ import OutlinedCard from './Dashboard/OutlinedCard'
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Popup from './Popup'
-import MyButton from '../Components/MyButton/MyButton'
 import { Box } from '@mui/material'
 
 
@@ -39,8 +38,8 @@ function AdminPage() {
         <ElevateAppBar iconsList={listOfIcons}/>
         <div style=
                     {{
-                      position: 'absolute' , 
-                      right: '0.4%',
+                      position: 'fixed' , 
+                      right: '0%',
                       minHeight: '15vh',
                       minWidth: '10vw'
                     }}>
@@ -51,7 +50,7 @@ function AdminPage() {
                   flexDirection: 'column' ,
                   background: '#292F33' ,
                   alignItems: 'center' ,
-                  textAlign: 'center',
+                  textAlign: 'center',  
                   // gap: '1.2vh' ,
                   // padding: '15px 30px'
                 }}>
@@ -65,7 +64,6 @@ function AdminPage() {
                 }}>
                   <p>Log Out</p>
                 </Box>
-                {/* <MyButton directory= '/settings' label='My Profile' hoverColor='light grey' normalColor='#292F33'/> */}
               </div>
             )}
         </div>
@@ -82,10 +80,10 @@ function AdminPage() {
                 }}>Overview</p>
                 <SelectVariants/>
                 <div style={{display : 'flex' , flexDirection:'row',gap:'7.27%' ,marginTop : '1.5%'}}>
-                <OutlinedCard/>
-                <OutlinedCard/>
-                <OutlinedCard/>
-                <OutlinedCard/>
+                <OutlinedCard text1 = 'HI' text2 = {`We're Hussien and Youssef`} text3 = 'Computer Engineers'/>
+                <OutlinedCard text1 = 'HI' text2 = {`I'm Yasser`} text3 = 'Computer Engineer'/>
+                <OutlinedCard text1 = 'HI' text2 = {`I'm Gohary`} text3 = 'Computer Engineer'/>
+                <OutlinedCard text1 = 'HI' text2 = {`I'm Rofael`} text3 = 'Computer Engineer'/>
                 </div>
                 <div style={{display: 'flex', flexDirection: 'row', gap: '2%', marginTop: '2%', position: 'relative', maxWidth: '88%'}}>
                     <div style={{
