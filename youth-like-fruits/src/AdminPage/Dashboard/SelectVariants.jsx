@@ -20,8 +20,6 @@ export default function SelectVariants() {
           id="demo-simple-select-filled"
           value={age}
           onChange={handleChange}>
-          <MenuItem value="">
-          </MenuItem>
           <MenuItem value={2022}>2022</MenuItem>
           <MenuItem value={20}>2023</MenuItem>
           <MenuItem value={30}>2024</MenuItem>

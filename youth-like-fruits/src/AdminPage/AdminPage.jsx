@@ -81,13 +81,17 @@ function AdminPage() {
                     fontWeight: '400',
                     color: '#292F33',
                 }}>Overview</p>
+                <div>
                 <SelectVariants/>
+                <br/>
                 <OutlinedCard/>
+                
+                </div>
                 <div style={{display: 'flex', flexDirection: 'row', gap: '2%', marginTop: '2%', position: 'relative', maxWidth: '88%'}}>
                     <div style={{
                         minWidth: '50%',
                         // width: '40%',
-                        backgroundColor: '#FFFFFF',
+                        backgroundColor: '#D5E0E6',
                         alignContent: 'center',
                         borderRadius: '5px',
                         boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)',
@@ -100,13 +104,12 @@ function AdminPage() {
                             color: '#000000',
                             marginBottom: '10px'
                             
-                        }}>Pie Chart</p>
+                        }}>Supplies</p>
                         <PieActiveArc/>
                     </div>
                     <div style={{
                         minWidth: '65%',
-                        // width: '70%',
-                        backgroundColor: '#FFFFFF',
+                        backgroundColor: '#D5E0E6',
                         borderRadius: '5px',
                         boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)',
                         padding: '20px'
@@ -117,7 +120,7 @@ function AdminPage() {
                             fontWeight: 'bold',
                             color: '#000000',
                             marginBottom: '10px'
-                        }}>Stack Bars</p>
+                        }}>Continental distribution</p>
                         <StackBars/>
                         {/* <OutlinedCard/> */}
                     </div>
