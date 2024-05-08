@@ -1,8 +1,7 @@
 import React from 'react'
-import TransitionGroup from './TransitionGroupExample'
-import Footer from '../Components/Footer/Footer'
-import SideBar from '../AdminPage/SideBar'
-import ElevateAppBar from '../Components/ElevateAppBar/ElevateAppBar'
+import ElevateAppBar from '../../Components/ElevateAppBar/ElevateAppBar'
+import SideBar from '../SideBar'
+import Footer from '../../Components/Footer/Footer'
 
 
 function AccountManagement() {

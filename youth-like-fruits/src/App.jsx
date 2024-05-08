@@ -3,13 +3,9 @@ import Home from "./HomePage/Home"
 import LoginPage from "./Loginpage/LoginPage"
 import RegisterPage from "./RegisterPage/Register"
 import AdminPage from "./AdminPage/AdminPage"
-
-import ElevateAppBar from "./Components/ElevateAppBar/ElevateAppBar.jsx"
-import Footer from "./Components/Footer/Footer"
-import LeftSide from "./RegisterPage/Layouts/LeftSide.jsx"
 import OrganizationReg from "./RegisterPage/OrganizationReg.jsx"
 import DonorsList from "./AdminPage/DonorsList/DonorsList.jsx"
-import AccountManagement from "./AccountManagement/AccountManagement.jsx"
+import AccountManagement from "./AdminPage/AccountManagement/AccountManagement.jsx"
 
 
 function App() {
