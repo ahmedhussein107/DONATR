@@ -19,6 +19,7 @@ export default function OutlinedCard() {
         <AnalyticEcommerce title="Total Donations" count="$35,078" percentage={27.4} isLoss color="warning" extra="$20,395" />
       </Grid>
       </Grid>
+   
   );
 }
 

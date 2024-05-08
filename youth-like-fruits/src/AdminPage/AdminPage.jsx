@@ -87,7 +87,7 @@ function AdminPage() {
                     <div style={{
                         minWidth: '50%',
                         // width: '40%',
-                        backgroundColor: '#D5E0E6',
+                        backgroundColor: '#FFFFFF',
                         alignContent: 'center',
                         borderRadius: '5px',
                         boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)',
@@ -106,7 +106,7 @@ function AdminPage() {
                     <div style={{
                         minWidth: '65%',
                         // width: '70%',
-                        backgroundColor: '#D5E0E6',
+                        backgroundColor: '#FFFFFF',
                         borderRadius: '5px',
                         boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)',
                         padding: '20px'
