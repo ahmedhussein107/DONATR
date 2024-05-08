@@ -9,7 +9,7 @@ import Footer from "./Components/Footer/Footer"
 import LeftSide from "./RegisterPage/Layouts/LeftSide.jsx"
 import OrganizationReg from "./RegisterPage/OrganizationReg.jsx"
 import DonorsList from "./AdminPage/DonorsList/DonorsList.jsx"
-
+import DonorReg from "./RegisterPage/DonorReg.jsx"
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         <Route path='/register/organization' element={<OrganizationReg/>}/>
         <Route path='/register/donor' element={<DonorReg/>}/>
         <Route path='admin/donors-list' element={<DonorsList/>}/>
-        <Route path='admin/account-management' element={<AccountManagement/>}/>
+        {/* <Route path='admin/account-management' element={<AccountManagement/>}/> */}
       </Routes>
     </>
   )
