@@ -10,6 +10,8 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Popup from './Popup'
 import { Box } from '@mui/material'
+import MainCard from './Dashboard/MainCard'
+import AnalyticEcommerce from './Dashboard/AnalyticEcommerce'
 
 
 function AdminPage() {
@@ -34,6 +36,7 @@ function AdminPage() {
   ]
 
   return (
+    
     <div className='container'  >
         <ElevateAppBar iconsList={listOfIcons}/>
         <div style=
@@ -79,12 +82,7 @@ function AdminPage() {
                     color: '#292F33',
                 }}>Overview</p>
                 <SelectVariants/>
-                <div style={{display : 'flex' , flexDirection:'row',gap:'7.27%' ,marginTop : '1.5%'}}>
-                <OutlinedCard text1 = 'HI' text2 = {`We're Hussien and Youssef`} text3 = 'Computer Engineers'/>
-                <OutlinedCard text1 = 'HI' text2 = {`I'm Yasser`} text3 = 'Computer Engineer'/>
-                <OutlinedCard text1 = 'HI' text2 = {`I'm Gohary`} text3 = 'Computer Engineer'/>
-                <OutlinedCard text1 = 'HI' text2 = {`I'm Rofael`} text3 = 'Computer Engineer'/>
-                </div>
+                <OutlinedCard/>
                 <div style={{display: 'flex', flexDirection: 'row', gap: '2%', marginTop: '2%', position: 'relative', maxWidth: '88%'}}>
                     <div style={{
                         minWidth: '50%',
@@ -121,6 +119,7 @@ function AdminPage() {
                             marginBottom: '10px'
                         }}>Stack Bars</p>
                         <StackBars/>
+                        {/* <OutlinedCard/> */}
                     </div>
                 </div>
             </div>
