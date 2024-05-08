@@ -9,6 +9,7 @@ import Footer from "./Components/Footer/Footer"
 import LeftSide from "./RegisterPage/Layouts/LeftSide.jsx"
 import OrganizationReg from "./RegisterPage/OrganizationReg.jsx"
 import DonorsList from "./AdminPage/DonorsList/DonorsList.jsx"
+import AccountManagement from "./AccountManagement/AccountManagement.jsx"
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/admin' element = {<AdminPage/>}/>
         <Route path='/register/Organization' element={<OrganizationReg/>}/>
         <Route path='admin/donors-list' element={<DonorsList/>}/>
+        <Route path='admin/account-management' element={<AccountManagement/>}/>
       </Routes>
     </>
   )

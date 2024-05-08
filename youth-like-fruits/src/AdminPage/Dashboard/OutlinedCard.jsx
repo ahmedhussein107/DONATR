@@ -13,7 +13,7 @@ export default function OutlinedCard(props) {
     <Box sx={{ minWidth: '20%' }}>
       <Card variant="outlined" sx={{boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)'}}>
         <React.Fragment>
-          <CardContent sx={{ bgcolor: '#D5E0E6',  }}>
+          <CardContent sx={{ bgcolor: '#FFFFFF',  }}>
             <Typography variant="h5" component="div" style={{
               fontSize: '18px',
               fontFamily: 'Josefin Sans',

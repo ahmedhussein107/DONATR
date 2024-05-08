@@ -9,7 +9,7 @@ import img from '../../assets/donor_icon.png';
 export default function RequestCard(props) {
   const publishDate = props.date;
   const name = props.name;
-  const image = props.image
+  const image = props.image;
 
   return (
     <Card sx={{maxHeight: 600, maxWidth: 600 }}>
