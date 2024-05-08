@@ -1,46 +1,25 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-
-
-export default function OutlinedCard(props) {
-  const text1 = props.text1
-  const text2 = props.text2
-  const text3 = props.text3
+import Grid from '@mui/material/Grid';
+import AnalyticEcommerce from './AnalyticEcommerce';
+export default function OutlinedCard() {
   return (
-    <Box sx={{ minWidth: '20%' }}>
-      <Card variant="outlined" sx={{boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)'}}>
-        <React.Fragment>
-          <CardContent sx={{ bgcolor: '#FFFFFF',  }}>
-            <Typography variant="h5" component="div" style={{
-              fontSize: '18px',
-              fontFamily: 'Josefin Sans',
-              fontWeight: '400',
-              color: '#2F3F4F',
-            }}>
-              {text1}
-            </Typography>
-            <Typography style={{
-              fontSize: '18px',
-              fontFamily: 'Josefin Sans',
-              fontWeight: '400',
-              color: '#2F3F4F',
-            }} >
-              {text2}
-            </Typography>
-            <Typography variant="body2" style={{
-              fontSize: '20px',
-              fontFamily: 'Josefin Sans',
-              fontWeight: '700',
-              color: '#292F33',
-            }}>
-              {text3}
-            </Typography>
-          </CardContent>
-        </React.Fragment>
-      </Card>
-    </Box>
+    <Grid container rowSpacing={4.5} columnSpacing={2.75}>
+      {/* row 1 */}
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+        <AnalyticEcommerce title="Total Page Views" count="4,42,236" percentage={59.3} extra="35,000" />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+        <AnalyticEcommerce title="Total Users" count="78,250" percentage={70.5} extra="8,900" />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+        <AnalyticEcommerce title="Total Donors" count="18,800" percentage={27.4} isLoss color="warning" extra="1,943" />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+        <AnalyticEcommerce title="Total Donations" count="$35,078" percentage={27.4} isLoss color="warning" extra="$20,395" />
+      </Grid>
+      </Grid>
+   
   );
 }
+

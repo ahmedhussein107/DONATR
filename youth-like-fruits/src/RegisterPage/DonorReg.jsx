@@ -1,18 +1,18 @@
-import RegistrationForm from './Layouts/RegistrationForm'
 import ElevateAppBar from '../Components/ElevateAppBar/ElevateAppBar'
 import Footer from '../Components/Footer/Footer'
+import DonorForm from './Layouts/DonorForm'
 import RegLeftSide from './Layouts/RegLeftSide'
-const OrganizationReg = () => {
+const DonorReg = () => {
   return (
     <div>
       <ElevateAppBar />
       <div style={{ display: "flex", flexDirection: "row" }}>
         <RegLeftSide/>
-        <RegistrationForm />
+        <DonorForm/>
       </div>
       <Footer />
     </div>
   )
 }
 
-export default OrganizationReg
+export default DonorReg

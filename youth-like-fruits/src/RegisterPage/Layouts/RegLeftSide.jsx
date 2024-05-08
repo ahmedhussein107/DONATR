@@ -1,7 +1,7 @@
 import React from 'react';
 import MyButton from '../../Components/MyButton/MyButton.jsx'
 
-function OrganizationRegLeftSide() {
+function RegLeftSide() {
     const gradientStyle = {
         background: `linear-gradient(to bottom, #3C4F59, #426D84)`,
         display: 'flex',
@@ -82,4 +82,4 @@ function OrganizationRegLeftSide() {
     );
 }
 
-export default OrganizationRegLeftSide;
+export default RegLeftSide;
