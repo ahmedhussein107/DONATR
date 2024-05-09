@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './RegistrationForm.css'
+import GenderRadio from '../../Components/MyComponents/GenderRadio';
 
 import { FormLabel, TextField, Button, Radio, RadioGroup, FormControlLabel, InputLabel, MenuItem, FormControl, Select} from '@mui/material';
 
@@ -80,18 +81,9 @@ const DonorForm = () => {
                     />
                 </div>
 
-                <FormLabel id="demo-radio-buttons-group-label" >Gender</FormLabel>
-                <RadioGroup
-                    row
-                    aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue="female"
-                    name="gender"
-                    onChange={handleChange}
-                >
-                    <FormControlLabel value="female" control={<Radio />} label="Female" />
-                    <FormControlLabel value="male" control={<Radio />} label="Male" />
-                </RadioGroup>
+                <GenderRadio onOptionSelection={handleChange} selectedOption={formData.gender} />
 
+               
                 <div className='same-line-input'>
                     <TextField
                         name="email"
