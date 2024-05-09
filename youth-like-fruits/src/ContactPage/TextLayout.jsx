@@ -30,7 +30,7 @@ function TextLayoutt(props) {
     return (
       <div style={layoutStyle}>
         <p style={titleStyle}>
-          You can reach us through: Contact_us@Donatr.org
+          You can reach us through: <a href="mailto:Contact_us@Donatr.org">Contact_us@Donatr.org</a>
           <br></br>
           <br></br>
         </p>

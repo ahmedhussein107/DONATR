@@ -1,0 +1,24 @@
+.icon {
+    height: 100px;
+    width: 120px;
+}
+
+.facebook .icon {
+    color: blue;
+}
+
+.youtube .icon {
+    color: red;
+}
+
+.twitter .icon {
+    color: rgb(39, 148, 202);
+}
+
+.youtube:hover .icon {
+    color: rgb(55, 3, 3);
+}
+
+.twitter:hover .icon {
+    color: rgb(5, 59, 87);
+}

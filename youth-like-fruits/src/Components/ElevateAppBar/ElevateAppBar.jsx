@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MyButton from '../MyButton/MyButton';
 import { Link } from 'react-router-dom';
+import Contact from '../../ContactPage/Contact';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -36,7 +37,9 @@ export default function ElevateAppBar(props) {
                         </Link>
                         <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>About</Button>
                         <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>News</Button>
+                       <Link to = '/contact'> 
                         <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>Contact</Button>
+                       </Link>
                       </Box>;
 
   const listOfButtons = [props.buttonsList.map(
