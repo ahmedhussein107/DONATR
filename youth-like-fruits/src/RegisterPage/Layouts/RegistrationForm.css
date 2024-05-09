@@ -45,3 +45,32 @@ form{
     /* background-color: # ; */
 }
 
+.gender-label{
+    color:#190d14
+}
+
+.checkbox-input-container{
+    display:flex;
+
+}
+
+.option{
+    margin-right: 30px;
+    margin-top: 5px;
+}
+.option label  {
+    color:#1a0d14;
+    margin-left: 10px;
+}
+
+.upload-file-container{
+    width:40%;
+    margin-top: 45px;
+}
+
+.upload-file-label {
+    font-size: 14px;
+    color: #1a0d14;
+    margin-top: 10px;
+}
+
