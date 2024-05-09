@@ -13,23 +13,22 @@ function Layout2() {
   const contentStyle = {
     color: 'white', 
     fontSize: '1.2rem', 
+    margintop: '20%'
   };
 
   const titleStyle = {
-    fontFamily: 'Josefin Sans',
-    fontWeight: 'Lato', 
-    marginBottom: '1.5rem', 
-    lineHeight: '1.4', 
-    fontSize: '2.8rem', 
-    color: 'WHITE', 
+    fontWeight: 'Lato', // Make the title bold
+    marginBottom: '150%', // Add margin bottom for spacing between title and other items
+    lineHeight: '1.4', // Set line height for the title (consider a global setting)
+    fontSize: '200%', // Set font size for titles
+    color: 'WHITE', // Example color (check contrast against background)
   };
   
   const listItemStyle = {
-    fontFamily: 'Josefin Sans',
-    fontWeight: 'Lato', 
-    marginBottom: '1rem', 
-    fontSize: '1.3rem', 
-    color: 'WHITE', 
+    fontWeight: 'Lato', // Make the title bold
+    marginBottom: '0%', // Add some bottom margin to each list item for spacing
+    fontSize: '120%', // Set font size for list items
+    color: 'WHITE', // Example color (check contrast against background)
   };
   const buttonStyle = {
     height: 80, 
@@ -54,13 +53,24 @@ function Layout2() {
         <br/>
         <br/>
         <br/>
-        <MyButton
+        {/*<MyButton
           label={'Talk To Our Support Team'}
           normalColor='#1D8AC5'
           hoverColor={'#155E85'}
           minimumWidth={300}
-          minimumHeight={85}
+  minimumHeight={85}
+  />*/}
+      <div style={{marginLeft:'200 px'}}>
+        <MyButton
+        label="Talk To Our Support Team"
+        directory=""
+        normalColor="#1D8AC5"
+        hoverColor="#135E86"
+        paddingWidth={14}
+        paddingHeight={20}
+        minimumWidth={200}
         />
+      </div>
       </p>
     </div>
   );

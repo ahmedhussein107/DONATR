@@ -26,7 +26,7 @@ function LeftSide() {
   
   const listItemStyle = {
     fontWeight: 'Lato', // Make the title bold
-    marginBottom: '100%', // Add some bottom margin to each list item for spacing
+    marginBottom: '0%', // Add some bottom margin to each list item for spacing
     fontSize: '120%', // Set font size for list items
     color: 'WHITE', // Example color (check contrast against background)
   };
@@ -57,11 +57,13 @@ function LeftSide() {
         <br/>
         <br/>
         <MyButton
-          label={'Talk To Our Support Team'}
-          normalColor='#1D8AC5'
-          hoverColor={'#155E85'}
-          minimumWidth={300}
-          style={buttonStyle} // Apply inline styles for height
+        label="Talk To Our Support Team"
+        directory=""
+        normalColor="#1D8AC5"
+        hoverColor="#135E86"
+        paddingWidth={14}
+        paddingHeight={20}
+        minimumWidth={200}
         />
       </p>
     </div>

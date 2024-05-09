@@ -3,7 +3,7 @@ import homePic from '.././assets/HomePagePic.jpeg'
 import ElevateAppBar from '.././Components/ElevateAppBar/ElevateAppBar.jsx'
 import Footer from '.././Components/Footer/Footer.jsx'
 import TextLayout from './Layout/Layout.jsx'
-import DonationList from './DonationList/DonationList.jsx'
+import DonationListt from './TriggersToolTips/DonationListt.jsx'
 
 function Home() {
   // const [count, setCount] = useState(0)
@@ -26,7 +26,7 @@ function Home() {
             <img className='homeImage' src = {homePic} alt="home image"></img>
             <TextLayout></TextLayout>
         </div>
-        <DonationList list = {donationCardList}/>
+        <DonationListt/>
         <Footer></Footer>
         </div>
     )
