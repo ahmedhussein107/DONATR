@@ -45,3 +45,15 @@ form{
     /* background-color: # ; */
 }
 
+
+.upload-file-container{
+    width:40%;
+    margin-top: 45px;
+}
+
+.upload-file-label {
+    font-size: 14px;
+    color: #1a0d14;
+    margin-top: 10px;
+}
+

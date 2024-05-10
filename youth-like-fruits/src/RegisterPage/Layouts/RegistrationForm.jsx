@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './RegistrationForm.css'
-
+import GenderRadio from '../../Components/MyComponents/GenderRadio';
 import { FormLabel, TextField, Button, Radio, RadioGroup, FormControlLabel } from '@mui/material';
 
 
@@ -31,13 +31,15 @@ const RegistrationForm = () => {
         address: '',
         pdfDoc: null
     });
+    const [uploadedFileName, setUploadedFileName] = useState('');
     const classes = {
         field: {
             marginTop: 1,
             marginBottom: 1,
-            width:'38%'
+            width: '40%'
         }
     }
+
 
 
     function handleChange(event) {
@@ -46,8 +48,8 @@ const RegistrationForm = () => {
             const file = event.target.files[0];
             if (file && file.type === 'application/pdf') {
 
-                setFormData({ ...formData, [event.target.name]: file })
-                alert('received ' + file.name)
+                setFormData({ ...formData, [event.target.name]: file });
+                setUploadedFileName(file.name)
             } else {
 
                 alert('Please select a valid PDF file.');
@@ -63,7 +65,9 @@ const RegistrationForm = () => {
         event.preventDefault();
         console.log(formData);
     }
+   
 
+    
     return (
 
         <div className='form-container' >
@@ -76,6 +80,7 @@ const RegistrationForm = () => {
                         placeholder='Mohamed'
                         onChange={handleChange}
                         sx={classes.field}
+                        required
                     />
                     <TextField
                         name='lastName'
@@ -85,20 +90,11 @@ const RegistrationForm = () => {
                         type='text'
                         className='input-field'
                         sx={classes.field}
+                        required
                     />
                 </div>
 
-                <FormLabel id="demo-radio-buttons-group-label" >Gender</FormLabel>
-                <RadioGroup
-                    row
-                    aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue="female"
-                    name="gender"
-                    onChange={handleChange}
-                >
-                    <FormControlLabel value="female" control={<Radio />} label="Female" />
-                    <FormControlLabel value="male" control={<Radio />} label="Male" />
-                </RadioGroup>
+                <GenderRadio onOptionSelection={handleChange} selectedOption={formData.gender} />
 
                 <div className='same-line-input'>
                     <TextField
@@ -109,6 +105,7 @@ const RegistrationForm = () => {
                         type="email"
                         className='input-field'
                         sx={classes.field}
+                        required
                     />
                     <TextField
                         name="contactNumber"
@@ -118,9 +115,9 @@ const RegistrationForm = () => {
                         type='text'
                         className='input-field'
                         sx={classes.field}
+                        required
                     />
                 </div>
-
 
                 <div className='same-line-input'>
                     <TextField
@@ -131,6 +128,7 @@ const RegistrationForm = () => {
                         type="password"
                         className='input-field'
                         sx={classes.field}
+                        required
                     />
                     <TextField
                         name="passwordConfirmation"
@@ -140,6 +138,7 @@ const RegistrationForm = () => {
                         type="password"
                         className='input-field'
                         sx={classes.field}
+                        required
                     />
 
                 </div>
@@ -152,6 +151,7 @@ const RegistrationForm = () => {
                         type="text"
                         className='input-field'
                         sx={classes.field}
+                        required
                     />
                     <TextField
                         name="organizationType"
@@ -161,6 +161,7 @@ const RegistrationForm = () => {
                         type="text"
                         className='input-field'
                         sx={classes.field}
+                        required
                     />
                 </div>
 
@@ -173,33 +174,35 @@ const RegistrationForm = () => {
                         type="text"
                         className='input-field'
                         sx={classes.field}
+                        required
                     />
 
-                 {/* <label>These are files that prove your affiliation with the organization(only pdf)</label> */}
-                    <Button
-                        variant="contained"
-                        component="label"
-                    >
-                        Upload Verification Document
-                        <input
-                            name="pdfDoc"
-                            type="file"
-                            hidden
-                            accept=".pdf"
-                            onChange={handleChange}
-                        />
-                    </Button>
-                    {/* <PdfFileInput selectedFile={formData.pdfDoc} handleFileChange={handleChange} /> */}
+                    <div className="upload-file-container">
+
+                        <Button
+                            variant="contained"
+                            component="label"
+                        >
+                            Upload Verification Documents
+                            <input
+                                name="pdfDoc"
+                                type="file"
+                                hidden
+                                accept=".pdf"
+                                onChange={handleChange}
+                                required
+                            />
+                        </Button>
+                        <p className='upload-file-label' >pdf file proving your affiliation with the organization: {uploadedFileName} </p>
+
+                    </div>
+
                 </div>
 
                 <div className='register-button-container'>
-                    <Button  className='register-button-style' type='submit' variant="contained">Register</Button>
+                    <Button className='register-button-style' type='submit' variant="contained">Register</Button>
                 </div>
 
-
-
-
-                {/* <button type='submit'>Register</button> */}
             </form>
         </div>
 
