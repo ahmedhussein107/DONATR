@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
+import ProductSearch from '../product-search';
 
 import img from '../../../../assets/donor_icon.png';
 
@@ -15,7 +16,10 @@ import { Box } from '@mui/material';
 // ----------------------------------------------------------------------
 
 export default function ProductsView(props) {
-  const pageTitle = 'List of Donors';//props.title;
+  const pageTitle = props.title;
+  const sort = props.sort;
+  const filter = props.filter;
+  const search = props.search;
   const [openFilter, setOpenFilter] = useState(false);
 
   const cards = [
@@ -59,13 +63,13 @@ export default function ProductsView(props) {
         sx={{ mb: 5 }}
       >
         <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
-          <ProductFilters
+          {filter && <ProductFilters
             openFilter={openFilter}
             onOpenFilter={handleOpenFilter}
             onCloseFilter={handleCloseFilter}
-          />
-
-          <ProductSort />
+          />}
+          {search && <ProductSearch />}
+          {sort && <ProductSort />}
         </Stack>
       </Stack>
 

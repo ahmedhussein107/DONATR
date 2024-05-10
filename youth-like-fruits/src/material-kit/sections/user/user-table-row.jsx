@@ -13,7 +13,7 @@ import IconButton from '@mui/material/IconButton';
 
 import Label from '../../components/label';
 import Iconify from '../../components/iconify';
-import ThemeProvider from '../../theme';
+import { ThemeProvider , createTheme } from '@mui/material';
 // ----------------------------------------------------------------------
 
 
@@ -43,11 +43,25 @@ export default function UserTableRow({
     handleDelete(name); 
   };
 
+  const theme = createTheme({
+    components: {
+      Checkbox:{
+        styleOverrides:{
+          root:{
+            color:'#000'
+          }
+        }
+      }
+    }
+  })
+
   return (
-    <ThemeProvider>
-      <TableRow hover tabIndex={-1} role="checkbox" selected={selected}>
+    <>
+     <TableRow hover tabIndex={-1} role="checkbox" selected={selected}>
         <TableCell padding="checkbox">
-          <Checkbox disableRipple checked={selected} onChange={handleClick} color='primary'/>
+          <ThemeProvider theme={theme}>
+            <Checkbox disableRipple checked={selected} onChange={handleClick} color='success'/>
+          </ThemeProvider>
         </TableCell>
 
         <TableCell component="th" scope="row" padding="none">
@@ -96,7 +110,7 @@ export default function UserTableRow({
           Delete
         </MenuItem>
       </Popover>
-    </ThemeProvider>
+    </>
   );
 }
 

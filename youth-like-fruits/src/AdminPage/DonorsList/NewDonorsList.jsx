@@ -11,7 +11,7 @@ function DonorsList() {
       <ElevateAppBar/>
       <div style = {{display: 'flex' , flexDirection: 'row' , minHeight: '90vh'}}>
         <SideBar/>
-        <ProductsView />
+        <ProductsView title="List Of Donors" search={true} filter={false} sort={true}/>
       </div>
       <Footer/>
 
