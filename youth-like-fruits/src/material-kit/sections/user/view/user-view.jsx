@@ -9,6 +9,7 @@ import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
+import ThemeProvider from '../../../theme';
 
 import { users } from '../../../_mock/user'
 
@@ -24,7 +25,7 @@ import { emptyRows, applyFilter, getComparator } from '../utils';
 
 // ----------------------------------------------------------------------
 
-export default function UserPage() {
+export default function UserView() {
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -157,7 +158,6 @@ export default function UserPage() {
             </Table>
           </TableContainer>
         </Scrollbar>
-
         <TablePagination
           page={page}
           component="div"

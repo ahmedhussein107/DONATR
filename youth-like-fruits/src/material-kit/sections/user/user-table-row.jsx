@@ -13,7 +13,7 @@ import IconButton from '@mui/material/IconButton';
 
 import Label from '../../components/label';
 import Iconify from '../../components/iconify';
-
+import ThemeProvider from '../../theme';
 // ----------------------------------------------------------------------
 
 export default function UserTableRow({
@@ -37,16 +37,16 @@ export default function UserTableRow({
   };
 
   return (
-    <>
+    <ThemeProvider>
       <TableRow hover tabIndex={-1} role="checkbox" selected={selected}>
         <TableCell padding="checkbox">
-          <Checkbox disableRipple checked={selected} onChange={handleClick} />
+          <Checkbox disableRipple checked={selected} onChange={handleClick} color='primary'/>
         </TableCell>
 
         <TableCell component="th" scope="row" padding="none">
           <Stack direction="row" alignItems="center" spacing={2}>
             <Avatar alt={name} src={avatarUrl} />
-            <Typography variant="subtitle2" noWrap>
+            <Typography variant="subtitle2" noWrap color='black'>
               {name}
             </Typography>
           </Stack>
@@ -89,7 +89,7 @@ export default function UserTableRow({
           Delete
         </MenuItem>
       </Popover>
-    </>
+    </ThemeProvider>
   );
 }
 
