@@ -3,6 +3,11 @@ import ElevateAppBar from '../../Components/ElevateAppBar/ElevateAppBar'
 import SideBar from '../SideBar'
 import Footer from '../../Components/Footer/Footer'
 
+import { Helmet } from 'react-helmet-async';
+import UserPage from '../../material-kit/sections/user/view/user-view';
+import ThemeProvider from '../../material-kit/theme';
+
+
 
 function AccountManagement() {
   
@@ -11,9 +16,9 @@ function AccountManagement() {
         <ElevateAppBar/>
         <div style = {{display: 'flex' , flexDirection: 'row'}}>
           <SideBar/>
-          <div style={{display : 'flex', flexDirection : 'column',marginTop :'1%', marginLeft :'1%'}}>
-            <TransitionGroup/>
-          </div>
+          <ThemeProvider>
+              <UserPage/>
+          </ThemeProvider>
        </div>
        
        <Footer/>
