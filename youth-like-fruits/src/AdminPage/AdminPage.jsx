@@ -12,8 +12,9 @@ import Popup from './Popup'
 import { Box } from '@mui/material'
 import MainCard from './Dashboard/MainCard'
 import AnalyticEcommerce from './Dashboard/AnalyticEcommerce'
-
-
+import NotificationsPopover from './Dashboard/Notifications'
+import AccountPopover from './Dashboard/profile'
+import Stack from '@mui/material/Stack';
 function AdminPage() {
 
   const [isOpen , setIsOpen] = useState(false);
@@ -27,16 +28,15 @@ function AdminPage() {
   const closeMenu = () => setMenu(false);
 
   const listOfIcons = [
-    <div onClick={togglePopup}>
-        <NotificationsIcon style={{cursor: 'pointer' , fontSize: '2vw'}}/>
-    </div>,
-    <div onClick={toggleMenu}>
-        <AccountCircleIcon style={{cursor: 'pointer' , fontSize: '2vw'}}/>
-    </div>
+    <Stack direction="row" alignItems="center" spacing={1}>
+    <NotificationsPopover />
+    <AccountPopover />
+  </Stack>
   ]
 
   return (
-    
+    // <div><AccountPopover/>
+    // <NotificationsPopover/>
     <div className='container'  >
         <ElevateAppBar iconsList={listOfIcons}/>
         <div style=
@@ -57,22 +57,12 @@ function AdminPage() {
                   // gap: '1.2vh' ,
                   // padding: '15px 30px'
                 }}>
-                <Box sx={{'&:hover': {backgroundColor: '#2F3F4F'}, width: '100%', height: '100%', cursor: 'pointer', padding: '15px 30px'}} onClick={() => {
-                  window.location.href = '/settings'
-                }}>
-                  <p>My Profile</p>
-                </Box>
-                <Box sx={{'&:hover': {backgroundColor: '#2F3F4F'},width:'100%' , cursor: 'pointer', padding: '15px 30px'}} onClick={() => {
-                  window.location.href = '/login'
-                }}>
-                  <p>Log Out</p>
-                </Box>
-              </div>
+             </div>
             )}
         </div>
           <div onClick={closeMenu}>
           <div style = {{display: 'flex' , flexDirection: 'row'}}>
-          {isOpen && <Popup onClose={togglePopup}/>}
+        
           <SideBar/>
           <div style={{display: 'flex', flexDirection: 'column', padding: '2% 4%'}}>
                 <p style={{
