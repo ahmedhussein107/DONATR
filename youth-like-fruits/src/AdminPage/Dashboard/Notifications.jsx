@@ -95,7 +95,7 @@ export default function NotificationsPopover() {
     <>
       <IconButton color={open ? 'primary' : 'default'} onClick={handleOpen}>
         <Badge badgeContent={totalUnRead} color="error">
-          <Iconify width={24} icon="solar:bell-bing-bold-duotone" />
+          <Iconify width={24} icon="solar:bell-bing-bold-duotone" style={{color: 'white'}}/>
         </Badge>
       </IconButton>
 
@@ -127,7 +127,7 @@ export default function NotificationsPopover() {
           {totalUnRead > 0 && (
           <Tooltip title="Mark all as read" style={{ backgroundColor: '#1D8AC5' }}>
           <IconButton color="#0000FF" onClick={handleMarkAllAsRead}>
-            <Iconify icon="eva:done-all-fill" color="#0000FF" /> {}
+            <Iconify icon="eva:done-all-fill" color="#292F33" /> {}
           </IconButton>
         </Tooltip>
           )}

@@ -16,27 +16,27 @@ function SideBar() {
         {
             path:"/admin",
             name:"Dashboard",
-            icon:<HomeIcon style={{fontSize : fontSize}}/>
+            icon:<HomeIcon style={{fontSize : fontSize ,fill: '#D5E0E6'}}/>
         },
         {
             path:"/admin/donors-list",
             name:"Donors List",
-            icon:<ListIcon style={{fontSize : fontSize}}/>
+            icon:<ListIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
         },
         {
             path:"/admin/organizations-list",
             name:"Organizations List",
-            icon:<ListIcon style={{fontSize : fontSize}}/>
+            icon:<ListIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
         },
         {
             path:"/admin/account-management",
             name:"Account Management",
-            icon:<PersonRemoveIcon style={{fontSize : fontSize}}/>
+            icon:<PersonRemoveIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
         },
         {
             path:"/admin/registered-organizations",
             name:"Registered Organizations",
-            icon:<ChecklistRoundedIcon style={{fontSize : fontSize}}/>
+            icon:<ChecklistRoundedIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
         }
     ]
     return (
@@ -53,7 +53,7 @@ function SideBar() {
                <div className="top_section">
                    <div style={{marginLeft: open ? "15vw" : "0vw" , transition: `all 0.2s`}} 
                    className="bars">
-                       <MenuIcon onClick={toggle} style={{fontSize: fontSize, cursor: 'pointer'}}/>
+                       <MenuIcon onClick={toggle} style={{fontSize: fontSize, cursor: 'pointer',fill: '#D5E0E6'}}/>
                    </div>
                </div>
                {
@@ -64,6 +64,7 @@ function SideBar() {
                                 {{
                                     display: open ? "block" : "none",
                                     fontSize: '1.2vw',
+                                    color: '#D5E0E6',
                                 }}>
                                     {item.name}
                             </div>
