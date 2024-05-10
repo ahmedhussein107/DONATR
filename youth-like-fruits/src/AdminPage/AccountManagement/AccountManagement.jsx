@@ -4,8 +4,8 @@ import SideBar from '../SideBar'
 import Footer from '../../Components/Footer/Footer'
 
 import { Helmet } from 'react-helmet-async';
-import UserPage from '../../material-kit/sections/user/view/user-view';
 import ThemeProvider from '../../material-kit/theme';
+import UserView from '../../material-kit/sections/user/view/user-view';
 
 
 
@@ -17,7 +17,7 @@ function AccountManagement() {
         <div style = {{display: 'flex' , flexDirection: 'row'}}>
           <SideBar/>
           <ThemeProvider>
-              <UserPage/>
+              <UserView/>
           </ThemeProvider>
        </div>
        

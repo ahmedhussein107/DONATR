@@ -5,17 +5,29 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
-import { products } from 'src/material-kit/_mock/products';
+import img from '../../../../assets/donor_icon.png';
 
-import ProductCard from '../product-card';
+import RequestCard from '../../../../AdminPage/DonorsList/RequestCard'
 import ProductSort from '../product-sort';
 import ProductFilters from '../product-filters';
-import ProductCartWidget from '../product-cart-widget';
+import { Box } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function ProductsView() {
+export default function ProductsView(props) {
+  const pageTitle = 'List of Donors';//props.title;
   const [openFilter, setOpenFilter] = useState(false);
+
+  const cards = [
+    {date: '20/02/2020' , name: 'Dr. Hamada' , image: img , id: 1},
+    {date: '20/02/2020' , name: 'Dr. Ahmed Hamada' , image: img , id: 1},
+    {date: '20/02/2020' , name: 'Dr. Ahmed Mohamed Hamada' , image: img , id: 1},
+    {date: '20/02/2020' , name: 'Dr. Wael' , image: img , id: 1},
+    {date: '20/02/2020' , name: 'Dr. Gohary' , image: img , id: 1},
+    {date: '20/02/2020' , name: 'Prof Yasser' , image: img , id: 1},
+    {date: '20/02/2020' , name: 'Dr. Tawfik' , image: img , id: 1},
+    {date: '20/02/2020' , name: 'Prof Slim' , image: img , id: 1},
+  ]
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
@@ -27,9 +39,17 @@ export default function ProductsView() {
 
   return (
     <Container>
-      <Typography variant="h4" sx={{ mb: 5 }}>
-        Products
-      </Typography>
+      <Box sx={{
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', // Adds a shadow
+        padding: '20px', // Adds padding
+        borderRadius: '8px', // Rounds the corners
+        backgroundColor: '#fff', // Sets background color
+        textAlign: 'center',
+      }}>
+        <Typography variant="h5" sx={{color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold'}}>
+          {pageTitle}
+        </Typography>
+      </Box>
 
       <Stack
         direction="row"
@@ -50,14 +70,13 @@ export default function ProductsView() {
       </Stack>
 
       <Grid container spacing={3}>
-        {products.map((product) => (
-          <Grid key={product.id} xs={12} sm={6} md={3}>
-            <ProductCard product={product} />
+        {cards.map((card) => (
+          <Grid key={card.id} xs={12} sm={6} md={3}>
+            <RequestCard date={card.date} name={card.name} image={card.image} id={card.id}/>
           </Grid>
         ))}
       </Grid>
 
-      <ProductCartWidget />
     </Container>
   );
 }

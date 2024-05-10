@@ -5,8 +5,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { listClasses } from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-
-import Iconify from 'src/material-kit/components/iconify';
+import { Icon } from '@iconify/react';
 
 // ----------------------------------------------------------------------
 
@@ -19,6 +18,7 @@ const SORT_OPTIONS = [
 
 export default function ShopProductSort() {
   const [open, setOpen] = useState(null);
+  const [selecedItem , setSelectedItem] = useState('newest');
 
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
@@ -32,13 +32,13 @@ export default function ShopProductSort() {
     <>
       <Button
         disableRipple
-        color="inherit"
+        color="primary"
         onClick={handleOpen}
-        endIcon={<Iconify icon={open ? 'eva:chevron-up-fill' : 'eva:chevron-down-fill'} />}
+        endIcon={<Icon icon={open ? 'eva:chevron-up-fill' : 'eva:chevron-down-fill'} color='black'/>}
       >
         Sort By:&nbsp;
         <Typography component="span" variant="subtitle2" sx={{ color: 'text.secondary' }}>
-          Newest
+          {selecedItem}
         </Typography>
       </Button>
 
@@ -59,7 +59,20 @@ export default function ShopProductSort() {
         }}
       >
         {SORT_OPTIONS.map((option) => (
-          <MenuItem key={option.value} selected={option.value === 'newest'} onClick={handleClose}>
+          <MenuItem 
+            key={option.value} 
+            // selected={option.value === selecedItem} 
+            onClick={() => {
+              setSelectedItem(option.value);
+              handleClose();
+            }}
+            sx={{
+              backgroundColor: '#3C4F59',
+              color: '#fff',
+              '&:hover':{
+                backgroundColor: '#426D84'
+              }
+            }}>
             {option.label}
           </MenuItem>
         ))}
