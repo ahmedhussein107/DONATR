@@ -141,6 +141,8 @@ function Layout1() {
         clickHandler={() => {
           if(username === 'admin' && password === 'pass'){
             window.location.href = '/admin';
+          } else if(username === 'donor' && password === 'pass'){
+            window.location.href = '/donor/donor-home';
           }
         }}
       />
