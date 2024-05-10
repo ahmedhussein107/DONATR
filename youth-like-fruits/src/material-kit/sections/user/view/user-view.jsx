@@ -1,15 +1,18 @@
 import { useState } from 'react';
 
 import Card from '@mui/material/Card';
+import Stack from '@mui/material/Stack';
 import Table from '@mui/material/Table';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 
-import { users as initialUsers } from '../../../_mock/user'
+import { users } from '../../../_mock/user';
 
+import Iconify from '../../../components/iconify';
 import Scrollbar from '../../../components/scrollbar';
 
 import TableNoData from '../table-no-data';
@@ -17,23 +20,29 @@ import UserTableRow from '../user-table-row';
 import UserTableHead from '../user-table-head';
 import TableEmptyRows from '../table-empty-rows';
 import UserTableToolbar from '../user-table-toolbar';
-import { emptyRows, applyFilter, getComparator } from '../utils'
-import { Box } from '@mui/material';
+import { emptyRows, applyFilter, getComparator } from '../utils';
 
-// ---------------------------------------------------------
-export default function UserView() {
+// ----------------------------------------------------------------------
+
+export default function UserPage() {
   const [page, setPage] = useState(0);
+
   const [order, setOrder] = useState('asc');
+
   const [selected, setSelected] = useState([]);
+
   const [orderBy, setOrderBy] = useState('name');
+
   const [filterName, setFilterName] = useState('');
+
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [users, setUsers] = useState(initialUsers);
 
   const handleSort = (event, id) => {
     const isAsc = orderBy === id && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(id);
+    if (id !== '') {
+      setOrder(isAsc ? 'desc' : 'asc');
+      setOrderBy(id);
+    }
   };
 
   const handleSelectAllClick = (event) => {
@@ -63,12 +72,6 @@ export default function UserView() {
     setSelected(newSelected);
   };
 
-  const handleDelete = (name) => {
-    const updatedUsers = users.filter(user => user.name !== name);
-    setUsers(updatedUsers);
-    setSelected([]);
-  };
-
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -92,21 +95,12 @@ export default function UserView() {
   const notFound = !dataFiltered.length && !!filterName;
 
   return (
-    <Container sx={{height: '120vh'}}>
-      <Box sx={{
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', 
-        padding: '20px', 
-        borderRadius: '8px', 
-        backgroundColor: '#fff',
-        textAlign: 'center',
-        m: '1%' 
-      }}>
-        <Typography variant="h4" sx={{color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold'}}>
-          Users
-        </Typography>
-        </Box>
+    <Container>
+      <Stack direction="row" alignItems="center" justifyContent="space-between" m={2}>
+        <Typography variant="h4">Users</Typography>
+      </Stack>
 
-      <Card>
+      <Card sx={{marginBottom: '2%'}}>
         <UserTableToolbar
           numSelected={selected.length}
           filterName={filterName}
@@ -114,8 +108,8 @@ export default function UserView() {
         />
 
         <Scrollbar>
-          <TableContainer sx={{ maxHeight: '50vh', overflowY: 'hidden', marginBottom: '-16px' }}>
-            <Table sx={{ maxHeight: '50vh', minWidth: 800}}>
+          <TableContainer sx={{ overflow: 'unset' }}>
+            <Table sx={{ minWidth: 800 }}>
               <UserTableHead
                 order={order}
                 orderBy={orderBy}
@@ -132,7 +126,7 @@ export default function UserView() {
                   { id: '' },
                 ]}
               />
-              <TableBody sx={{ maxHeight: '50vh'}} >
+              <TableBody>
                 {dataFiltered
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => (
@@ -146,7 +140,6 @@ export default function UserView() {
                       isVerified={row.isVerified}
                       selected={selected.indexOf(row.name) !== -1}
                       handleClick={(event) => handleClick(event, row.name)}
-                      handleDelete={handleDelete}
                     />
                   ))}
 
@@ -160,6 +153,7 @@ export default function UserView() {
             </Table>
           </TableContainer>
         </Scrollbar>
+
         <TablePagination
           page={page}
           component="div"

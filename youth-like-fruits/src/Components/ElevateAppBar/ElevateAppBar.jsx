@@ -10,7 +10,6 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MyButton from '../MyButton/MyButton';
 import { Link } from 'react-router-dom';
-import Contact from '../../ContactPage/Contact';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -33,12 +32,12 @@ ElevationScroll.propTypes = {
 export default function ElevateAppBar(props) {
   const actionsList = <Box sx={{ display: 'flex', justifyContent: 'center'}}>
                         <Link to = '/'>
-                        <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}> Home</Button>
+                        <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}> Home</Button>
                         </Link>
-                        <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>About</Button>
-                        <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>News</Button>
+                        <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}>About</Button>
+                        <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}>News</Button>
                        <Link to = '/contact'> 
-                        <Button color="inherit" sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' }}>Contact</Button>
+                        <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}>Contact</Button>
                        </Link>
                       </Box>;
 
@@ -69,7 +68,8 @@ export default function ElevateAppBar(props) {
             <Typography variant="h6" component="div" sx=
             {{  flexGrow: 0 ,
                 fontFamily: 'sans-serif' , 
-                fontWeight: 'bold'
+                fontWeight: 'bold' ,
+                color: '#fff'
              }}>
               DONATR
             </Typography>

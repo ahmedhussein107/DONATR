@@ -14,7 +14,7 @@ function AccountManagement() {
     <div className='container'>
         <ElevateAppBar/>
         
-        <div style = {{display: 'flex' , flexDirection: 'row'}}>
+        <div style = {{display: 'flex' , flexDirection: 'row' , minHeight: '90vh'}}>
           <SideBar/>
           <ThemeProvider>
               <UserView/>
