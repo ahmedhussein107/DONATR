@@ -15,6 +15,7 @@ import AnalyticEcommerce from './Dashboard/AnalyticEcommerce'
 import NotificationsPopover from './Dashboard/Notifications'
 import AccountPopover from './Dashboard/profile'
 import Stack from '@mui/material/Stack';
+import FormPage from '../ContactUs/FormPage'
 function AdminPage() {
 
   const [isOpen , setIsOpen] = useState(false);

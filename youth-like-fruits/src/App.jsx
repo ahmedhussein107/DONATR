@@ -12,7 +12,8 @@ import DonorsList from "./AdminPage/DonorsList/DonorsList.jsx"
 import AccountManagement from "./AdminPage/AccountManagement/AccountManagement.jsx"
 import ContactPage from "./ContactPage/Contact.jsx"
 import DonorReg from "./RegisterPage/DonorReg.jsx"
-
+import FormPage from "./ContactUs/FormPage.jsx"
+import SuccessPage from "./ContactUs/SuccessPage.jsx"
 function App() {
   return (
     <>
@@ -26,6 +27,8 @@ function App() {
         <Route path='/register/donor' element={<DonorReg/>}/>
         <Route path='admin/donors-list' element={<DonorsList/>}/>
         <Route path='admin/account-management' element={<AccountManagement/>}/>
+        <Route path='/success' element={<SuccessPage />} />
+        <Route path='/form_page' element = {<FormPage/>}/>
       </Routes>
     </>
   )
