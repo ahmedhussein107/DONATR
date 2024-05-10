@@ -10,6 +10,7 @@ import ContactPage from "./ContactPage/Contact.jsx"
 import DonorReg from "./RegisterPage/DonorReg.jsx"
 import FormPage from "./ContactUs/FormPage.jsx"
 import SuccessPage from "./ContactUs/SuccessPage.jsx"
+import DashBoard from "./DonorPage/DashBoard.jsx"
 function App() {
   return (
     <>
@@ -21,10 +22,11 @@ function App() {
         <Route path='/contact' element ={<ContactPage/>}/>
         <Route path='/register/organization' element={<OrganizationReg/>}/>
         <Route path='/register/donor' element={<DonorReg/>}/>
-        <Route path='admin/donors-list' element={<NewDonorsList/>}/>
-        <Route path='admin/account-management' element={<AccountManagement/>}/>
+        <Route path='/admin/donors-list' element={<NewDonorsList/>}/>
+        <Route path='/admin/account-management' element={<AccountManagement/>}/>
         <Route path='/success' element={<SuccessPage />} />
         <Route path='/form_page' element = {<FormPage/>}/>
+        <Route path='/donor/donor-home' element = {<DashBoard/>}/>
       </Routes>
     </>
   )
