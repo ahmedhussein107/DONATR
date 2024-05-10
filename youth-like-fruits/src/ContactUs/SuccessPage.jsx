@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Icon from 'react-feather';
-import { Fade } from 'react-reveal';
+import Fade from '@mui/material/Fade';
 import styled from 'styled-components';
 
 const MessageWrapper = styled.div`
@@ -23,7 +23,7 @@ const SuccessMessage = styled.h2`
 const SuccessPage = () => {
   return (
     <React.Fragment>
-      <Fade bottom duration={700} distance="60px">
+      <Fade timeout={700} distance="60px">
         <MessageWrapper>
           <Icon.CheckCircle color="rgb(8, 8, 63)" style={{ width: 50, height: 50 }} />
           <SuccessMessage className="sucess-message">MESSAGE SENT SUCCESSFULLY</SuccessMessage>
