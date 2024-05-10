@@ -40,10 +40,10 @@ export default function ProductsView(props) {
   return (
     <Container>
       <Box sx={{
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', // Adds a shadow
-        padding: '20px', // Adds padding
-        borderRadius: '8px', // Rounds the corners
-        backgroundColor: '#fff', // Sets background color
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', 
+        padding: '20px', 
+        borderRadius: '8px', 
+        backgroundColor: '#fff',
         textAlign: 'center',
       }}>
         <Typography variant="h5" sx={{color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold'}}>

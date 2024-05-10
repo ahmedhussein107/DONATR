@@ -22,6 +22,7 @@ import UserTableHead from '../user-table-head';
 import TableEmptyRows from '../table-empty-rows';
 import UserTableToolbar from '../user-table-toolbar';
 import { emptyRows, applyFilter, getComparator } from '../utils'
+import { Box } from '@mui/material';
 
 // ---------------------------------------------------------
 export default function UserPage() {
@@ -95,14 +96,19 @@ export default function UserPage() {
   const notFound = !dataFiltered.length && !!filterName;
 
   return (
-    <Container>
-      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-        <Typography variant="h4">Users</Typography>
-
-        <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
-          New User
-        </Button>
-      </Stack>
+    <Container sx={{height: '120vh'}}>
+      <Box sx={{
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', 
+        padding: '20px', 
+        borderRadius: '8px', 
+        backgroundColor: '#fff',
+        textAlign: 'center',
+        m: '1%' 
+      }}>
+        <Typography variant="h4" sx={{color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold'}}>
+          Users
+        </Typography>
+        </Box>
 
       <Card>
         <UserTableToolbar
@@ -112,8 +118,8 @@ export default function UserPage() {
         />
 
         <Scrollbar>
-          <TableContainer sx={{ overflow: 'unset' }}>
-            <Table sx={{ minWidth: 800}}>
+          <TableContainer sx={{ maxHeight: '50vh', overflowY: 'hidden', marginBottom: '-16px' }}>
+            <Table sx={{ maxHeight: '50vh', minWidth: 800}}>
               <UserTableHead
                 order={order}
                 orderBy={orderBy}
@@ -130,7 +136,7 @@ export default function UserPage() {
                   { id: '' },
                 ]}
               />
-              <TableBody>
+              <TableBody sx={{ maxHeight: '50vh'}} >
                 {dataFiltered
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => (
