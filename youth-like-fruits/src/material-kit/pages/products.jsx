@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-import { ProductsView } from 'src/material-kit/sections/products/view';
+import { ProductsView } from '../sections/products/view';
 
 // ----------------------------------------------------------------------
 

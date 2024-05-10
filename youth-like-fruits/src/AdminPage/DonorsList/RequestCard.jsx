@@ -4,31 +4,30 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import img from '../../assets/donor_icon.png';
 
 export default function RequestCard(props) {
   const publishDate = props.date;
   const name = props.name;
   const image = props.image;
+  const id = props.id;
 
   return (
     <Card sx={{maxHeight: 600, maxWidth: 600 }}>
       <CardActionArea>
       <CardContent style={{textAlign: 'right'}}>
           <Typography variant="body2" color="text.secondary">
-            20/9/2003
+            {publishDate}
           </Typography>
         </CardContent>
         <CardMedia sx={{ maxWidth: 150, marginLeft: "15%", marginTop: "1%"}}
           component="img"
           height="auto" 
           width="100%" 
-          image={img} 
+          image={image} 
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-            Dr. Ahmed Mohamed El-Gohary
-            
+            {name}
           </Typography>
         </CardContent>
       </CardActionArea>

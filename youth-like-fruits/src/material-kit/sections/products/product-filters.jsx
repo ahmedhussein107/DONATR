@@ -14,9 +14,9 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-import Iconify from 'src/material-kit/components/iconify';
-import Scrollbar from 'src/material-kit/components/scrollbar';
-import { ColorPicker } from 'src/material-kit/components/color-utils';
+import Iconify from '../.././components/iconify';
+import Scrollbar from '../.././components/scrollbar';
+import { ColorPicker } from '../.././components/color-utils';
 
 // ----------------------------------------------------------------------
 
@@ -131,12 +131,13 @@ export default function ProductFilters({ openFilter, onOpenFilter, onCloseFilter
   );
 
   return (
-    <>
+    <div>
       <Button
         disableRipple
         color="inherit"
-        endIcon={<Iconify icon="ic:round-filter-list" />}
+        endIcon={<Iconify icon="ic:round-filter-list"/>}
         onClick={onOpenFilter}
+        sx={{color: '#1976d2'}}
       >
         Filters&nbsp;
       </Button>
@@ -146,7 +147,7 @@ export default function ProductFilters({ openFilter, onOpenFilter, onCloseFilter
         open={openFilter}
         onClose={onCloseFilter}
         PaperProps={{
-          sx: { width: 280, border: 'none', overflow: 'hidden' },
+          sx: { width: 280, border: 'none', overflow: 'hidden', background: `linear-gradient(to bottom, #3C4F59, #426D84)`},
         }}
       >
         <Stack
@@ -192,7 +193,7 @@ export default function ProductFilters({ openFilter, onOpenFilter, onCloseFilter
           </Button>
         </Box>
       </Drawer>
-    </>
+    </ div>
   );
 }
 

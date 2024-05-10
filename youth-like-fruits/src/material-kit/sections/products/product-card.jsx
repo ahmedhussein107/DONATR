@@ -6,10 +6,10 @@ import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import { fCurrency } from 'src/material-kit/utils/format-number';
+import { fCurrency } from '../.././utils/format-number';
 
-import Label from 'src/material-kit/components/label';
-import { ColorPreview } from 'src/material-kit/components/color-utils';
+import Label from '../.././components/label';
+import { ColorPreview } from '../.././components/color-utils';
 
 // ----------------------------------------------------------------------
 
