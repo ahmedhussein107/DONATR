@@ -58,13 +58,13 @@ function LeftSide() {
         <br/>
         <MyButton
         label="Talk To Our Support Team"
-        directory=""
+        directory="/form_page"
         normalColor="#1D8AC5"
         hoverColor="#135E86"
         paddingWidth={14}
         paddingHeight={20}
-        minimumWidth={200}
-        />
+        minimumWidth={300}
+        minimumHeight={85}        />
       </p>
     </div>
   );
