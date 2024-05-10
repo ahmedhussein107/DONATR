@@ -14,6 +14,7 @@ function AccountManagement() {
   return (
     <div className='container'>
         <ElevateAppBar/>
+        
         <div style = {{display: 'flex' , flexDirection: 'row'}}>
           <SideBar/>
           <ThemeProvider>
