@@ -16,6 +16,7 @@ import Iconify from '../../components/iconify';
 import ThemeProvider from '../../theme';
 // ----------------------------------------------------------------------
 
+
 export default function UserTableRow({
   selected,
   name,
@@ -25,6 +26,7 @@ export default function UserTableRow({
   isVerified,
   status,
   handleClick,
+  handleDelete,
 }) {
   const [open, setOpen] = useState(null);
 
@@ -34,6 +36,11 @@ export default function UserTableRow({
 
   const handleCloseMenu = () => {
     setOpen(null);
+  };
+
+  const handleDeleteClick = () => {
+    handleCloseMenu();
+    handleDelete(name); 
   };
 
   return (
@@ -84,7 +91,7 @@ export default function UserTableRow({
           Edit
         </MenuItem>
 
-        <MenuItem onClick={handleCloseMenu} sx={{ color: 'error.main' }}>
+        <MenuItem onClick={handleDeleteClick} sx={{ color: 'error.main' }}>
           <Iconify icon="eva:trash-2-outline" sx={{ mr: 2 }} />
           Delete
         </MenuItem>
@@ -97,6 +104,7 @@ UserTableRow.propTypes = {
   avatarUrl: PropTypes.any,
   company: PropTypes.any,
   handleClick: PropTypes.func,
+  handleDelete: PropTypes.func, // New prop for delete action
   isVerified: PropTypes.any,
   name: PropTypes.any,
   role: PropTypes.any,

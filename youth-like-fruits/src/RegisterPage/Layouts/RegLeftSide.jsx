@@ -76,6 +76,7 @@ function RegLeftSide() {
                 hoverColor={'#155E85'}
                 minimumWidth={300}
                 minimumHeight={85}
+                directory={"/form_page"}
             />
 
         </div>
