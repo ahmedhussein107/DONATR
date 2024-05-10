@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import MyButton from '../Components/MyButton/MyButton';
 const InputSideWrapper = styled.form`
   height: auto;
   padding-bottom: 100px;
@@ -38,19 +39,6 @@ const MessageInput = styled.textarea`
   border-right: 1px solid transparent;
   border-top: 1px solid transparent;
   outline: 0px transparent !important;
-`;
-
-const SubMitButton = styled.input`
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px;
-  background-color: rgb(8, 8, 63);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 12px 25px 12px 24px;
-  cursor: pointer;
 `;
 
 const LoadingButton = styled.button`
@@ -146,7 +134,8 @@ const InputSide = () => {
       {buttonLoading ? (
         <LoadingButton>Loading...</LoadingButton>
       ) : (
-        <SubMitButton type="submit" value="Send Message" />
+        <MyButton label={"Submit"} directory={'/success'}  />
+        
       )}
     </InputSideWrapper>
   );
