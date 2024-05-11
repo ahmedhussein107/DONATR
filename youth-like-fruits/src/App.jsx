@@ -14,7 +14,7 @@ import DashBoard from "./DonorPage/DashBoard.jsx"
 import probono from "./DonorPage/probono.jsx"
 import org from './DonorPage/Organizations.jsx'
 import requested from './DonorPage/requestedItems/main.jsx'
-import dash from './DonorPage/DashBoard.jsx'
+import Settings from './DonorPage/Settings.jsx'
 function App() {
   return (
     <>
@@ -34,7 +34,7 @@ function App() {
         <Route path='/Donorbropono' element={<probono />} />
         <Route path='/Donororg' element={<org />} />
         <Route path='/Donorrequested' element={<requested />} />
-        <Route path='/donordash' element={<dash />} />
+        <Route path='/Settings' element={<Settings />} />
       </Routes>
     </>
   )

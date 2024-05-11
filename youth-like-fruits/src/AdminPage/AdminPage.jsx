@@ -28,7 +28,7 @@ function AdminPage() {
   const listOfIcons = [
     <Stack direction="row" alignItems="center" spacing={1}>
       <NotificationsPopover />
-      <AccountPopover dir={'/admin'} />
+      <AccountPopover dir={'/admin'} dir2={'/Settings'} />
     </Stack>
   ]
 
