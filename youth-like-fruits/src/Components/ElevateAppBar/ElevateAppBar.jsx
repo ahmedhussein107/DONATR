@@ -40,7 +40,6 @@ export default function ElevateAppBar(props) {
                         <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}>Contact</Button>
                        </Link>
                       </Box>;
-
   const listOfButtons = [props.buttonsList.map(
                 item => <MyButton 
                           label={item.label}

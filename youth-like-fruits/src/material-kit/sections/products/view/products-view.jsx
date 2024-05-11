@@ -117,7 +117,7 @@ export default function ProductsView(props) {
         </Typography>
         <Stack direction="row" alignItems="center" spacing={1}>
           {search && <TextField
-            name="email"
+            name="search"
             label="Search Donor"  
             onChange={handleChange}
             type="text"

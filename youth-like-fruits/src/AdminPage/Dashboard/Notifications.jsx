@@ -24,23 +24,15 @@ import shippingPic from '../.././assets/icons/ic_notification_shipping.svg';
 import notification_mail from '../.././assets/icons/ic_notification_mail.svg';
 import notification_chat from '../.././assets/icons/ic_notification_chat.svg';
 import avatar_11 from '../.././assets/avatar_11.jpg';
+
 const NOTIFICATIONS = [
   {
     id: faker.string.uuid(),
-    title: 'Your order is placed',
+    title: 'order is placed',
     description: 'waiting for shipping',
     avatar: null,
     type: 'order_placed',
     createdAt: set(new Date(), { hours: 10, minutes: 30 }),
-    isUnRead: true,
-  },
-  {
-    id: faker.string.uuid(),
-    title: faker.person.fullName(),
-    description: 'answered to your comment on the Minimal',
-    avatar: '/assets/images/avatars/avatar_2.jpg',
-    type: 'friend_interactive',
-    createdAt: sub(new Date(), { hours: 3, minutes: 30 }),
     isUnRead: true,
   },
   {
@@ -50,12 +42,12 @@ const NOTIFICATIONS = [
     avatar: null,
     type: 'chat_message',
     createdAt: sub(new Date(), { days: 1, hours: 3, minutes: 30 }),
-    isUnRead: false,
+    isUnRead: true,
   },
   {
     id: faker.string.uuid(),
     title: 'You have new mail',
-    description: 'sent from Guido Padberg',
+    description: 'sent from masr Elkheir',
     avatar: null,
     type: 'mail',
     createdAt: sub(new Date(), { days: 2, hours: 3, minutes: 30 }),
@@ -64,7 +56,7 @@ const NOTIFICATIONS = [
   {
     id: faker.string.uuid(),
     title: 'Delivery processing',
-    description: 'Your order is being shipped',
+    description: 'order will be arrived in 5 min',
     avatar: null,
     type: 'order_shipped',
     createdAt: sub(new Date(), { days: 3, hours: 3, minutes: 30 }),
@@ -100,7 +92,7 @@ export default function NotificationsPopover() {
     <>
       <IconButton color={open ? 'primary' : 'default'} onClick={handleOpen}>
         <Badge badgeContent={totalUnRead} color="error">
-          <Iconify width={24} icon="solar:bell-bing-bold-duotone" style={{color: 'white'}}/>
+          <Iconify width={24} icon="solar:bell-bing-bold-duotone" style={{ color: 'white' }} />
         </Badge>
       </IconButton>
 
@@ -120,27 +112,27 @@ export default function NotificationsPopover() {
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', py: 2, px: 2.5 }}>
-        <Box sx={{ flexGrow: 1 }}>
-        <Typography variant="subtitle1" sx={{ color: 'black', fontWeight: 'bold' }}>
-  Notifications
-</Typography>
-  <Typography variant="body2" sx={{ color: 'black' }}>
-    You have {totalUnRead} unread messages
-  </Typography>
-</Box>
-          
+          <Box sx={{ flexGrow: 1 }}>
+            <Typography variant="subtitle1" sx={{ color: 'black', fontWeight: 'bold' }}>
+              Notifications
+            </Typography>
+            <Typography variant="body2" sx={{ color: 'black' }}>
+              You have {totalUnRead} unread messages
+            </Typography>
+          </Box>
+
           {totalUnRead > 0 && (
-          <Tooltip title="Mark all as read" style={{ Color: '#0000FF' }}>
-          <IconButton color="#0000FF" onClick={handleMarkAllAsRead}>
-            <Iconify icon="eva:done-all-fill" color="#0000FF" /> {}
-          </IconButton>
-        </Tooltip>
+            <Tooltip title="Mark all as read" style={{ Color: '#0000FF' }}>
+              <IconButton color="#0000FF" onClick={handleMarkAllAsRead}>
+                <Iconify icon="eva:done-all-fill" color="#00C0FF" /> { }
+              </IconButton>
+            </Tooltip>
           )}
         </Box>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <Scrollbar sx={{ height: { xs: 600, sm: 600 } }}>
+        <Scrollbar sx={{ height: { xs: 500, sm: 500 } }}>
           <List
             disablePadding
             subheader={
@@ -170,17 +162,10 @@ export default function NotificationsPopover() {
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <Box sx={{ p: 1 }}>
-          <Button fullWidth disableRipple>
-            View All
-          </Button>
-        </Box>
       </Popover>
     </>
   );
 }
-
-// ----------------------------------------------------------------------
 
 NotificationItem.propTypes = {
   notification: PropTypes.shape({
@@ -206,6 +191,8 @@ function NotificationItem({ notification }) {
         ...(notification.isUnRead && {
           bgcolor: 'action.selected',
         }),
+        pointerEvents: 'none', // Disable pointer events
+        cursor: 'default', // Change cursor style
       }}
     >
       <ListItemAvatar>
@@ -233,8 +220,6 @@ function NotificationItem({ notification }) {
     </ListItemButton>
   );
 }
-
-// ----------------------------------------------------------------------
 
 function renderContent(notification) {
   const title = (
