@@ -6,16 +6,13 @@ import PieActiveArc from './Dashboard/PieClickNoSnap'
 import StackBars from './Dashboard/StackBars'
 import SelectVariants from './Dashboard/SelectVariants'
 import OutlinedCard from './Dashboard/OutlinedCard'
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Popup from './Popup'
-import { Box } from '@mui/material'
-import MainCard from './Dashboard/MainCard'
-import AnalyticEcommerce from './Dashboard/AnalyticEcommerce'
 import NotificationsPopover from './Dashboard/Notifications'
 import AccountPopover from './Dashboard/profile'
 import Stack from '@mui/material/Stack';
-import FormPage from '../ContactUs/FormPage'
+import HomeIcon from '@mui/icons-material/Home';
+import ListIcon from '@mui/icons-material/List';
+import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
+import ChecklistRoundedIcon from '@mui/icons-material/ChecklistRounded';
 function AdminPage() {
 
   const [isOpen , setIsOpen] = useState(false);
@@ -33,6 +30,34 @@ function AdminPage() {
     <NotificationsPopover />
     <AccountPopover />
   </Stack>
+  ]
+
+  const menuItem=[
+    {
+        path:"/admin",
+        name:"Dashboard",
+        icon:<HomeIcon style={{fontSize : fontSize ,fill: '#D5E0E6'}}/>
+    },
+    {
+        path:"/admin/donors-list",
+        name:"Donors List",
+        icon:<ListIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
+    },
+    {
+        path:"/admin/organizations-list",
+        name:"Organizations List",
+        icon:<ListIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
+    },
+    {
+        path:"/admin/account-management",
+        name:"Account Management",
+        icon:<PersonRemoveIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
+    },
+    {
+        path:"/admin/registered-organizations",
+        name:"Registered Organizations",
+        icon:<ChecklistRoundedIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
+    }
   ]
 
   return (
@@ -64,7 +89,7 @@ function AdminPage() {
           <div onClick={closeMenu}>
           <div style = {{display: 'flex' , flexDirection: 'row'}}>
         
-          <SideBar/>
+          <SideBar menuItem={menuItem}/>
           <div style={{display: 'flex', flexDirection: 'column', padding: '2% 4%'}}>
                 <p style={{
                     fontSize: '44px',
