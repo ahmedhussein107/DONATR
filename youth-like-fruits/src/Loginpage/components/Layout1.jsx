@@ -143,7 +143,9 @@ function Layout1() {
             window.location.href = '/admin';
           } else if(username === 'donor' && password === 'pass'){
             window.location.href = '/donor/donor-home';
-          }
+          } else if(username === 'organization' && password === 'pass'){
+            window.location.href = '/organization';
+          } 
         }}
       />
       
