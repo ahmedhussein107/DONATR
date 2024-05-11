@@ -17,6 +17,8 @@ import StackBars from '../AdminPage/Dashboard/StackBars'
 
 import './OrganizationCreatePostPage.css'
 import SelectPostType from './Components/SelectPostType'
+import ClothesForm from './Components/Forms/ClothesForm'
+import FoodForm from './Components/Forms/FoodForm'
 
 function OrganizationPage() {
 
@@ -93,8 +95,12 @@ function OrganizationPage() {
                     }}>Create Donation Post</p>
 
                     <div className='overlay'>
-                        {/* <p style={{fontFamily: 'Josefin Sans',}}>Select Post Type</p> */}
+                      
                         <SelectPostType selectedOption={selectedOption} onOptionSelection={setSelectedOption}/>
+                        {
+                            (selectedOption === 'clothes') ? <ClothesForm/> 
+                            :   <FoodForm /> 
+                        }
                     </div>
                 </div>
 

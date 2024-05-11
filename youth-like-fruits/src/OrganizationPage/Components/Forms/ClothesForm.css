@@ -1,0 +1,9 @@
+ h1{
+    color: red;
+ }
+
+ .button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
