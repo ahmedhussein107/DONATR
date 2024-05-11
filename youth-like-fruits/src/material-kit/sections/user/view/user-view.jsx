@@ -118,7 +118,7 @@ export default function UserView() {
         <Scrollbar>
           <TableContainer sx={{ overflowY: 'unset'}}>
             <Table sx={{minWidth: 800}}>
-              <UserTableHead
+              <UserTableHead sx={{alignItems:'center'}}
                 order={order}
                 orderBy={orderBy}
                 rowCount={users.length}
@@ -127,9 +127,9 @@ export default function UserView() {
                 onSelectAllClick={handleSelectAllClick}
                 headLabel={[
                   { id: 'name', label: 'Name' },
-                  { id: 'company', label: 'Company' },
                   { id: 'role', label: 'Role' },
-                  { id: 'isVerified', label: 'Verified', align: 'center' },
+                  { id: 'organization', label: 'Organization' },
+                  // { id: 'isVerified', label: 'Verified', align: 'center' },
                   { id: 'status', label: 'Status' },
                   { id: '' },
                 ]}
@@ -143,7 +143,7 @@ export default function UserView() {
                       name={row.name}
                       role={row.role}
                       status={row.status}
-                      company={row.company}
+                      company={row.role === 'Representative' ? row.company : ''}
                       avatarUrl={row.avatarUrl}
                       isVerified={row.isVerified}
                       selected={selected.indexOf(row.name) !== -1}
