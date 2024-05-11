@@ -15,7 +15,6 @@
     "@emotion/styled": "^11.11.5",
     "@faker-js/faker": "^8.4.1",
     "@iconify/react": "^4.1.1",
-    "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/docs": "^5.15.16",
     "@mui/icons-material": "^5.15.16",
     "@mui/material": "^5.15.17",

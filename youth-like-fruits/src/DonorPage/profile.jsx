@@ -4,6 +4,7 @@ import ahmed from '../assets/icons/avatar_12.jpg';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import MyButton from '../Components/MyButton/MyButton';
+import { Alert } from '@mui/material';
 
 // Sample user data
 const user = {
@@ -20,11 +21,10 @@ const user = {
 
 // Styled components for styling the profile box
 const ProfileContainer = styled.div`
-  display: flex;
   justify-content: center;
   align-items: flex-start;
   margin-top: 50px;
-  min-height: 100vh; /* Ensure the container takes up at least the full height of the viewport */
+  min-height: 80vh; /* Ensure the container takes up at least the full height of the viewport */
 `;
 
 const ProfileBox = styled.div`
@@ -63,7 +63,7 @@ const ProfileImage = styled.img`
   height: auto;
   border-radius: 700px;
   align-self: flex-end; /* Align image to the right */
-  margin-left:200px;
+  margin-left:150px;
 
 `;
 
@@ -97,25 +97,12 @@ const ProfilePage = () => {
     });
   };
 
-  const handleEditButtonClick = () => {
-    // Implement your edit functionality here
-    console.log('Edit button clicked');
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowAlert(true);
   };
-  const ageChange = (event) => {
-    setPassword(event.target.value);
-  };
-  const PasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-  const usernameChange = (event) => {
-    setPassword(event.target.value);
-  };
-  const adderssChange = (event) => {
-    setPassword(event.target.value);
-  };
-  const emailChange = (event) => {
-    setPassword(event.target.value);
-  };
+
 
   return (
     <ProfileContainer>
@@ -178,7 +165,6 @@ const ProfilePage = () => {
           <br />
           <MyButton
             label="Edit"
-            directory="/form_page"
             normalColor="#1D8AC5"
             hoverColor="#135E86"
             paddingWidth={14}
@@ -186,9 +172,16 @@ const ProfilePage = () => {
             minimumWidth={200}
             minimumHeight={45}
             marginLeft={2.7}
+            clickHandler={handleButtonClick}
           />
         </div>
       </ProfileBox>
+      <div style={{ marginTop: '2%' }}>
+        {showAlert && (
+          <Alert severity="success" onClose={() => setShowAlert(false)}>
+            Informations Updated Successfully.
+          </Alert>)}
+      </div>
     </ProfileContainer>
   );
 };

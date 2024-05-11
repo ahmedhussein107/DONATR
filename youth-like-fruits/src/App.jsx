@@ -15,6 +15,7 @@ import probono from "./DonorPage/probono.jsx"
 import org from './DonorPage/Organizations.jsx'
 import requested from './DonorPage/requestedItems/main.jsx'
 import dash from './DonorPage/DashBoard.jsx'
+import BasicAlerts from "./myalert.jsx"
 function App() {
   return (
     <>

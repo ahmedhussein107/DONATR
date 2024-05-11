@@ -24,6 +24,7 @@ import shippingPic from '../.././assets/icons/ic_notification_shipping.svg';
 import notification_mail from '../.././assets/icons/ic_notification_mail.svg';
 import notification_chat from '../.././assets/icons/ic_notification_chat.svg';
 import avatar_11 from '../.././assets/avatar_11.jpg';
+
 const NOTIFICATIONS = [
   {
     id: faker.string.uuid(),
@@ -100,7 +101,7 @@ export default function NotificationsPopover() {
     <>
       <IconButton color={open ? 'primary' : 'default'} onClick={handleOpen}>
         <Badge badgeContent={totalUnRead} color="error">
-          <Iconify width={24} icon="solar:bell-bing-bold-duotone" style={{color: 'white'}}/>
+          <Iconify width={24} icon="solar:bell-bing-bold-duotone" style={{ color: 'white' }} />
         </Badge>
       </IconButton>
 
@@ -120,21 +121,21 @@ export default function NotificationsPopover() {
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', py: 2, px: 2.5 }}>
-        <Box sx={{ flexGrow: 1 }}>
-        <Typography variant="subtitle1" sx={{ color: 'black', fontWeight: 'bold' }}>
-  Notifications
-</Typography>
-  <Typography variant="body2" sx={{ color: 'black' }}>
-    You have {totalUnRead} unread messages
-  </Typography>
-</Box>
-          
+          <Box sx={{ flexGrow: 1 }}>
+            <Typography variant="subtitle1" sx={{ color: 'black', fontWeight: 'bold' }}>
+              Notifications
+            </Typography>
+            <Typography variant="body2" sx={{ color: 'black' }}>
+              You have {totalUnRead} unread messages
+            </Typography>
+          </Box>
+
           {totalUnRead > 0 && (
-          <Tooltip title="Mark all as read" style={{ Color: '#0000FF' }}>
-          <IconButton color="#0000FF" onClick={handleMarkAllAsRead}>
-            <Iconify icon="eva:done-all-fill" color="#00C0FF" /> {}
-          </IconButton>
-        </Tooltip>
+            <Tooltip title="Mark all as read" style={{ Color: '#0000FF' }}>
+              <IconButton color="#0000FF" onClick={handleMarkAllAsRead}>
+                <Iconify icon="eva:done-all-fill" color="#00C0FF" /> { }
+              </IconButton>
+            </Tooltip>
           )}
         </Box>
 
@@ -180,8 +181,6 @@ export default function NotificationsPopover() {
   );
 }
 
-// ----------------------------------------------------------------------
-
 NotificationItem.propTypes = {
   notification: PropTypes.shape({
     createdAt: PropTypes.instanceOf(Date),
@@ -206,6 +205,8 @@ function NotificationItem({ notification }) {
         ...(notification.isUnRead && {
           bgcolor: 'action.selected',
         }),
+        pointerEvents: 'none', // Disable pointer events
+        cursor: 'default', // Change cursor style
       }}
     >
       <ListItemAvatar>
@@ -233,8 +234,6 @@ function NotificationItem({ notification }) {
     </ListItemButton>
   );
 }
-
-// ----------------------------------------------------------------------
 
 function renderContent(notification) {
   const title = (

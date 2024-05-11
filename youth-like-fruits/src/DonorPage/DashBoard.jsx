@@ -67,7 +67,7 @@ function DashBoard() {
         )}
       </div>
       <div onClick={closeMenu}>
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', maxHeight: '86vh', overflowY: 'hidden' }}>
 
           <SideBar menuItem={menuItem} />
           <div style={{ display: 'flex', flexDirection: 'column', padding: '2% 4%' }}>
