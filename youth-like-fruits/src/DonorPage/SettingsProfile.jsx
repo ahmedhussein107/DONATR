@@ -23,21 +23,21 @@ const user = {
 
 // Styled components for styling the profile box
 const ProfileContainer = styled.div`
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: 50px;
-  min-height: 80vh; /* Ensure the container takes up at least the full height of the viewport */
+justify-content: center;
+align-items: flex-start;
+margin-top: 0.5vh;
+min-height: 80vh; /* Ensure the container takes up at least the full height of the viewport */
 `;
 
 const ProfileBox = styled.div`
-  width: 140vh; /* Increased width */
-  background-color: #f0f0f0;
-  padding: 30px; /* Increased padding */
-  border-radius: 12px; /* Increased border radius */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjusted box shadow */
-  display: flex; /* Use flexbox to stretch the box vertically */
-  flex-direction: column; /* Align items in a column */
-  min-height: 500px;
+width: 140vh; /* Increased width */
+background-color: #f0f0f0;
+padding: 6vh; /* Increased padding */
+border-radius: 12px; /* Increased border radius */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjusted box shadow */
+display: flex; /* Use flexbox to stretch the box vertically */
+flex-direction: column; /* Align items in a column */
+min-height : 65vh
 `;
 
 const ProfileHeader = styled.h2`
