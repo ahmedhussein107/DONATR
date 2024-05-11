@@ -32,6 +32,7 @@ function AdminPage() {
   </Stack>
   ]
 
+  const fontSize = '3vh';
   const menuItem=[
     {
         path:"/admin",

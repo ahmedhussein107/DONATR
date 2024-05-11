@@ -69,8 +69,8 @@ export default function UserTableRow({
         </TableCell>
 
         <TableCell align="right">
-          <IconButton onClick={handleOpenMenu}>
-            <Iconify icon="eva:more-vertical-fill" />
+          <IconButton onClick={handleDeleteClick} sx={{ color: 'error.main' }}>
+            <Iconify icon="eva:trash-2-outline" />
           </IconButton>
         </TableCell>
       </TableRow>
@@ -85,15 +85,6 @@ export default function UserTableRow({
           sx: { width: 140 },
         }}
       >
-        <MenuItem onClick={handleCloseMenu}>
-          <Iconify icon="eva:edit-fill" sx={{ mr: 2 }} />
-          Edit
-        </MenuItem>
-
-        <MenuItem onClick={handleDeleteClick} sx={{ color: 'error.main' }}>
-          <Iconify icon="eva:trash-2-outline" sx={{ mr: 2 }} />
-          Delete
-        </MenuItem>
       </Popover>
     </>
   );

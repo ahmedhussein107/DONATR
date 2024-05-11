@@ -2,12 +2,19 @@
 import React , {useState} from 'react'
 import { NavLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
-import './SideBar.css'
+import PropTypes from 'prop-types';
+import './SideBar.css';
+import HomeIcon from '@mui/icons-material/Home';
+import ListIcon from '@mui/icons-material/List';
+import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
+import ChecklistRoundedIcon from '@mui/icons-material/ChecklistRounded';
 
-function SideBar({menuItem}) {
+const fontSize = '3vh';
+
+function SideBar(props) {
+    const menuItem = props.menuItem;
     const[open ,setOpen] = useState(false);
     const toggle = () => setOpen (!open);
-    const fontSize = '3vh';
     return (
         <div className="container">
            <div style=
@@ -45,5 +52,39 @@ function SideBar({menuItem}) {
         </div>
     );
 }
+
+SideBar.propTypes = {
+    menuItem: PropTypes.array
+};
+
+SideBar.defaultProps = {
+    menuItem:[
+        {
+            path:"/admin",
+            name:"Dashboard",
+            icon:<HomeIcon style={{fontSize : fontSize ,fill: '#D5E0E6'}}/>
+        },
+        {
+            path:"/admin/donors-list",
+            name:"Donors List",
+            icon:<ListIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
+        },
+        {
+            path:"/admin/organizations-list",
+            name:"Organizations List",
+            icon:<ListIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
+        },
+        {
+            path:"/admin/account-management",
+            name:"Account Management",
+            icon:<PersonRemoveIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
+        },
+        {
+            path:"/admin/registered-organizations",
+            name:"Registered Organizations",
+            icon:<ChecklistRoundedIcon style={{fontSize : fontSize,fill: '#D5E0E6'}}/>
+        }
+      ]
+};
 
 export default SideBar
