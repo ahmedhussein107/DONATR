@@ -1,0 +1,18 @@
+.dropdown-list-container {
+    margin-top: 10px;
+    width: 60vh;
+    
+}
+
+.form {
+    width:100%
+}
+
+#demo-simple-select-filled-label{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* .select-style {
+    width:500%;
+} */

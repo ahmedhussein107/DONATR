@@ -11,6 +11,8 @@ import DonorReg from "./RegisterPage/DonorReg.jsx"
 import FormPage from "./ContactUs/FormPage.jsx"
 import SuccessPage from "./ContactUs/SuccessPage.jsx"
 import DashBoard from "./DonorPage/DashBoard.jsx"
+import OrganizationPage from "./OrganizationPage/OrganizationPage.jsx"
+import OrganizationCreatePostPage  from "./OrganizationPage/OrganizationCreatePostPage.jsx"
 function App() {
   return (
     <>
@@ -19,6 +21,8 @@ function App() {
         <Route path='/login' element ={<LoginPage/>}/>
         <Route path='/register' element = {<RegisterPage/>}/>
         <Route path='/admin' element = {<AdminPage/>}/>
+        <Route path='/organization' element = {<OrganizationPage/>}/>
+        <Route path='/organization/create-post' element = {<OrganizationCreatePostPage/>}/>
         <Route path='/contact' element ={<ContactPage/>}/>
         <Route path='/register/organization' element={<OrganizationReg/>}/>
         <Route path='/register/donor' element={<DonorReg/>}/>
