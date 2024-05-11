@@ -102,12 +102,11 @@ export default function UserView() {
   const notFound = !dataFiltered.length && !!filterName;
 
   return (
-    <Container sx={{height: '120vh'}}>
-        <Typography variant="h4" sx={{color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold', padding: '1%'}}>
-          User Accounts
-        </Typography>
-
-      <Card>
+    <Container>
+        <Stack direction="row" alignItems="center" justifyContent="space-between" m={2}>
+        <Typography variant="h4">Users</Typography>
+      </Stack>
+      <Card sx={{marginBottom: '2%'}}>
         <UserTableToolbar
           selected={selected}
           handleDeleteAll={handleDeleteAll}
@@ -117,9 +116,9 @@ export default function UserView() {
         />
 
         <Scrollbar>
-          <TableContainer sx={{ maxHeight: '50vh', overflowY: 'hidden', marginBottom: '-16px' }}>
-            <Table sx={{ maxHeight: '50vh', minWidth: 800}}>
-              <UserTableHead
+          <TableContainer sx={{ overflowY: 'unset'}}>
+            <Table sx={{minWidth: 800}}>
+              <UserTableHead sx={{alignItems:'center'}}
                 order={order}
                 orderBy={orderBy}
                 rowCount={users.length}
@@ -128,14 +127,14 @@ export default function UserView() {
                 onSelectAllClick={handleSelectAllClick}
                 headLabel={[
                   { id: 'name', label: 'Name' },
-                  { id: 'company', label: 'Company' },
                   { id: 'role', label: 'Role' },
-                  { id: 'isVerified', label: 'Verified', align: 'center' },
+                  { id: 'organization', label: 'Organization' },
+                  // { id: 'isVerified', label: 'Verified', align: 'center' },
                   { id: 'status', label: 'Status' },
                   { id: '' },
                 ]}
               />
-              <TableBody sx={{ maxHeight: '50vh'}} >
+              <TableBody>
                 {dataFiltered
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => (
@@ -144,7 +143,7 @@ export default function UserView() {
                       name={row.name}
                       role={row.role}
                       status={row.status}
-                      company={row.company}
+                      company={row.role === 'Representative' ? row.company : ''}
                       avatarUrl={row.avatarUrl}
                       isVerified={row.isVerified}
                       selected={selected.indexOf(row.name) !== -1}
