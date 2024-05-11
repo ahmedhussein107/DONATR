@@ -29,7 +29,7 @@ function DashBoard() {
       icon: <HomeIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
     },
     {
-      path: '/Donorrequested',
+      path: '/RegisteredItems',
       name: "Requested Items",
       icon: <ListIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
     },
@@ -79,7 +79,7 @@ function DashBoard() {
               color: '#292F33',
             }}>DashBoard</p>
             <br />
-            <ProfilePage header='User Profile'/>
+            <ProfilePage header='User Profile' />
           </div>
 
         </div>

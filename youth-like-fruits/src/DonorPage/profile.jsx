@@ -162,7 +162,7 @@ const ProfilePage = (props) => {
                   </DetailItem>
                 </div>
                 <div className='same-line-input'>
-                <DetailItem>
+                  <DetailItem>
                     {/* <Label>Country:</Label> */}
                     <TextField id="filled-basic" label="Country" variant="filled" defaultValue={user.country} InputProps={{
                       readOnly: true,

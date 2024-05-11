@@ -15,8 +15,9 @@ import OrganizationPage from "./OrganizationPage/OrganizationPage.jsx"
 import OrganizationCreatePostPage from "./OrganizationPage/OrganizationCreatePostPage.jsx"
 import probono from "./DonorPage/probono.jsx"
 import org from './DonorPage/Organizations.jsx'
-import requested from './DonorPage/requestedItems/main.jsx'
+import requested from './DonorPage/requestedItems/RegisteredItems.jsx'
 import Settings from './DonorPage/Settings.jsx'
+import RegisteredItems from "./DonorPage/requestedItems/RegisteredItems.jsx"
 function App() {
   return (
     <>
@@ -48,6 +49,7 @@ function App() {
         <Route path='/Donororg' element={<org />} />
         <Route path='/Donorrequested' element={<requested />} />
         <Route path='/Settings' element={<Settings />} />
+        <Route path='/RegisteredItems' element={<RegisteredItems />} />
       </Routes>
     </>
   )
