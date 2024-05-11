@@ -14,7 +14,7 @@ const user = {
   address: '123 Main St',
   state: 'Cairo',
   country: 'Egypt',
-  occupation: 'Software Engineer',
+  occupation: 'Doctor',
   interests: ['Reading', 'Traveling', 'Cooking'],
   // Add more details as needed
 };
@@ -121,38 +121,56 @@ const ProfilePage = (props) => {
               <div style={{ marginleft: '100px' }}>
                 <div className='same-line-input'>
                   <DetailItem>
-                    {/* <Label>Name:</Label> */}
-                    <TextField id="filled-basic" label="Name" variant="filled" defaultValue={user.name} disabled />
-                  </DetailItem>
+
+
+                    <TextField id="filled-basic" label="Name" variant="filled" defaultValue={user.name} InputProps={{
+                      readOnly: true,
+
+                    }} /> </DetailItem>
                   <DetailItem>
                     {/* <Label>Age:</Label> */}
-                    <TextField id="filled-basic" label="Age" variant="filled" defaultValue={user.age} disabled />
+                    <TextField id="filled-basic" label="Age" variant="filled" defaultValue={user.age} InputProps={{
+                      readOnly: true,
+
+                    }} />
                   </DetailItem>
                 </div>
                 <div className='same-line-input'>
                   <DetailItem>
                     {/* <Label>Email:</Label> */}
-                    <TextField id="filled-basic" label="Email" variant="filled" defaultValue={user.email} disabled />
+                    <TextField id="filled-basic" label="Email" variant="filled" defaultValue={user.email} InputProps={{
+                      readOnly: true,
+
+                    }} />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>Address:</Label> */}
-                    <TextField id="filled-basic" label="Address" variant="filled" defaultValue={user.address} />
+                    <TextField id="filled-basic" label="Address" variant="filled" defaultValue={user.address} InputProps={{
+                      readOnly: true,
+
+                    }} />
                   </DetailItem>
                 </div>
                 <div className='same-line-input'>
                   <DetailItem>
                     {/* <Label>State:</Label> */}
-                    <TextField id="filled-basic" label="State" variant="filled" defaultValue={user.state} disabled />
+                    <TextField id="filled-basic" label="State" variant="filled" defaultValue={user.state} disa InputProps={{
+                      readOnly: true,
+
+                    }} bled />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>Country:</Label> */}
-                    <TextField id="filled-basic" label="Country" variant="filled" defaultValue={user.country} disabled />
+                    <TextField id="filled-basic" label="Country" variant="filled" defaultValue={user.country} InputProps={{
+                      readOnly: true,
+
+                    }} />
                   </DetailItem>
                 </div>
                 <div className='same-line-input'>
                   <DetailItem>
                     {/* <Label>Occupation:</Label> */}
-                    <TextField id="filled-basic" label="Occupation" variant="filled" defaultValue={user.occupation} />
+                    <TextField id="filled-basic" label="Role" variant="filled" defaultValue={user.occupation} />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>Interests:</Label> */}
