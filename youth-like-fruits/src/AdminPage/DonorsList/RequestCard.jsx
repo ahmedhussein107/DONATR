@@ -10,9 +10,10 @@ export default function RequestCard(props) {
   const name = props.name;
   const image = props.image;
   const id = props.id;
+  const onClick = props.onClick;
 
   return (
-    <Card sx={{maxHeight: 600, maxWidth: 600 }}>
+    <Card sx={{maxHeight: 600, maxWidth: 600 }} onClick={onClick}>
       <CardActionArea>
       <CardContent style={{textAlign: 'right'}}>
           <Typography variant="body2" color="text.secondary">

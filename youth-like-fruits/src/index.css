@@ -48,8 +48,8 @@
   background-color: #D5E0E6;
   padding: 20px;
   border-radius: 5px;
-  min-width: 40vw;
-  min-height: 40vh;
+  min-width: 85vw;
+  min-height: 80vh;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1000; /* Ensure it's above the overlay */
