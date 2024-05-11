@@ -5,17 +5,16 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import img from '../../../../assets/donor_icon.png';
 import RequestCard from '../../../../AdminPage/DonorsList/RequestCard';
+import { Box, TextField, MenuItem, Select, FormControl, FormLabel } from '@mui/material';
 import ProductSort from '../product-sort';
 import ProductFilters from '../product-filters';
-import { Box, TextField } from '@mui/material';
 import Popup from '../../../../AdminPage/Popup';
 
 export default function ProductsView(props) {
   const pageTitle = props.title;
-  const sort = props.sort;
-  const filter = props.filter;
   const [openFilter, setOpenFilter] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [sorting, setSorting] = useState('newest');
   const [openPopup, setOpenPopup] = useState(false);
   const [currentInfo, setCurrentInfo] = useState(null);
 
@@ -28,53 +27,45 @@ export default function ProductsView(props) {
   }
 
   const cards = [
-    {
-      date: '20/02/2020', name: 'Dr. Hamada', image: img, id: 1, info: {
-        name: 'Dr. Hamada', age: 12
-      }
-    },
-    {
-      date: '20/02/2020', name: 'Dr. Ahmed Hamada', image: img, id: 2, info: {
-        name: 'Dr. Ahmed Hamada', age: 12
-      }
-    },
-    {
-      date: '20/02/2020', name: 'Dr. Ahmed Mohamed Hamada', image: img, id: 3, info: {
-        name: 'Dr. Ahmed Mohamed Hamada', age: 12
-      }
-    },
-    {
-      date: '20/02/2020', name: 'Dr. Wael', image: img, id: 4, info: {
-        name: 'Dr. Wael', age: 12
-      }
-    },
-    {
-      date: '20/02/2020', name: 'Dr. Gohary', image: img, id: 5, info: {
-        name: 'Dr. Gohary', age: 12
-      }
-    },
-    {
-      date: '20/02/2020', name: 'Prof Yasser', image: img, id: 6, info: {
-        name: 'Prof Yasser', age: 12
-      }
-    },
-    {
-      date: '20/02/2020', name: 'Dr. Tawfik', image: img, id: 7, info: {
-        name: 'Dr. Tawfik', age: 12
-      }
-    },
-    {
-      date: '20/02/2020', name: 'Prof Slim', image: img, id: 8, info: {
-        name: 'Prof Slim', age: 12
-      }
-    },
+    { date: '20/02/2020', name: 'Dr. Hamada', image: img, id: 1 },
+    { date: '20/02/2020', name: 'Dr. Ahmed Hamada', image: img, id: 2 },
+    { date: '20/02/2020', name: 'Dr. Ahmed Mohamed Hamada', image: img, id: 3 },
+    { date: '20/02/2020', name: 'Dr. Wael', image: img, id: 4 },
+    { date: '20/02/2020', name: 'Dr. Gohary', image: img, id: 5 },
+    { date: '20/02/2020', name: 'Prof Yasser', image: img, id: 6 },
+    { date: '20/02/2020', name: 'Dr. Tawfik', image: img, id: 7 },
+    { date: '20/02/2020', name: 'Prof Slim', image: img, id: 8 },
   ];
 
+  // Sorting function based on the selected sorting option
+  const sortedCards = () => {
+    switch (sorting) {
+      case 'newest':
+        return cards.slice().sort((a, b) => {
+          const [dayA, monthA, yearA] = a.date.split('/').map(Number);
+          const [dayB, monthB, yearB] = b.date.split('/').map(Number);
+          return new Date(yearB, monthB - 1, dayB) - new Date(yearA, monthA - 1, dayA);
+        });
+      case 'oldest':
+        return cards.slice().sort((a, b) => {
+          const [dayA, monthA, yearA] = a.date.split('/').map(Number);
+          const [dayB, monthB, yearB] = b.date.split('/').map(Number);
+          return new Date(yearA, monthA - 1, dayA) - new Date(yearB, monthB - 1, dayB);
+        });
+      case 'lexicalAscending':
+        return cards.slice().sort((a, b) => a.name.localeCompare(b.name));
+      case 'lexicalDescending':
+        return cards.slice().sort((a, b) => b.name.localeCompare(a.name));
+      default:
+        return cards;
+    }
+  };
+
   const filteredCards = searchTerm
-    ? cards.filter((card) =>
+    ? sortedCards().filter((card) =>
       card.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
-    : cards;
+    : sortedCards();
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
@@ -88,9 +79,14 @@ export default function ProductsView(props) {
     setSearchTerm(event.target.value);
   };
 
+  const handleSortingChange = (event) => {
+    setSorting(event.target.value);
+  };
+
   return (
     <Container>
       {openPopup && <Popup onClose={onPopupClose} info={currentInfo} />}
+      <Stack direction="row" justifyContent="space-between" m={2}>
       <Box
         sx={{
           boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
@@ -99,38 +95,33 @@ export default function ProductsView(props) {
           backgroundColor: '#fff',
           textAlign: 'center',
         }}
-      >
+      />
         <Typography
           variant="h5"
           sx={{ color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold' }}
         >
           {pageTitle}
         </Typography>
-      </Box>
-
-      <Stack
-        direction="row"
-        alignItems="center"
-        flexWrap="wrap-reverse"
-        justifyContent="flex-end"
-        sx={{ mb: 5 }}
-      >
-        <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
-          {filter && (
-            <ProductFilters
-              openFilter={openFilter}
-              onOpenFilter={handleOpenFilter}
-              onCloseFilter={handleCloseFilter}
-            />
-          )}
+        <Stack direction="row" alignItems="center" spacing={1}>
           <TextField
             name="email"
-            label="Search Donor"
+            label="Search Donor"  
             onChange={handleChange}
-            type='text'
-            variant='filled'
+            type="text"
+            variant="outlined"
           />
-          {sort && <ProductSort />}
+            
+          <Select
+            value={sorting}
+            onChange={handleSortingChange}
+            variant="outlined"
+          >
+            <MenuItem value="newest">Newest</MenuItem>
+            <MenuItem value="oldest">Oldest</MenuItem>
+            <MenuItem value="lexicalAscending">Lexicographical Ascending</MenuItem>
+            <MenuItem value="lexicalDescending">Lexicographical Descending</MenuItem>
+          </Select>
+          
         </Stack>
       </Stack>
 

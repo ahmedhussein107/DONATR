@@ -8,10 +8,11 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import Iconify from '../../components/iconify';
+import { every } from 'lodash';
 
 // ----------------------------------------------------------------------
 
-export default function UserTableToolbar({ numSelected, filterName, onFilterName }) {
+export default function UserTableToolbar({selected, handleDeleteAll, numSelected, filterName, onFilterName }) {
   return (
     <Toolbar
       sx={{
@@ -47,7 +48,7 @@ export default function UserTableToolbar({ numSelected, filterName, onFilterName
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
-          <IconButton>
+          <IconButton onClick={(event) => {handleDeleteAll(selected)}}>
             <Iconify icon="eva:trash-2-fill" />
           </IconButton>
         </Tooltip>
@@ -63,6 +64,8 @@ export default function UserTableToolbar({ numSelected, filterName, onFilterName
 }
 
 UserTableToolbar.propTypes = {
+  selected: PropTypes.any,
+  handleDeleteAll: PropTypes.func,
   numSelected: PropTypes.number,
   filterName: PropTypes.string,
   onFilterName: PropTypes.func,

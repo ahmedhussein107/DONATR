@@ -1,0 +1,50 @@
+.box {
+    display: flex; /* Use flexbox for layout */
+    border: 2px solid #0b0b0b;
+    padding: 25px; /* Adjust padding as needed */
+    margin: 5px; /* Adjust margin as needed */
+}
+
+.image-container {
+    flex: 0 0 200px; /* Set fixed width for image */
+}
+
+.image {
+    width: 200px; /* Image fills container width */
+    height: 200px; /* Maintain image aspect ratio */
+}
+
+.content {
+    flex: 1; /* Allow content area to fill remaining space */
+    text-align: center; /* Align content within the area */
+}
+
+.title {
+    font-size: 2.2em;  /* Increase font size for title */
+    font-weight: bold; /* Make title bold */
+    margin-bottom: 5px; /* Add spacing between title and description */
+    color: black;
+}
+
+.description {
+    font-size: 1.3em; /* Smaller font for description */
+    color: black;
+}
+
+/* Add styles for the register button */
+.register-button {
+    display: block; /* Make it a block element */
+    margin: 10px auto; /* Add margin for spacing and center horizontally */
+    padding: 80px 8px; /* Reduce padding for smaller height */
+    background-color: #2f353b; /* Blue background color */
+    color: white; /* White text color */
+    text-align: center; /* Center text within the button */
+    text-decoration: none; /* Remove underline from text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Indicate clickable behavior */
+}
+
+.register-button:hover {
+    background-color: #1e2732; /* Change background color on hover */
+}

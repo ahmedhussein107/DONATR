@@ -11,6 +11,7 @@ export default function RequestCard(props) {
   const image = props.image;
   const id = props.id;
   const onClick = props.onClick;
+  const type = props.type;
 
   return (
     <Card sx={{maxHeight: 600, maxWidth: 600 }} onClick={onClick}>
