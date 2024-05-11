@@ -132,7 +132,7 @@ export default function NotificationsPopover() {
           {totalUnRead > 0 && (
           <Tooltip title="Mark all as read" style={{ Color: '#0000FF' }}>
           <IconButton color="#0000FF" onClick={handleMarkAllAsRead}>
-            <Iconify icon="eva:done-all-fill" color="#0000FF" /> {}
+            <Iconify icon="eva:done-all-fill" color="#00C0FF" /> {}
           </IconButton>
         </Tooltip>
           )}

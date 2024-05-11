@@ -12,9 +12,11 @@
     padding: 10px 15px;
     gap: 15px;
     transition: all 0.5s;
+    text-decoration: none; 
 }
 .link:hover{
     background:#1D8AC5;
     color: #000;
+    text-decoration: none; 
     transition: all 0.2s;
 }

@@ -8,7 +8,7 @@ import { alpha } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-
+import image from '../../assets/icons/avatar_12.jpg'
 export const account = {
     displayName: 'Jaydon Frankie',
     email: 'demo@minimals.cc',
@@ -41,6 +41,9 @@ export const account = {
     const handleClose = () => {
       setOpen(null);
     };
+    const handle2o5rg = () => {
+      window.location.href = '/login';
+    };
   
     return (
       <>
@@ -57,7 +60,7 @@ export const account = {
           }}
         >
           <Avatar
-            src="src/assets/icons/avatar_12.jpg"
+            src={image}
             alt={account.displayName}
             sx={{
               width: 36,
@@ -107,7 +110,7 @@ export const account = {
           <MenuItem
             disableRipple
             disableTouchRipple
-            onClick={handleClose}
+            onClick={handle2o5rg}
             sx={{ typography: 'body2', color: 'error.main', py: 1.5 }}
           >
             Logout
