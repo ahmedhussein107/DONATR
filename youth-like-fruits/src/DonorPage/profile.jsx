@@ -12,8 +12,8 @@ const user = {
   age: 30,
   email: 'johndoe@example.com',
   address: '123 Main St',
-  state: 'City',
-  country: 'Country',
+  state: 'Cairo',
+  country: 'Egypt',
   occupation: 'Software Engineer',
   interests: ['Reading', 'Traveling', 'Cooking'],
   // Add more details as needed
@@ -98,6 +98,9 @@ const ProfilePage = () => {
   };
 
   const [showAlert, setShowAlert] = useState(false);
+  setTimeout(() => {
+    setShowAlert(false);
+  }, 5000);
 
   const handleButtonClick = () => {
     setShowAlert(true);
@@ -118,17 +121,17 @@ const ProfilePage = () => {
                 <div className='same-line-input'>
                   <DetailItem>
                     {/* <Label>Name:</Label> */}
-                    <TextField id="filled-basic" label="Name" variant="filled" defaultValue={user.name} />
+                    <TextField id="filled-basic" label="Name" variant="filled" defaultValue={user.name} disabled />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>Age:</Label> */}
-                    <TextField id="filled-basic" label="Age" variant="filled" defaultValue={user.age} />
+                    <TextField id="filled-basic" label="Age" variant="filled" defaultValue={user.age} disabled />
                   </DetailItem>
                 </div>
                 <div className='same-line-input'>
                   <DetailItem>
                     {/* <Label>Email:</Label> */}
-                    <TextField id="filled-basic" label="Email" variant="filled" defaultValue={user.email} />
+                    <TextField id="filled-basic" label="Email" variant="filled" defaultValue={user.email} disabled />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>Address:</Label> */}
@@ -138,11 +141,11 @@ const ProfilePage = () => {
                 <div className='same-line-input'>
                   <DetailItem>
                     {/* <Label>State:</Label> */}
-                    <TextField id="filled-basic" label="State" variant="filled" defaultValue={user.state} />
+                    <TextField id="filled-basic" label="State" variant="filled" defaultValue={user.state} disabled />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>Country:</Label> */}
-                    <TextField id="filled-basic" label="Country" variant="filled" defaultValue={user.country} />
+                    <TextField id="filled-basic" label="Country" variant="filled" defaultValue={user.country} disabled />
                   </DetailItem>
                 </div>
                 <div className='same-line-input'>
@@ -164,7 +167,7 @@ const ProfilePage = () => {
           <br />
           <br />
           <MyButton
-            label="Edit"
+            label="Save"
             normalColor="#1D8AC5"
             hoverColor="#135E86"
             paddingWidth={14}

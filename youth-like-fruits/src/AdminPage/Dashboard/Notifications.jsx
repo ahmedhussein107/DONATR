@@ -28,20 +28,11 @@ import avatar_11 from '../.././assets/avatar_11.jpg';
 const NOTIFICATIONS = [
   {
     id: faker.string.uuid(),
-    title: 'Your order is placed',
+    title: 'order is placed',
     description: 'waiting for shipping',
     avatar: null,
     type: 'order_placed',
     createdAt: set(new Date(), { hours: 10, minutes: 30 }),
-    isUnRead: true,
-  },
-  {
-    id: faker.string.uuid(),
-    title: faker.person.fullName(),
-    description: 'answered to your comment on the Minimal',
-    avatar: '/assets/images/avatars/avatar_2.jpg',
-    type: 'friend_interactive',
-    createdAt: sub(new Date(), { hours: 3, minutes: 30 }),
     isUnRead: true,
   },
   {
@@ -51,12 +42,12 @@ const NOTIFICATIONS = [
     avatar: null,
     type: 'chat_message',
     createdAt: sub(new Date(), { days: 1, hours: 3, minutes: 30 }),
-    isUnRead: false,
+    isUnRead: true,
   },
   {
     id: faker.string.uuid(),
     title: 'You have new mail',
-    description: 'sent from Guido Padberg',
+    description: 'sent from masr Elkheir',
     avatar: null,
     type: 'mail',
     createdAt: sub(new Date(), { days: 2, hours: 3, minutes: 30 }),
@@ -65,7 +56,7 @@ const NOTIFICATIONS = [
   {
     id: faker.string.uuid(),
     title: 'Delivery processing',
-    description: 'Your order is being shipped',
+    description: 'order will be arrived in 5 min',
     avatar: null,
     type: 'order_shipped',
     createdAt: sub(new Date(), { days: 3, hours: 3, minutes: 30 }),
@@ -141,7 +132,7 @@ export default function NotificationsPopover() {
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <Scrollbar sx={{ height: { xs: 600, sm: 600 } }}>
+        <Scrollbar sx={{ height: { xs: 500, sm: 500 } }}>
           <List
             disablePadding
             subheader={
@@ -171,11 +162,6 @@ export default function NotificationsPopover() {
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <Box sx={{ p: 1 }}>
-          <Button fullWidth disableRipple>
-            View All
-          </Button>
-        </Box>
       </Popover>
     </>
   );

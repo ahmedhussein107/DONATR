@@ -17,7 +17,7 @@ function DashBoard() {
   const listOfIcons = [
     <Stack direction="row" alignItems="center" spacing={1}>
       <NotificationsPopover />
-      <AccountPopover />
+      <AccountPopover dir='/donor/donor-home' />
     </Stack>
   ]
   const fontSize = '3vh';
