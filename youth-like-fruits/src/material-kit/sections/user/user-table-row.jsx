@@ -27,18 +27,8 @@ export default function UserTableRow({
   handleClick,
   handleDelete,
 }) {
-  const [open, setOpen] = useState(null);
-
-  const handleOpenMenu = (event) => {
-    setOpen(event.currentTarget);
-  };
-
-  const handleCloseMenu = () => {
-    setOpen(null);
-  };
 
   const handleDeleteClick = () => {
-    handleCloseMenu();
     handleDelete(name); 
   };
 
@@ -74,18 +64,6 @@ export default function UserTableRow({
           </IconButton>
         </TableCell>
       </TableRow>
-
-      <Popover
-        open={!!open}
-        anchorEl={open}
-        onClose={handleCloseMenu}
-        anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-        PaperProps={{
-          sx: { width: 140 },
-        }}
-      >
-      </Popover>
     </>
   );
 }

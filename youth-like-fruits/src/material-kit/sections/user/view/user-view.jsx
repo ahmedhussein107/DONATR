@@ -9,8 +9,9 @@ import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
+import ThemeProvider from '../../../theme';
 
-import { users } from '../../../_mock/user';
+import { users as initialUsers } from '../../../_mock/user'
 
 import Iconify from '../../../components/iconify';
 import Scrollbar from '../../../components/scrollbar';
@@ -20,35 +21,29 @@ import UserTableRow from '../user-table-row';
 import UserTableHead from '../user-table-head';
 import TableEmptyRows from '../table-empty-rows';
 import UserTableToolbar from '../user-table-toolbar';
-import { emptyRows, applyFilter, getComparator } from '../utils';
+import { emptyRows, applyFilter, getComparator } from '../utils'
+import { Box } from '@mui/material';
 
-// ----------------------------------------------------------------------
-
-export default function UserPage() {
+// ---------------------------------------------------------
+export default function UserView() {
   const [page, setPage] = useState(0);
-
   const [order, setOrder] = useState('asc');
-
   const [selected, setSelected] = useState([]);
-
   const [orderBy, setOrderBy] = useState('name');
-
   const [filterName, setFilterName] = useState('');
-
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [users, setUsers] = useState(initialUsers);
 
   const handleSort = (event, id) => {
     const isAsc = orderBy === id && order === 'asc';
-    if (id !== '') {
-      setOrder(isAsc ? 'desc' : 'asc');
-      setOrderBy(id);
-    }
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(id);
   };
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = users.map((n) => n.name);
-      setSelected(newSelecteds);
+      const newSelected = users.map((n) => n.name);
+      setSelected(newSelected);
       return;
     }
     setSelected([]);
@@ -71,6 +66,18 @@ export default function UserPage() {
     }
     setSelected(newSelected);
   };
+
+  const handleDelete = (name) => {
+    const updatedUsers = users.filter(user => user.name !== name);
+    setUsers(updatedUsers);
+    setSelected([]);
+  };
+
+  const handleDeleteAll = (selectedNames) => {
+    const updatedUsers = users.filter(user => selectedNames.indexOf(user.name) === -1);
+    setUsers(updatedUsers);
+    setSelected([]);
+  }
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -95,21 +102,32 @@ export default function UserPage() {
   const notFound = !dataFiltered.length && !!filterName;
 
   return (
-    <Container>
-      <Stack direction="row" alignItems="center" justifyContent="space-between" m={2}>
-        <Typography variant="h4">Users</Typography>
-      </Stack>
+    <Container sx={{height: '120vh'}}>
+      <Box sx={{
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', 
+        padding: '20px', 
+        borderRadius: '8px', 
+        backgroundColor: '#fff',
+        textAlign: 'center',
+        m: '1%' 
+      }}>
+        <Typography variant="h4" sx={{color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold'}}>
+          Users
+        </Typography>
+        </Box>
 
-      <Card sx={{marginBottom: '2%'}}>
+      <Card>
         <UserTableToolbar
+          selected={selected}
+          handleDeleteAll={handleDeleteAll}
           numSelected={selected.length}
           filterName={filterName}
           onFilterName={handleFilterByName}
         />
 
         <Scrollbar>
-          <TableContainer sx={{ overflow: 'unset' }}>
-            <Table sx={{ minWidth: 800 }}>
+          <TableContainer sx={{ maxHeight: '50vh', overflowY: 'hidden', marginBottom: '-16px' }}>
+            <Table sx={{ maxHeight: '50vh', minWidth: 800}}>
               <UserTableHead
                 order={order}
                 orderBy={orderBy}
@@ -126,7 +144,7 @@ export default function UserPage() {
                   { id: '' },
                 ]}
               />
-              <TableBody>
+              <TableBody sx={{ maxHeight: '50vh'}} >
                 {dataFiltered
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => (
@@ -140,6 +158,7 @@ export default function UserPage() {
                       isVerified={row.isVerified}
                       selected={selected.indexOf(row.name) !== -1}
                       handleClick={(event) => handleClick(event, row.name)}
+                      handleDelete={handleDelete}
                     />
                   ))}
 
@@ -153,7 +172,6 @@ export default function UserPage() {
             </Table>
           </TableContainer>
         </Scrollbar>
-
         <TablePagination
           page={page}
           component="div"
