@@ -78,7 +78,7 @@ function DashBoard() {
               color: '#292F33',
             }}>DashBoard</p>
             <br />
-            <ProfilePage />
+            <ProfilePage header='User Profile'/>
           </div>
 
         </div>

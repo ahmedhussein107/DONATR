@@ -6,19 +6,19 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 export default function RequestCard(props) {
-  const publishDate = props.date;
+  const day = props.day;
+  const month = props.month;
+  const year = props.year;
   const name = props.name;
   const image = props.image;
-  const id = props.id;
   const onClick = props.onClick;
-  const type = props.type;
 
   return (
     <Card sx={{maxHeight: 600, maxWidth: 600 }} onClick={onClick}>
       <CardActionArea>
       <CardContent style={{textAlign: 'right'}}>
           <Typography variant="body2" color="text.secondary">
-            {publishDate}
+            {day + "/" + month + "/" + year}
           </Typography>
         </CardContent>
         <CardMedia sx={{ maxWidth: 150, marginLeft: "15%", marginTop: "1%"}}
@@ -36,3 +36,4 @@ export default function RequestCard(props) {
     </Card>
   );
 }
+

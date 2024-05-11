@@ -147,10 +147,11 @@ export default function ProductsView(props) {
         {filteredCards.map((card) => (
           <Grid key={card.id} xs={12} sm={6} md={3}>
             <RequestCard 
-            date={card.date} 
+            day={card.day}
+            month={card.month}
+            year={card.year}
             name={card.name} 
             image={card.image} 
-            id={card.id} 
             onClick={() => {
               setCurrentInfo(
                 { fname: (card.name.split(" "))[0] ,

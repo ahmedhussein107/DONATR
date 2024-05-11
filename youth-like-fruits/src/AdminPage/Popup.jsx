@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Typography from '@mui/material/Typography';
+import { Box } from '@mui/material';
+import ProfilePage from '../DonorPage/profile';
 
 function Popup(props) {
   const onClose = props.onClose;
@@ -7,20 +10,7 @@ function Popup(props) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-        <div style={{marginLeft: '5%' , gap: '5%'}}>
-        <div style={{display: 'flex' , flexDirection: 'row'}}>
-          <div>
-            
-          </div>
-          <div>
-
-          </div>
-        </div>
-        <div>
-
-        </div>
-        </div>
-
+        <ProfilePage header='Request Information'/>
       </div>
     </div>
   );

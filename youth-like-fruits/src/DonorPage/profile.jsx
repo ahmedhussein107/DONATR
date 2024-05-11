@@ -75,10 +75,11 @@ const EditButton = styled(Button)`
 const profileImageContainer = {
   display: 'flex',
   flexDirection: 'row-reverse',
-  marginLeft: '60px'
+  marginLeft: '0.2vw'
 }
 
-const ProfilePage = () => {
+const ProfilePage = (props) => {
+  const header = props.header;
   const [editableFields, setEditableFields] = useState({
     name: user.name,
     age: user.age,
@@ -114,7 +115,7 @@ const ProfilePage = () => {
           <div style={{ display: 'flex', flexDirection: 'row' }}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div></div>
-              <ProfileHeader >User Profile</ProfileHeader>
+              <ProfileHeader >{header}</ProfileHeader>
               <></>
               <br />
               <div style={{ marginleft: '100px' }}>
