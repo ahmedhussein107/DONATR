@@ -48,31 +48,14 @@ export default function ProductsView(props) {
 
   return (
     <Container>
-      <Box
-        sx={{
-          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-          padding: '20px',
-          borderRadius: '8px',
-          backgroundColor: '#fff',
-          textAlign: 'center',
-        }}
-      >
+      <Stack direction="row" justifyContent="space-between" m={2}>
         <Typography
           variant="h5"
           sx={{ color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold' }}
         >
           {pageTitle}
         </Typography>
-      </Box>
-
-      <Stack
-        direction="row"
-        alignItems="center"
-        flexWrap="wrap-reverse"
-        justifyContent="flex-end"
-        sx={{ mb: 5 }}
-      >
-        <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
+        <Stack direction="row" alignItems="center" spacing={1}>
           {filter && (
             <ProductFilters
               openFilter={openFilter}
@@ -84,8 +67,8 @@ export default function ProductsView(props) {
             name="email"
             label="Search Donor"
             onChange={handleChange}
-            type='text'            
-            variant='filled'
+            type="text"
+            variant="filled"
           />
           {sort && <ProductSort />}
         </Stack>
@@ -93,7 +76,7 @@ export default function ProductsView(props) {
 
       <Grid container spacing={3}>
         {filteredCards.map((card) => (
-          <Grid key={card.id} xs={12} sm={6} md={3}>
+          <Grid key={card.id} item xs={12} sm={6} md={3}>
             <RequestCard date={card.date} name={card.name} image={card.image} id={card.id} />
           </Grid>
         ))}
