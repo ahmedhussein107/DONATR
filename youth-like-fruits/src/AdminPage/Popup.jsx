@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ProfilePage from '../DonorPage/profile';
 
 function Popup(props) {
   const onClose = props.onClose;
@@ -7,20 +8,21 @@ function Popup(props) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-        <div style={{marginLeft: '5%' , gap: '5%'}}>
-        <div style={{display: 'flex' , flexDirection: 'row'}}>
-          <div>
-            
-          </div>
-          <div>
-
-          </div>
+        <div style={{marginTop: '7vh' , marginBottom: '-3vh'}}>
+          <ProfilePage 
+            header='Request Information' 
+            name={info.name}
+            age={info.age}
+            email={info.email}
+            address={info.address}
+            state={info.state}
+            country={info.country}
+            occupation={info.occupation}
+            phoneNumber={info.phoneNumber}
+            date={info.date}
+            image={info.image}
+          />
         </div>
-        <div>
-
-        </div>
-        </div>
-
       </div>
     </div>
   );
