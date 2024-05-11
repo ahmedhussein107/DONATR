@@ -19,6 +19,11 @@ import ListItemButton from '@mui/material/ListItemButton';
 import { fToNow } from '../../assets/format_time';
 import Iconify from '../../assets/Iconify';
 import Scrollbar from '../../assets/scrollbar';
+import notificationPic from '../.././assets/icons/ic_notification_package.svg';
+import shippingPic from '../.././assets/icons/ic_notification_shipping.svg';
+import notification_mail from '../.././assets/icons/ic_notification_mail.svg';
+import notification_chat from '../.././assets/icons/ic_notification_chat.svg';
+import avatar_11 from '../.././assets/avatar_11.jpg';
 const NOTIFICATIONS = [
   {
     id: faker.string.uuid(),
@@ -243,30 +248,30 @@ function renderContent(notification) {
 
   if (notification.type === 'order_placed') {
     return {
-      avatar: <img alt={notification.title} src="src/assets/icons/ic_notification_package.svg" />,
+      avatar: <img alt={notification.title} src={notificationPic} />,
       title,
     };
   }
   if (notification.type === 'order_shipped') {
     return {
-      avatar: <img alt={notification.title} src="src/assets/icons/ic_notification_shipping.svg" />,
+      avatar: <img alt={notification.title} src={shippingPic} />,
       title,
     };
   }
   if (notification.type === 'mail') {
     return {
-      avatar: <img alt={notification.title} src="src/assets/icons/ic_notification_mail.svg" />,
+      avatar: <img alt={notification.title} src={notification_mail} />,
       title,
     };
   }
   if (notification.type === 'chat_message') {
     return {
-      avatar: <img alt={notification.title} src="src/assets/icons/ic_notification_chat.svg" />,
+      avatar: <img alt={notification.title} src={notification_chat} />,
       title,
     };
   }
   return {
-    avatar: notification.avatar ? <img alt={notification.title} src="src/assets/icons/avatar_12.jpg" /> : null,
+    avatar: true ? <img alt={notification.title} src={avatar_11} /> : null,
     title,
   };
 }
