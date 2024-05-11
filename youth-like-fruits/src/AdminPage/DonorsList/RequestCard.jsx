@@ -10,6 +10,7 @@ export default function RequestCard(props) {
   const name = props.name;
   const image = props.image;
   const id = props.id;
+  const type = props.type;
 
   return (
     <Card sx={{maxHeight: 600, maxWidth: 600 }}>

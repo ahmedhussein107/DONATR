@@ -103,18 +103,9 @@ export default function UserView() {
 
   return (
     <Container sx={{height: '120vh'}}>
-      <Box sx={{
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', 
-        padding: '20px', 
-        borderRadius: '8px', 
-        backgroundColor: '#fff',
-        textAlign: 'center',
-        m: '1%' 
-      }}>
-        <Typography variant="h4" sx={{color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold'}}>
-          Users
+        <Typography variant="h4" sx={{color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold', padding: '1%'}}>
+          User Accounts
         </Typography>
-        </Box>
 
       <Card>
         <UserTableToolbar

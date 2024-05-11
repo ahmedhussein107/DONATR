@@ -3,36 +3,56 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import ProductSearch from '../product-search';
 import img from '../../../../assets/donor_icon.png';
 import RequestCard from '../../../../AdminPage/DonorsList/RequestCard';
-import ProductSort from '../product-sort';
-import ProductFilters from '../product-filters';
-import { Box, TextField } from '@mui/material';
+import { Box, TextField, MenuItem, Select, FormControl, FormLabel } from '@mui/material';
 
 export default function ProductsView(props) {
   const pageTitle = props.title;
-  const sort = props.sort;
-  const filter = props.filter;
   const [openFilter, setOpenFilter] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [sorting, setSorting] = useState('newest');
 
   const cards = [
     { date: '20/02/2020', name: 'Dr. Hamada', image: img, id: 1 },
-    { date: '20/02/2020', name: 'Dr. Ahmed Hamada', image: img, id: 2 },
-    { date: '20/02/2020', name: 'Dr. Ahmed Mohamed Hamada', image: img, id: 3 },
-    { date: '20/02/2020', name: 'Dr. Wael', image: img, id: 4 },
-    { date: '20/02/2020', name: 'Dr. Gohary', image: img, id: 5 },
-    { date: '20/02/2020', name: 'Prof Yasser', image: img, id: 6 },
-    { date: '20/02/2020', name: 'Dr. Tawfik', image: img, id: 7 },
-    { date: '20/02/2020', name: 'Prof Slim', image: img, id: 8 },
+    { date: '20/02/2021', name: 'Dr. Ahmed Hamada', image: img, id: 2 },
+    { date: '20/02/2019', name: 'Dr. Ahmed Mohamed Hamada', image: img, id: 3 },
+    { date: '20/02/2022', name: 'Dr. Wael', image: img, id: 4 },
+    { date: '20/02/2018', name: 'Dr. Gohary', image: img, id: 5 },
+    { date: '20/02/2023', name: 'Prof Yasser', image: img, id: 6 },
+    { date: '20/02/2017', name: 'Dr. Tawfik', image: img, id: 7 },
+    { date: '20/02/2024', name: 'Prof Slim', image: img, id: 8 },
   ];
 
+  // Sorting function based on the selected sorting option
+  const sortedCards = () => {
+    switch (sorting) {
+      case 'newest':
+        return cards.slice().sort((a, b) => {
+          const [dayA, monthA, yearA] = a.date.split('/').map(Number);
+          const [dayB, monthB, yearB] = b.date.split('/').map(Number);
+          return new Date(yearB, monthB - 1, dayB) - new Date(yearA, monthA - 1, dayA);
+        });
+      case 'oldest':
+        return cards.slice().sort((a, b) => {
+          const [dayA, monthA, yearA] = a.date.split('/').map(Number);
+          const [dayB, monthB, yearB] = b.date.split('/').map(Number);
+          return new Date(yearA, monthA - 1, dayA) - new Date(yearB, monthB - 1, dayB);
+        });
+      case 'lexicalAscending':
+        return cards.slice().sort((a, b) => a.name.localeCompare(b.name));
+      case 'lexicalDescending':
+        return cards.slice().sort((a, b) => b.name.localeCompare(a.name));
+      default:
+        return cards;
+    }
+  };
+
   const filteredCards = searchTerm
-    ? cards.filter((card) =>
+    ? sortedCards().filter((card) =>
       card.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
-    : cards;
+    : sortedCards();
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
@@ -46,6 +66,10 @@ export default function ProductsView(props) {
     setSearchTerm(event.target.value);
   };
 
+  const handleSortingChange = (event) => {
+    setSorting(event.target.value);
+  };
+
   return (
     <Container>
       <Stack direction="row" justifyContent="space-between" m={2}>
@@ -56,21 +80,25 @@ export default function ProductsView(props) {
           {pageTitle}
         </Typography>
         <Stack direction="row" alignItems="center" spacing={1}>
-          {filter && (
-            <ProductFilters
-              openFilter={openFilter}
-              onOpenFilter={handleOpenFilter}
-              onCloseFilter={handleCloseFilter}
-            />
-          )}
           <TextField
             name="email"
-            label="Search Donor"
+            label="Search Donor"  
             onChange={handleChange}
             type="text"
-            variant="filled"
+            variant="outlined"
           />
-          {sort && <ProductSort />}
+            
+          <Select
+            value={sorting}
+            onChange={handleSortingChange}
+            variant="outlined"
+          >
+            <MenuItem value="newest">Newest</MenuItem>
+            <MenuItem value="oldest">Oldest</MenuItem>
+            <MenuItem value="lexicalAscending">Lexicographical Ascending</MenuItem>
+            <MenuItem value="lexicalDescending">Lexicographical Descending</MenuItem>
+          </Select>
+          
         </Stack>
       </Stack>
 
