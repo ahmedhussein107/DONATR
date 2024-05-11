@@ -6,7 +6,7 @@ const ClothesForm = () => {
         title: '',
         targetAmount: '',
         description: '',
-        images: [],
+        image: null  ,
         deadline: '',
         sizeRange: '',
         gender: '',
@@ -14,14 +14,14 @@ const ClothesForm = () => {
         condition: '',
     });
 
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(true);
 
     // Refs for tooltips
     const tooltipRefs = {
         title: useRef(null),
         targetAmount: useRef(null),
         description: useRef(null),
-        images: useRef(null),
+        image: useRef(null),
         deadline: useRef(null),
         sizeRange: useRef(null),
         gender: useRef(null),
@@ -55,78 +55,76 @@ const ClothesForm = () => {
     };
     return (
         <form onSubmit={handleSubmit}>
-            <h2>Clothes Donation Form</h2>
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <Tooltip
-                    title="A clear and concise title describing the donation need. (e.g., Winter Clothes Drive for Children in Need)"
-                    placement="top"
-                >
-                    <TextField
-                        margin="normal"
-                        fullWidth
-                        label="Donation Title"
-                        name="title"
-                        value={formData.title}
-                        onChange={handleChange}
-                        required
-                        onMouseEnter={() => handleTooltipVisibility('title', true)}
-                        onMouseLeave={() => handleTooltipVisibility('title', false)}
-                        inputRef={tooltipRefs.title}
-                    />
-                </Tooltip>
-            </div>
+            <h2>Clothes Donation Post Details</h2>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <Tooltip
-                    title="A detailed description of the donation need. Explain what the donation will be used for and the impact it will create."
-                    placement="top"
-                >
-                    <TextField
-                        margin="normal"
-                        fullWidth
-                        label="Description"
-                        multiline
-                        rows={4}
-                        name="description"
-                        value={formData.description}
-                        onChange={handleChange}
-                        required
-                        onMouseEnter={() => handleTooltipVisibility('description', true)}
-                        onMouseLeave={() => handleTooltipVisibility('description', false)}
-                        inputRef={tooltipRefs.description}
+            <Tooltip
+                title="A clear and concise title describing the donation need. (e.g., Winter Clothes Drive for Children in Need)"
+                placement="right"
+            >
+                <TextField
+                    margin="normal"
+                    fullWidth
+                    label="Donation Title"
+                    name="title"
+                    value={formData.title}
+                    onChange={handleChange}
+                    required
+                    onMouseEnter={() => handleTooltipVisibility('title', true)}
+                    onMouseLeave={() => handleTooltipVisibility('title', false)}
+                    inputRef={tooltipRefs.title}
+                    variant='filled'
+                />
+            </Tooltip>
 
-                    />
-                </Tooltip>
-            </div>
+            <Tooltip
+                title="A detailed description of the donation need. Explain what the donation will be used for and the impact it will create."
+                placement="right"
+            >
+                <TextField
+                    margin="normal"
+                    fullWidth
+                    label="Description"
+                    multiline
+                    rows={4}
+                    name="description"
+                    value={formData.description}
+                    onChange={handleChange}
+                    required
+                    onMouseEnter={() => handleTooltipVisibility('description', true)}
+                    onMouseLeave={() => handleTooltipVisibility('description', false)}
+                    inputRef={tooltipRefs.description}
+                    variant='filled'
+                />
+            </Tooltip>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <Tooltip
-                    title="Upload relevant images to showcase the donation need visually. (Optional)"
-                    placement="top" >
-                    <Button variant="contained" component="label" style={{ marginRight: '10px' }}>
-                        Upload Images (Optional)
-                        <input type="file" hidden multiple onChange={handleChange} name="images" />
-                    </Button>
-                </Tooltip>
+            <Tooltip
+                title="Upload relevant image to showcase the donation need visually. (Optional)"
+                placement="right" >
+                <Button variant="contained" component="label" style={{ marginRight: '10px' }}>
+                    Upload Image (Optional)
+                    <input accept="image/*"   type="file" hidden multiple onChange={handleChange} name="image" />
+                </Button>
+                {formData.image && <p id='special-p'> {formData.image.name }</p>}
+            </Tooltip>
 
-                <Tooltip
-                    title="If there's a specific deadline for collecting donations, include a date. (Optional)"
-                    placement="top">
-                    <TextField
-                        margin="normal"
-                        fullWidth
-                        label={isHovered ? '' : 'Donation Deadline (Optional)'}
-                        name="deadline"
-                        type="date"
-                        value={formData.targetAmount}
-                        onChange={handleChange}
-                        onMouseEnter={() => handleTooltipVisibility('deadline', true)}
-                        onMouseLeave={() => handleTooltipVisibility('deadline', false)}
-                        inputRef={tooltipRefs.deadline}
+            <Tooltip
+                title="If there's a specific deadline for collecting donations, include a date. (Optional)"
+                placement="right">
+                <TextField
+                    margin="normal"
+                    fullWidth
+                    label={isHovered ? '' : 'Donation Deadline (Optional)'}
+                    name="deadline"
+                    type="date"
+                    value={formData.targetAmount}
+                    onChange={handleChange}
+                    onMouseEnter={() => handleTooltipVisibility('deadline', true)}
+                    onMouseLeave={() => handleTooltipVisibility('deadline', false)}
+                    inputRef={tooltipRefs.deadline}
 
-                    />
-                </Tooltip>
-            </div>
+                />
+            </Tooltip>
+
             <FormControl
                 fullWidth margin="normal"
                 onMouseEnter={() => handleTooltipVisibility('sizeRange', true)}
@@ -134,7 +132,7 @@ const ClothesForm = () => {
                 <InputLabel id="sizeRangeLabel">Size Range</InputLabel>
                 <Tooltip
                     title="The range of sizes needed for the clothing donations. (e.g., infant, children's, adult)"
-                    placement="top">
+                    placement="right">
                     <Select
                         labelId="sizeRangeLabel"
                         name="sizeRange"
@@ -142,7 +140,7 @@ const ClothesForm = () => {
                         onChange={handleChange}
                         required
                         inputRef={tooltipRefs.sizeRange}
-
+                        variant='filled'
                     >
                         <MenuItem value="">Select Size Range</MenuItem>
                         <MenuItem value="infant">Infant</MenuItem>
@@ -159,13 +157,14 @@ const ClothesForm = () => {
                 <InputLabel id="genderLabel">Gender (Optional)</InputLabel>
                 <Tooltip
                     title="Specify the gender of clothing needed, or select 'All' if applicable. (Optional)"
-                    placement="top">
+                    placement="right">
                     <Select
                         labelId="genderLabel"
                         name="gender"
                         value={formData.gender}
                         onChange={handleChange}
                         inputRef={tooltipRefs.gender}
+                        variant='filled'
 
                     >
                         <MenuItem value="">Select Gender (All)</MenuItem>
@@ -176,26 +175,24 @@ const ClothesForm = () => {
             </FormControl>
 
 
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <Tooltip
-                    title="Specify the types of clothing needed (e.g., coats, jackets, pants, shoes). (Required)"
-                    placement="top"
-                >
-                    <TextField
-                        margin="normal"
-                        fullWidth
-                        label="Type of Clothing"
-                        name="clothingType"
-                        value={formData.clothingType}
-                        onChange={handleChange}
-                        required
-                        onMouseEnter={() => handleTooltipVisibility('clothingType', true)}
-                        onMouseLeave={() => handleTooltipVisibility('clothingType', false)}
-                        inputRef={tooltipRefs.clothingType}
-                    />
-                </Tooltip>
-            </div>
-
+            <Tooltip
+                title="Specify the types of clothing needed (e.g., coats, jackets, pants, shoes). (Required)"
+                placement="right"
+            >
+                <TextField
+                    margin="normal"
+                    fullWidth
+                    label="Type of Clothing"
+                    name="clothingType"
+                    value={formData.clothingType}
+                    onChange={handleChange}
+                    required
+                    onMouseEnter={() => handleTooltipVisibility('clothingType', true)}
+                    onMouseLeave={() => handleTooltipVisibility('clothingType', false)}
+                    inputRef={tooltipRefs.clothingType}
+                    variant='filled'
+                />
+            </Tooltip>
 
 
             <FormControl
@@ -205,7 +202,7 @@ const ClothesForm = () => {
                 <InputLabel id="conditionLabel">Condition</InputLabel>
                 <Tooltip
                     title="Indicate the condition of the clothing donations accepted. (Required)"
-                    placement="top" >
+                    placement="right" >
                     <Select
                         labelId="conditionLabel"
                         name="condition"
@@ -213,6 +210,7 @@ const ClothesForm = () => {
                         onChange={handleChange}
                         required
                         inputRef={tooltipRefs.condition}
+                        variant='filled'
                     >
                         <MenuItem value="">Select Condition</MenuItem>
                         <MenuItem value="new">New</MenuItem>
@@ -225,7 +223,7 @@ const ClothesForm = () => {
 
 
             <div className="button-container">
-                <Button type="submit" variant="contained">
+                <Button type="submit" variant="contained" className='button'>
                     Submit Donation Post
                 </Button>
             </div>
