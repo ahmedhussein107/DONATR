@@ -1,0 +1,20 @@
+.top_section{
+    padding:20px 15px;
+}
+.bars{
+    display: flex;
+    font-size: 25px;
+    margin-left: 50px;
+}
+.link{
+    display: flex;
+    color: #fff;
+    padding: 10px 15px;
+    gap: 15px;
+    transition: all 0.5s;
+}
+.link:hover{
+    background:#1D8AC5;
+    color: #000;
+    transition: all 0.2s;
+}

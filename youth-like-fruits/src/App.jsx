@@ -11,6 +11,8 @@ import DonorReg from "./RegisterPage/DonorReg.jsx"
 import FormPage from "./ContactUs/FormPage.jsx"
 import SuccessPage from "./ContactUs/SuccessPage.jsx"
 import DashBoard from "./DonorPage/DashBoard.jsx"
+import OrganizationPage from "./OrganizationPage/OrganizationPage.jsx"
+import OrganizationCreatePostPage from "./OrganizationPage/OrganizationCreatePostPage.jsx"
 import probono from "./DonorPage/probono.jsx"
 import org from './DonorPage/Organizations.jsx'
 import requested from './DonorPage/requestedItems/main.jsx'
@@ -19,6 +21,17 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path='/admin' element={<AdminPage />} />
+        <Route path='/organization' element={<OrganizationPage />} />
+        <Route path='/organization/create-post' element={<OrganizationCreatePostPage />} />
+        <Route path='/contact' element={<ContactPage />} />
+        <Route path='/register/organization' element={<OrganizationReg />} />
+        <Route path='/register/donor' element={<DonorReg />} />
+        <Route path='/admin/donors-list' element={<NewDonorsList />} />
+        <Route path='/admin/account-management' element={<AccountManagement />} />
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />

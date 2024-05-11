@@ -24,7 +24,7 @@ function DashBoard() {
   const fontSize = '3vh';
   const menuItem = [
     {
-      path: '/donordash',
+      path: '/donor/donor-home',
       name: "Profile",
       icon: <HomeIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
     },
