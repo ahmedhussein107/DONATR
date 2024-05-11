@@ -6,22 +6,35 @@ import Typography from '@mui/material/Typography';
 import img from '../../../../assets/donor_icon.png';
 import RequestCard from '../../../../AdminPage/DonorsList/RequestCard';
 import { Box, TextField, MenuItem, Select, FormControl, FormLabel } from '@mui/material';
+import ProductSort from '../product-sort';
+import ProductFilters from '../product-filters';
+import Popup from '../../../../AdminPage/Popup';
 
 export default function ProductsView(props) {
   const pageTitle = props.title;
   const [openFilter, setOpenFilter] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [sorting, setSorting] = useState('newest');
+  const [openPopup, setOpenPopup] = useState(false);
+  const [currentInfo, setCurrentInfo] = useState(null);
+
+  const onPopupClose = () => {
+    setOpenPopup(false);
+  }
+
+  const onPopupOpen = () => {
+    setOpenPopup(true);
+  }
 
   const cards = [
     { date: '20/02/2020', name: 'Dr. Hamada', image: img, id: 1 },
-    { date: '20/02/2021', name: 'Dr. Ahmed Hamada', image: img, id: 2 },
-    { date: '20/02/2019', name: 'Dr. Ahmed Mohamed Hamada', image: img, id: 3 },
-    { date: '20/02/2022', name: 'Dr. Wael', image: img, id: 4 },
-    { date: '20/02/2018', name: 'Dr. Gohary', image: img, id: 5 },
-    { date: '20/02/2023', name: 'Prof Yasser', image: img, id: 6 },
-    { date: '20/02/2017', name: 'Dr. Tawfik', image: img, id: 7 },
-    { date: '20/02/2024', name: 'Prof Slim', image: img, id: 8 },
+    { date: '20/02/2020', name: 'Dr. Ahmed Hamada', image: img, id: 2 },
+    { date: '20/02/2020', name: 'Dr. Ahmed Mohamed Hamada', image: img, id: 3 },
+    { date: '20/02/2020', name: 'Dr. Wael', image: img, id: 4 },
+    { date: '20/02/2020', name: 'Dr. Gohary', image: img, id: 5 },
+    { date: '20/02/2020', name: 'Prof Yasser', image: img, id: 6 },
+    { date: '20/02/2020', name: 'Dr. Tawfik', image: img, id: 7 },
+    { date: '20/02/2020', name: 'Prof Slim', image: img, id: 8 },
   ];
 
   // Sorting function based on the selected sorting option
@@ -72,7 +85,17 @@ export default function ProductsView(props) {
 
   return (
     <Container>
+      {openPopup && <Popup onClose={onPopupClose} info={currentInfo} />}
       <Stack direction="row" justifyContent="space-between" m={2}>
+      <Box
+        sx={{
+          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+          padding: '20px',
+          borderRadius: '8px',
+          backgroundColor: '#fff',
+          textAlign: 'center',
+        }}
+      />
         <Typography
           variant="h5"
           sx={{ color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold' }}
@@ -102,10 +125,13 @@ export default function ProductsView(props) {
         </Stack>
       </Stack>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} mb={2}>
         {filteredCards.map((card) => (
-          <Grid key={card.id} item xs={12} sm={6} md={3}>
-            <RequestCard date={card.date} name={card.name} image={card.image} id={card.id} />
+          <Grid key={card.id} xs={12} sm={6} md={3}>
+            <RequestCard date={card.date} name={card.name} image={card.image} id={card.id} onClick={() => {
+              setCurrentInfo(card.info);
+              onPopupOpen();
+            }} />
           </Grid>
         ))}
       </Grid>

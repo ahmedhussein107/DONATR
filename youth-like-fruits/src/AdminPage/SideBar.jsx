@@ -27,7 +27,7 @@ function SideBar(props) {
             // position: `fixed`
             }}>
                <div className="top_section">
-                   <div style={{marginLeft: open ? "15vw" : "0vw" , transition: `all 0.2s`}} 
+                   <div style={{marginLeft: open ? "15vw" : "0vw" , transition: `all 0.3s`}} 
                    className="bars">
                        <MenuIcon onClick={toggle} style={{fontSize: fontSize, cursor: 'pointer',fill: '#D5E0E6'}}/>
                    </div>
