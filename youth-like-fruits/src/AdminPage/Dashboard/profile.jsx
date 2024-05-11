@@ -27,7 +27,7 @@ const MENU_OPTIONS = [
 
 // ----------------------------------------------------------------------
 
-export default function AccountPopover({ dir }) {
+export default function AccountPopover({ dir, dir2 }) {
   const [open, setOpen] = useState(null);
 
   const handleOpen = (event) => {
@@ -42,6 +42,9 @@ export default function AccountPopover({ dir }) {
   };
   const handledashboard = () => {
     window.location.href = dir;
+  };
+  const handleettings = () => {
+    window.location.href = dir2;
   };
 
   return (
@@ -104,6 +107,7 @@ export default function AccountPopover({ dir }) {
           Profile
         </MenuItem>
         <MenuItem
+          onClick={handleettings}
           sx={{ typography: 'subtitle2', py: 1.5 }}
         >
           Settings

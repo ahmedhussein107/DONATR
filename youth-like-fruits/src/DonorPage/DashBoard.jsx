@@ -9,6 +9,7 @@ import ProfilePage from './profile'
 import HomeIcon from '@mui/icons-material/Home';
 import ListIcon from '@mui/icons-material/List';
 import HailIcon from '@mui/icons-material/Hail';
+import SettingsProfile from './SettingsProfile'
 function DashBoard() {
 
   const [menu, setMenu] = useState(false);
@@ -17,13 +18,13 @@ function DashBoard() {
   const listOfIcons = [
     <Stack direction="row" alignItems="center" spacing={1}>
       <NotificationsPopover />
-      <AccountPopover dir='/donor/donor-home' />
+      <AccountPopover dir='/donor/donor-home' dir2={'/Settings'} />
     </Stack>
   ]
   const fontSize = '3vh';
   const menuItem = [
     {
-      path: '/donordash',
+      path: '/donor/donor-home',
       name: "Profile",
       icon: <HomeIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
     },
