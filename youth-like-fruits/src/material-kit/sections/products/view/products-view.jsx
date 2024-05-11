@@ -154,13 +154,18 @@ export default function ProductsView(props) {
             image={card.image} 
             onClick={() => {
               setCurrentInfo(
-                { fname: (card.name.split(" "))[0] ,
-                  lname: (card.name.split(" "))[1] ,
+                { name: card.name ,
+                  age: card.age ,
                   image: card.image , 
-                  date: card.date , 
+                  date: `${card.year}/${card.month}/${card.day}` , 
                   type: card.type ,
-                  contact: card.contact ,
+                  phoneNumber: card.phoneNumber ,
                   email: card.email ,
+                  address: 'Helwan' ,
+                  state: 'Helwan' ,
+                  country: 'Egypt' ,
+                  image: card.image ,
+                  id: card.id ,
                 });
               onPopupOpen();
             }} />

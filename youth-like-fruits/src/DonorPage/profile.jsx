@@ -4,11 +4,10 @@ import ahmed from '../assets/icons/avatar_12.jpg';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import MyButton from '../Components/MyButton/MyButton';
-import { Alert } from '@mui/material';
+import { Alert, Typography } from '@mui/material';
 
 const ProfilePage = (props) => {
   const header = props.header;
-  // Sample user data
   const user = {
     name: props.name,
     age: props.age,
@@ -18,10 +17,14 @@ const ProfilePage = (props) => {
     country: props.country,
     occupation: props.occupation,
     phoneNumber: props.phoneNumber,
-    // Add more details as needed
+    date: props.date,
+    image: props.image,
+    acceptButton: props.acceptButton,
+    rejectButton: props.rejectButton,
+    downloadButton: props.downloadButton,
+    saveButton: props.saveButton,
   };
 
-  // Styled components for styling the profile box
   const ProfileContainer = styled.div`
     justify-content: center;
     align-items: flex-start;
@@ -74,11 +77,15 @@ const ProfilePage = (props) => {
     align-self: flex-end;
   `;
 
-  const profileImageContainer = {
-    display: 'flex',
-    flexDirection: 'row-reverse',
-    marginLeft: '0.2vw'
-  }
+  // const profileImageContainer = {
+  //   display: 'flex',
+  //   flexDirection: 'row-reverseconst profileImageContainer = {
+  //   display: 'flex',
+  //   flexDirection: 'row-reverse',
+  //   marginLeft: '0.2vw'
+  // }',
+  //   marginLeft: '0.2vw'
+  // }
   const [editableFields, setEditableFields] = useState({
     name: user.name,
     age: user.age,
@@ -88,6 +95,12 @@ const ProfilePage = (props) => {
     country: user.country,
     occupation: user.occupation,
     phoneNumber: user.phoneNumber,
+    date: user.date,
+    image: user.image,
+    acceptButton: user.acceptButton,
+    rejectButton: user.rejectButton,
+    downloadButton: user.downloadButton,
+    saveButton: user.saveButton,
   });
 
   const handleFieldChange = (fieldName, value) => {
@@ -150,14 +163,12 @@ const ProfilePage = (props) => {
                     {/* <Label>Address:</Label> */}
                     <TextField id="filled-basic" label="Address" variant="filled" defaultValue={user.address} InputProps={{
                       readOnly: true,
-
                     }} />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>State:</Label> */}
                     <TextField id="filled-basic" label="State" variant="filled" defaultValue={user.state} disa InputProps={{
                       readOnly: true,
-
                     }} bled />
                   </DetailItem>
                 </div>
@@ -166,7 +177,6 @@ const ProfilePage = (props) => {
                     {/* <Label>Country:</Label> */}
                     <TextField id="filled-basic" label="Country" variant="filled" defaultValue={user.country} InputProps={{
                       readOnly: true,
-
                     }} />
                   </DetailItem>
                   <DetailItem>
@@ -176,23 +186,66 @@ const ProfilePage = (props) => {
                 </div>
               </div>
             </div>
-            <div style={profileImageContainer}>
-              <ProfileImage src={ahmed} alt="User's profile picture" />
+            <div style={{}}>
+              <ProfileImage src={user.image} alt="User's profile picture" />
+              {!(user.date==='') && <Typography 
+                sx={{
+                  textAlign: 'center' , 
+                  marginLeft: '17vh' , 
+                  marginTop: '2vh'
+                }}>
+              {`Published Date: ${user.date}`}
+              </Typography>}
             </div>
           </div>
           <br />
-          <br />
-          <MyButton
-            label="Save"
-            normalColor="#1D8AC5"
-            hoverColor="#135E86"
-            paddingWidth={14}
-            paddingHeight={30}
-            minimumWidth={200}
-            minimumHeight={45}
-            marginLeft={2.7}
-            clickHandler={handleButtonClick}
-          />
+          <br /> 
+          <div style={{display: 'flex' , flexDirection: 'row'}}>
+            {!(user.saveButton === null) && <MyButton
+                label="Save"
+                normalColor={user.saveButton.normalColor}
+                hoverColor={user.saveButton.hoverColor}
+                paddingWidth={14}
+                paddingHeight={30}
+                minimumWidth={200}
+                minimumHeight={45}
+                marginLeft={2.7}
+                clickHandler={handleButtonClick}
+              />}
+            {!(user.downloadButton === null) && <MyButton
+                label="Download official doc"
+                normalColor={user.downloadButton.normalColor}
+                hoverColor={user.downloadButton.hoverColor}
+                paddingWidth={14}
+                paddingHeight={30}
+                minimumWidth={200}
+                minimumHeight={45}
+                marginLeft={2.7}
+                clickHandler={user.downloadButton.onClick}
+              />} 
+            {!(user.acceptButton === null) && <MyButton
+                label="Accept"
+                normalColor={user.acceptButton.normalColor}
+                hoverColor={user.acceptButton.hoverColor}
+                paddingWidth={14}
+                paddingHeight={30}
+                minimumWidth={200}
+                minimumHeight={45}
+                marginLeft={2.7}
+                clickHandler={user.acceptButton.onClick}
+              />}
+            {!(user.rejectButton === null) && <MyButton
+                label="Reject"
+                normalColor={user.rejectButton.normalColor}
+                hoverColor={user.rejectButton.hoverColor}
+                paddingWidth={14}
+                paddingHeight={30}
+                minimumWidth={200}
+                minimumHeight={45}
+                marginLeft={2.7}
+                clickHandler={user.rejectButton.onClick}
+              />}
+          </div>
         </div>
       </ProfileBox>
       <div style={{ marginTop: '2%' }}>
@@ -215,6 +268,15 @@ ProfilePage.defaultProps = {
   country: 'Egypt',
   occupation: 'Regular',
   phoneNumber: '+20 111 7621 421',
+  date: '',
+  image: ahmed,
+  saveButton: {
+    normalColor: "#1D8AC5",
+    hoverColor: "#135E86"
+  },
+  acceptButton: null,
+  rejectButton: null,
+  downloadButton: null,
 }
 
 export default ProfilePage;
