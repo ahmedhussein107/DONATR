@@ -47,35 +47,36 @@ export default function RequestedItemsView(props) {
   const [selectedId, setSelectedId] = useState(null);
   const [currentCategory, setCurrentCategory] = useState(null);
 
-  // Sorting function based on the selected sorting option
-  const sortedCards = () => {
-    switch (sorting) {
-      case 'newest':
-        return cards.slice().sort((a, b) => {
-          const dayA = a.day;
-          const monthA = a.month;
-          const yearA = a.year;
-          const dayB = b.day;
-          const monthB = b.month;
-          const yearB = b.year;
-          return new Date(yearB, monthB - 1, dayB) - new Date(yearA, monthA - 1, dayA);
-        });
-      case 'oldest':
-        return cards.slice().sort((a, b) => {
-          const dayA = a.day;
-          const monthA = a.month;
-          const yearA = a.year;
-          const dayB = b.day;
-          const monthB = b.month;
-          const yearB = b.year;
-          return new Date(yearA, monthA - 1, dayA) - new Date(yearB, monthB - 1, dayB);
-        });
-      case 'lexicalAscending':
-        return cards.slice().sort((a, b) => a.name.localeCompare(b.name));
-      case 'lexicalDescending':
-        return cards.slice().sort((a, b) => b.name.localeCompare(a.name));
-      default:
-        return cards;
+  const isGood = (card) => {
+    if (currentFilters === null) return true;
+    switch (currentCategory) {
+        case 'Clothes':
+            if (currentFilters.maxAge !== null && (card.details.age > currentFilters.maxAge || card.details.age < currentFilters.minAge)) return false;
+            if (currentFilters.gender !== null && card.details.gender !== currentFilters.gender) return false;
+            if (currentFilters.season !== null && card.details.season !== currentFilters.season) return false;
+            return true;
+        case 'School Supplies':
+            if (currentFilters.type !== null && card.details.type !== currentFilters.type) return false;
+            return true;
+        case 'Toys':
+            if (currentFilters.maxAge !== null && (card.details.age > currentFilters.maxAge || card.details.age < currentFilters.minAge)) return false;
+            if (currentFilters.gender !== null && card.details.gender !== currentFilters.gender) return false;
+            if (currentFilters.subtype !== null && card.details.subtype !== currentFilters.subtype) return false;
+            return true;
+        case 'Food':
+            if (currentFilters.subtype !== null && card.details.subtype !== currentFilters.subtype) return false;
+            return true;
+        case 'Medical Supplies':
+            if (currentFilters.subtype !== null && card.details.subtype !== currentFilters.subtype) return false;
+            if (card.details.subtype === 'Medications' && currentFilters.medicalUse !== null && card.details.medicalUse !== currentFilters.medicalUse) return false;
+            return true;
+        case 'Blood Donations':
+            if (currentFilters.hospitalName !== null && card.details.hospitalName !== currentFilters.hospitalName) return false;
+            if (currentFilters.governorate !== null && card.details.governorate !== currentFilters.governorate) return false;
+            if (currentFilters.area !== null && card.details.area !== currentFilters.area) return false;
+            return true;
+        default:
+            return true;
     }
   };
 
@@ -194,6 +195,7 @@ export default function RequestedItemsView(props) {
             month={card.month}
             year={card.year}
             orgName={card.orgName} 
+            type={card.type}
             onClick={() => {
               setSelectedId(card.id);
               setCurrentInfo(

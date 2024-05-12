@@ -20,6 +20,7 @@ import Settings from './DonorPage/Settings.jsx'
 import RegisteredItems from "./DonorPage/requestedItems/RegisteredItems.jsx"
 import OrganizationList from "./AdminPage/OrganizationsLists/OrganizationList.jsx"
 import RegisteredOrganizations from "./AdminPage/OrganizationsLists/RegisteredOrganizations.jsx"
+import EventPage from "./EventPage/EventPage.jsx"
 function App() {
   return (
     <>
@@ -54,6 +55,7 @@ function App() {
         <Route path='/Donorrequested' element={<requested />} />
         <Route path='/Settings' element={<Settings />} />
         <Route path='/RegisteredItems' element={<RegisteredItems />} />
+        <Route path='/event' element={<EventPage/>}/>
       </Routes>
     </>
   )
