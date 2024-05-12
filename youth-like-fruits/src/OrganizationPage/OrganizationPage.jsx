@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import ElevateAppBar from '../Components/ElevateAppBar/ElevateAppBar'
 import SideBar from './SideBar'
 import Footer from '../Components/Footer/Footer'
-
-
 import NotificationsPopover from '../AdminPage/Dashboard/Notifications'
 import AccountPopover from '../AdminPage/Dashboard/profile'
 import Stack from '@mui/material/Stack';
@@ -11,9 +9,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import ListIcon from '@mui/icons-material/List';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import ChecklistRoundedIcon from '@mui/icons-material/ChecklistRounded';
-import SelectVariants from '../AdminPage/Dashboard/SelectVariants'
-import OutlinedCard from '../AdminPage/Dashboard/OutlinedCard'
-import StackBars from '../AdminPage/Dashboard/StackBars'
+import ProfileOrganization from './ProfileOrganization';
 
 function OrganizationPage() {
 
@@ -84,6 +80,7 @@ function OrganizationPage() {
                         }}>Create Donation Post</p>
 
 
+                        <ProfileOrganization />
 
 
                         <div style={{

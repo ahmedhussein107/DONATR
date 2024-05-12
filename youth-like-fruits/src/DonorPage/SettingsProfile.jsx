@@ -187,17 +187,31 @@ const SettingsProfile = () => {
                     </div>
                     <br />
                     <br />
-                    <MyButton
-                        label="Update Informations"
-                        normalColor="#1D8AC5"
-                        hoverColor="#135E86"
-                        paddingWidth={14}
-                        paddingHeight={30}
-                        minimumWidth={200}
-                        minimumHeight={45}
-                        marginLeft={2.7}
-                        clickHandler={handleButtonClick}
-                    />
+                    <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: '5%' }}>
+                        <MyButton
+                            label="Update Informations"
+                            normalColor="#1D8AC5"
+                            hoverColor="#135E86"
+                            paddingWidth={14}
+                            paddingHeight={30}
+                            minimumWidth={200}
+                            minimumHeight={45}
+                            marginLeft={2.7}
+                            clickHandler={handleButtonClick}
+                        />
+                        <MyButton
+                            label="Delete My Account"
+                            normalColor="#8B0000"
+                            hoverColor="#135E86"
+                            paddingWidth={14}
+                            paddingHeight={30}
+                            minimumWidth={200}
+                            minimumHeight={45}
+                            marginLeft={2.7}
+                            clickHandler={handleButtonClick}
+
+                        />
+                    </div>
                 </div>
             </ProfileBox>
             <div style={{ marginTop: '2%' }}>
