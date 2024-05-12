@@ -30,7 +30,7 @@ export default function RequestedItemsCard(props) {
             return toysIcon;
         case 'Food':
             return foodIcon;
-        case 'Medical Supplies':
+        case 'Medical Suplies':
             return medicalIcon;
         case 'School Supplies':
             return schoolIcon;

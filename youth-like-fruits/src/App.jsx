@@ -24,6 +24,8 @@ import EventPage from './EventPage/EventPage.jsx'
 import ForgotPassword from "./ForgotPassword/ForgotPassword.jsx"
 import Aboutt from "./AboutPage/About.jsx"
 import DonationPickupForm from "./DonorPage/DonationPickupForm.jsx"
+import DonorSecondStepDoctor from "./RegisterPage/DonorSecondStepDoctor.jsx"
+import DonorSecondStepTeacher from "./RegisterPage/DonorSecondStepTeacher.jsx"
 function App() {
   return (
     // <DonationPickupForm />
@@ -43,6 +45,8 @@ function App() {
         <Route path='/admin/account-management' element={<AccountManagement />} />
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/second-step-doctor' element={<DonorSecondStepDoctor />} />
+        <Route path='/second-step-teacher' element={<DonorSecondStepTeacher />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/contact' element={<ContactPage />} />

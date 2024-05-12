@@ -9,12 +9,17 @@ import ProductFilters from '../product-filters';
 import RequestedItemsCard from '../../../../DonorPage/requestedItems/RequestedItemsCard';
 
 import {items} from '../../../_mock/requests';
+import FilterClothes from '../filterClothes';
+import FilterSchool from '../filterSchool';
+import FilterToys from '../filterToys';
+import FilterFood from '../filterFood';
+import FilterMedicalSupplies from '../filterMedicalSupplies';
+import FilterBloodDonations from '../filterBloodDonations';
 import RequestedItemsPopup from '../../../../DonorPage/requestedItems/RequestedItemsPopup';
 
 export default function RequestedItemsView(props) {
   const pageTitle = props.title;
   const [openFilter, setOpenFilter] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
   const [openPopup, setOpenPopup] = useState(false);
   const [currentInfo, setCurrentInfo] = useState(null);
 
@@ -25,7 +30,7 @@ export default function RequestedItemsView(props) {
   const onPopupOpen = () => {
     setOpenPopup(true);
   }
-
+  
   const [cards, setCards] = useState(items);
   const [selectedId, setSelectedId] = useState(null);
   const [currentFilters, setCurrentFilters] = useState(null);
@@ -33,7 +38,8 @@ export default function RequestedItemsView(props) {
   const [filter, setFilter] = useState(false);
 
   const isGood = (card) => {
-    if (currentFilters === null) return true;
+    if (currentCategory !== 'All' && card.generalType !== currentCategory) return false;
+    if (currentFilters === null) return true; 
     switch (currentCategory) {
         case 'Clothes':
             if (currentFilters.maxAge !== null && (card.details.age > currentFilters.maxAge || card.details.age < currentFilters.minAge)) return false;
@@ -51,9 +57,9 @@ export default function RequestedItemsView(props) {
         case 'Food':
             if (currentFilters.subtype !== null && card.details.subtype !== currentFilters.subtype) return false;
             return true;
-        case 'Medical Supplies':
+        case 'Medical Suplies':
             if (currentFilters.subtype !== null && card.details.subtype !== currentFilters.subtype) return false;
-            if (card.details.subtype === 'Medications' && currentFilters.medicalUse !== null && card.details.medicalUse !== currentFilters.medicalUse) return false;
+            if (card.details.subtype === 'Medication' && currentFilters.medicalUse !== null && card.details.medicalUse !== currentFilters.medicalUse) return false;
             return true;
         case 'Blood Donations':
             if (currentFilters.hospitalName !== null && card.details.hospitalName !== currentFilters.hospitalName) return false;
@@ -65,25 +71,35 @@ export default function RequestedItemsView(props) {
     }
   }
 
-  const filteredCards = searchTerm ? items.filter((card) => isGood(card)) : items;
+  const [ok , setOk] = useState(false);
+
+  const filteredCards = ok ? items.filter((card) => isGood(card)) : items;
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
+    setOk(true);
   };
 
   const handleCloseFilter = () => {
     setOpenFilter(false);
+    setOk(true);
+    console.log(currentFilters);
   };
 
 
   const handleCategoryChange = (event) => {
     setFilter(event.target.value !== 'All');
     setCurrentCategory(event.target.value);
+    setOk(true);
+    setCurrentFilters(null);
+    console.log(currentFilters);
   };
 
   const handleDelete = (event) => {
     const newCardList = cards.filter(card => card.id !== selectedId);
     setCards(newCardList);
+    console.log(currentFilters);
+
   }
 
   const [showAlert, setShowAlert] = useState(false);
@@ -130,13 +146,48 @@ export default function RequestedItemsView(props) {
 
           </Select>}
           
-          {filter && <ProductFilters
+          {
+            filter && currentCategory === 'Clothes' && <FilterClothes
             openFilter={openFilter}
             onOpenFilter={handleOpenFilter}
             onCloseFilter={handleCloseFilter}
-            set={setCurrentFilters}
-            type={currentCategory}
-          />}
+            set={setCurrentFilters}/>
+          }
+          {
+            filter && currentCategory === 'School Supplies' && <FilterSchool
+            openFilter={openFilter}
+            onOpenFilter={handleOpenFilter}
+            onCloseFilter={handleCloseFilter}
+            set={setCurrentFilters}/>
+          }
+          {
+            filter && currentCategory === 'Toys' && <FilterToys
+            openFilter={openFilter}
+            onOpenFilter={handleOpenFilter}
+            onCloseFilter={handleCloseFilter}
+            set={setCurrentFilters}/>
+          }
+          {
+            filter && currentCategory === 'Food' && <FilterFood
+            openFilter={openFilter}
+            onOpenFilter={handleOpenFilter}
+            onCloseFilter={handleCloseFilter}
+            set={setCurrentFilters}/>
+          }
+          {
+            filter && currentCategory === 'Medical Suplies' && <FilterMedicalSupplies
+            openFilter={openFilter}
+            onOpenFilter={handleOpenFilter}
+            onCloseFilter={handleCloseFilter}
+            set={setCurrentFilters}/>
+          }
+          {
+            filter && currentCategory === 'Blood Donations' && <FilterBloodDonations
+            openFilter={openFilter}
+            onOpenFilter={handleOpenFilter}
+            onCloseFilter={handleCloseFilter}
+            set={setCurrentFilters}/>
+          }
         </Stack>
       </Stack>
 
