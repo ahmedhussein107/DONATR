@@ -26,6 +26,7 @@ export default function PostTableRow({
   status,
   handleClick,
   handleDelete,
+  handleDonorClick,
 }) {
 
   const [open, setOpen] = useState(null);
@@ -63,7 +64,7 @@ export default function PostTableRow({
         <TableCell>
           <Label color={(status === 'Fullfilled') ? 'success' : 'error'}>{status}</Label>
         </TableCell>
-        <TableCell> {name !== '' && <Button>{name}</Button>} </TableCell>
+        <TableCell> {name !== '' && <Button onClick={() => {handleDonorClick(name)}}>{name}</Button>} </TableCell>
 
         {/* <TableCell align="center">{isVerified ? 'Yes' : 'No'}</TableCell> */}
 
@@ -104,6 +105,7 @@ PostTableRow.propTypes = {
   date: PropTypes.any,
   handleClick: PropTypes.func,
   handleDelete: PropTypes.func, // New prop for delete action
+  handleDonorClick: PropTypes.func,
   isVerified: PropTypes.any,
   name: PropTypes.any,
   type: PropTypes.any,
