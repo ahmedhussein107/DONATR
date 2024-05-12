@@ -200,9 +200,6 @@ export default function ProductsView(props) {
                   type: card.type ,
                   phoneNumber: card.phoneNumber ,
                   email: card.email ,
-                  address: 'Helwan' ,
-                  state: 'Helwan' ,
-                  country: 'Egypt' ,
                   id: card.id ,
                 });
               onPopupOpen();
