@@ -17,55 +17,116 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Iconify from '../.././components/iconify';
 import Scrollbar from '../.././components/scrollbar';
 import { ColorPicker } from '../.././components/color-utils';
-import { useState } from 'react';
 
 // ----------------------------------------------------------------------
 
-export const CLOTHES_OPTIONS = ['Age' , 'Gender' , 'Season'];
-export const SCHOOL_OPTIONS = ['Stationary' , 'Book']
-export const TOY_OPTIONS = ['Age' , 'Gender' , 'Type'];
-export const FOOD_OPTIONS = ['Type'];
-export const SEASONS = ['Winter' , 'Fall' , 'Spring' , 'Summer']
-export const TOYS_TYPES = ['board games', 'stuffed toys', 'dolls', 'sports', 'cars', 'outdoor']
-export const FOOD_TYPES = [ 'fruits' , 'vegetables', 'canned foods', 'fresh meals', 'baked goods' ]
+export const SORT_OPTIONS = [
+  { value: 'featured', label: 'Featured' },
+  { value: 'newest', label: 'Newest' },
+  { value: 'priceDesc', label: 'Price: High-Low' },
+  { value: 'priceAsc', label: 'Price: Low-High' },
+];
+export const GENDER_OPTIONS = ['Men', 'Women', 'Kids'];
+export const CATEGORY_OPTIONS = ['All', 'Shose', 'Apparel', 'Accessories'];
+export const RATING_OPTIONS = ['up4Star', 'up3Star', 'up2Star', 'up1Star'];
+export const PRICE_OPTIONS = [
+  { value: 'below', label: 'Below $25' },
+  { value: 'between', label: 'Between $25 - $75' },
+  { value: 'above', label: 'Above $75' },
+];
+export const COLOR_OPTIONS = [
+  '#00AB55',
+  '#000000',
+  '#FFFFFF',
+  '#FFC0CB',
+  '#FF4842',
+  '#1890FF',
+  '#94D82D',
+  '#FFC107',
+];
 
 // ----------------------------------------------------------------------
 
-export default function ProductFilters({ openFilter, onOpenFilter , onCloseFilter , type , set}) {
-  const [currentFilter , setCurrentFilter] = useState(
-    {
-      minAge: 0,
-      maxAge: 100,
-      gender: '',
-      season: '',
-      type: '',
-      subtype: '',
-      hospitalName: '',
-      governorate: '',
-      area: '',
-    }
-  ); 
-
-  const [currentCategory, setCurrentCategory] = useState(null);
-  
-  const firstLevelFilter = (
+export default function ProductFilters({ openFilter, onOpenFilter, onCloseFilter }) {
+  const renderGender = (
     <Stack spacing={1}>
-      <Typography variant="subtitle2">{type}</Typography>
+      <Typography variant="subtitle2">Gender</Typography>
       <FormGroup>
-        {
-          type === 'Clothes' && 
-          <Select
-            value={sorting}
-            onChange={handleSortingChange}
-            variant="outlined"
-          >
-            <MenuItem value="newest">Newest</MenuItem>
-            <MenuItem value="oldest">Oldest</MenuItem>
-            <MenuItem value="lexicalAscending">Lexicographical Ascending</MenuItem>
-            <MenuItem value="lexicalDescending">Lexicographical Descending</MenuItem>
-          </Select>
-        }
+        {GENDER_OPTIONS.map((item) => (
+          <FormControlLabel key={item} control={<Checkbox />} label={item} />
+        ))}
       </FormGroup>
+    </Stack>
+  );
+
+  const renderCategory = (
+    <Stack spacing={1}>
+      <Typography variant="subtitle2">Category</Typography>
+      <RadioGroup>
+        {CATEGORY_OPTIONS.map((item) => (
+          <FormControlLabel key={item} value={item} control={<Radio />} label={item} />
+        ))}
+      </RadioGroup>
+    </Stack>
+  );
+
+  const renderColors = (
+    <Stack spacing={1}>
+      <Typography variant="subtitle2">Colors</Typography>
+      <ColorPicker
+        name="colors"
+        selected={[]}
+        colors={COLOR_OPTIONS}
+        onSelectColor={(color) => [].includes(color)}
+        sx={{ maxWidth: 38 * 4 }}
+      />
+    </Stack>
+  );
+
+  const renderPrice = (
+    <Stack spacing={1}>
+      <Typography variant="subtitle2">Price</Typography>
+      <RadioGroup>
+        {PRICE_OPTIONS.map((item) => (
+          <FormControlLabel
+            key={item.value}
+            value={item.value}
+            control={<Radio />}
+            label={item.label}
+          />
+        ))}
+      </RadioGroup>
+    </Stack>
+  );
+
+  const renderRating = (
+    <Stack spacing={1}>
+      <Typography variant="subtitle2">Rating</Typography>
+      <RadioGroup>
+        {RATING_OPTIONS.map((item, index) => (
+          <FormControlLabel
+            key={item}
+            value={item}
+            control={
+              <Radio
+                disableRipple
+                color="default"
+                icon={<Rating readOnly value={4 - index} />}
+                checkedIcon={<Rating readOnly value={4 - index} />}
+                sx={{
+                  '&:hover': { bgcolor: 'transparent' },
+                }}
+              />
+            }
+            label="& Up"
+            sx={{
+              my: 0.5,
+              borderRadius: 1,
+              '&:hover': { opacity: 0.48 },
+            }}
+          />
+        ))}
+      </RadioGroup>
     </Stack>
   );
 
@@ -86,12 +147,7 @@ export default function ProductFilters({ openFilter, onOpenFilter , onCloseFilte
         open={openFilter}
         onClose={onCloseFilter}
         PaperProps={{
-          sx: { width: 280,
-                border: 'none', 
-                overflow: 'hidden', 
-                background: `linear-gradient(to bottom, #3C4F59, #426D84)`,
-                color: '#fff'
-              },
+          sx: { width: 280, border: 'none', overflow: 'hidden', background: `linear-gradient(to bottom, #3C4F59, #426D84)`},
         }}
       >
         <Stack
@@ -112,9 +168,30 @@ export default function ProductFilters({ openFilter, onOpenFilter , onCloseFilte
 
         <Scrollbar>
           <Stack spacing={3} sx={{ p: 3 }}>
-            {firstLevelFilter}
+            {renderGender}
+
+            {renderCategory}
+
+            {renderColors}
+
+            {renderPrice}
+
+            {renderRating}
           </Stack>
         </Scrollbar>
+
+        <Box sx={{ p: 3 }}>
+          <Button
+            fullWidth
+            size="large"
+            type="submit"
+            color="inherit"
+            variant="outlined"
+            startIcon={<Iconify icon="ic:round-clear-all" />}
+          >
+            Clear All
+          </Button>
+        </Box>
       </Drawer>
     </ div>
   );

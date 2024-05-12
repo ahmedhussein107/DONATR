@@ -15,9 +15,12 @@ import {items} from '../../../_mock/requests';
 
 export default function RequestedItemsView(props) {
   const pageTitle = props.title;
+  const sort = props.sort;
+  const filter = props.filter;
   const search = props.search;
   const [openFilter, setOpenFilter] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [sorting, setSorting] = useState('newest');
   const [openPopup, setOpenPopup] = useState(false);
   const [currentInfo, setCurrentInfo] = useState(null);
 
@@ -29,44 +32,58 @@ export default function RequestedItemsView(props) {
     setOpenPopup(true);
   }
 
+  // const cards = [
+  //   { date: '20/02/2020', name: 'Dr. Hamada', image: img, id: 1 },
+  //   { date: '20/02/2020', name: 'Dr. Ahmed Hamada', image: img, id: 2 },
+  //   { date: '20/02/2020', name: 'Dr. Ahmed Mohamed Hamada', image: img, id: 3 },
+  //   { date: '20/02/2020', name: 'Dr. Wael', image: img, id: 4 },
+  //   { date: '20/02/2020', name: 'Dr. Gohary', image: img, id: 5 },
+  //   { date: '20/02/2020', name: 'Prof Yasser', image: img, id: 6 },
+  //   { date: '20/02/2020', name: 'Dr. Tawfik', image: img, id: 7 },
+  //   { date: '20/02/2020', name: 'Prof Slim', image: img, id: 8 },
+  // ];
+
   const [cards, setCards] = useState(items);
   const [selectedId, setSelectedId] = useState(null);
-  const [currentFilters, setCurrentFilters] = useState(null);
-  const [currentCategory, setCurrentCategory] = useState('All');
-  const [filter, setFilter] = useState(false);
+  const [currentCategory, setCurrentCategory] = useState(null);
 
-  const isGood = (card) => {
-    if (currentFilters === null) return true;
-    switch (currentCategory) {
-        case 'Clothes':
-            if (card.details.age > currentFilters.maxAge || card.details.age < minAge) return false;
-            if (card.details.gender !== currentFilters.gender) return false;
-            if (card.details.season !== currentFilters.season) return false;
-            return true;
-        case 'School Supplies':
-            return card.details.type ===  currentFilters.type;
-        case 'Toys':
-            if (card.details.age > currentFilters.maxAge || card.details.age < minAge) return false;
-            if (card.details.gender !== currentFilters.gender) return false;
-            if (card.details.subtype !== currentFilters.subtype) return false;
-            return true;
-        case 'Food':
-            return card.details.subtype === currentFilters.subtype;
-        case 'Medical Supplies':
-            if (card.details.subtype !== currentFilters.subtype) return false;
-            if (card.details.subtype === 'Medications' && card.details.medicalUse !== currentFilters.medicalUse) return false;
-            return true;
-        case 'Blood Donations':
-            if (card.details.hospitalName !== currentFilters.hospitalName) return false;
-            if (card.details.governorate !== currentFilters.governorate) return false;
-            if (card.details.area !== currentFilters.area) return false;
-            return true;
-        default:
-            return true;
+  // Sorting function based on the selected sorting option
+  const sortedCards = () => {
+    switch (sorting) {
+      case 'newest':
+        return cards.slice().sort((a, b) => {
+          const dayA = a.day;
+          const monthA = a.month;
+          const yearA = a.year;
+          const dayB = b.day;
+          const monthB = b.month;
+          const yearB = b.year;
+          return new Date(yearB, monthB - 1, dayB) - new Date(yearA, monthA - 1, dayA);
+        });
+      case 'oldest':
+        return cards.slice().sort((a, b) => {
+          const dayA = a.day;
+          const monthA = a.month;
+          const yearA = a.year;
+          const dayB = b.day;
+          const monthB = b.month;
+          const yearB = b.year;
+          return new Date(yearA, monthA - 1, dayA) - new Date(yearB, monthB - 1, dayB);
+        });
+      case 'lexicalAscending':
+        return cards.slice().sort((a, b) => a.name.localeCompare(b.name));
+      case 'lexicalDescending':
+        return cards.slice().sort((a, b) => b.name.localeCompare(a.name));
+      default:
+        return cards;
     }
-  }
+  };
 
-  const filteredCards = searchTerm ? items.filter((card) => isGood(card)) : items;
+  const filteredCards = searchTerm
+    ? sortedCards().filter((card) =>
+      card.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    : sortedCards();
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
@@ -76,10 +93,12 @@ export default function RequestedItemsView(props) {
     setOpenFilter(false);
   };
 
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
-  const handleCategoryChange = (event) => {
-    setFilter(event.target.value !== 'All');
-    setCurrentCategory(event.target.value);
+  const handleSortingChange = (event) => {
+    setSorting(event.target.value);
   };
 
   const handleDelete = (event) => {
@@ -137,14 +156,19 @@ export default function RequestedItemsView(props) {
           {pageTitle}
         </Typography>
         <Stack direction="row" alignItems="center" spacing={1}>
-         
+          {search && <TextField
+            name="search"
+            label="Search Donor"  
+            onChange={handleChange}
+            type="text"
+            variant="outlined"
+          />}
             
-          {<Select
-            value={currentCategory}
-            onChange={handleCategoryChange}
+          {sort && <Select
+            value={sorting}
+            onChange={handleSortingChange}
             variant="outlined"
           >
-            <MenuItem value="All">All</MenuItem>
             <MenuItem value="Clothes">Clothes</MenuItem>
             <MenuItem value="Toys">Toys</MenuItem>
             <MenuItem value="Food">Food</MenuItem>
@@ -158,14 +182,12 @@ export default function RequestedItemsView(props) {
             openFilter={openFilter}
             onOpenFilter={handleOpenFilter}
             onCloseFilter={handleCloseFilter}
-            set={setCurrentFilters}
-            type={currentCategory}
           />}
         </Stack>
       </Stack>
 
       <Grid container spacing={3} mb={2}>
-        {filteredCards.map((card) => (
+        {items.map((card) => (
           <Grid key={card.id} xs={12} sm={6} md={3}>
             <RequestedItemsCard 
             day={card.day}
