@@ -181,7 +181,9 @@ const ProfilePage = (props) => {
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>Occupation:</Label> */}
-                    <TextField id="filled-basic" label="Role" variant="filled" defaultValue={user.occupation} />
+                    <TextField id="filled-basic" label="Role" variant="filled" defaultValue={user.occupation} InputProps={{
+                      readOnly: true,
+                    }}/>
                   </DetailItem>
                 </div>
               </div>
