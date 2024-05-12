@@ -14,6 +14,7 @@ function Popup(props) {
   const onClickAccept = props.onClickAccept;
   const onClickReject = props.onClickReject;
   const onClickDownload = props.onClickDownload;
+  const header = props.header;
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -24,7 +25,7 @@ function Popup(props) {
              </IconButton> 
         </div>
           <Info
-            header='Request Information' 
+            header={header} 
             name={info.name}
             age={info.age}
             email={info.email}
@@ -70,18 +71,21 @@ Popup.propTypes = {
   onClickAccept: PropTypes.func,
   onClickReject: PropTypes.func,
   onClickDownload: PropTypes.func,
+  header: PropTypes.string,
 };
 
 Popup.defaultProps = {
   onClose: () => {},
   info: [],
-  save: true,
-  accept: true,
-  reject: true,
-  download: true,
+  save: false,
+  accept: false,
+  reject: false,
+  download: false,
   onClickAccept: () => {},
   onClickReject: () => {},
   onClickDownload: () => {},
+  header: 'Request Information'
+
 };
 
 export default Popup;

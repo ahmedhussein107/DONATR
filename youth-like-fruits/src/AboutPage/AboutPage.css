@@ -1,12 +1,18 @@
-.about-page {
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: #D5e0e6; /* Set background color */
+  }
+  
+  .about-page {
     padding: 20px; /* Adjust padding as needed */
-    max-width: 800px; /* Adjust max width as needed */
+    max-width: 100%; /* Adjust max width as needed */
     margin: 0 auto; /* Center the content horizontally */
-    background-color:#D5E0E6 ;
+    background-color: #D5e0e6;
   }
   
   .hero {
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px; /* Adjust margin as needed */
   }
   

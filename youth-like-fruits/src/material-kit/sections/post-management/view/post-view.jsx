@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 
@@ -26,7 +27,7 @@ import { emptyRows, applyFilter, getComparator } from '../utils'
 import { Box } from '@mui/material';
 
 // ---------------------------------------------------------
-export default function PostView() {
+export default function PostView({handleDonorClick}) {
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('asc');
   const [selected, setSelected] = useState([]);
@@ -149,6 +150,7 @@ export default function PostView() {
                       selected={selected.indexOf(row.name) !== -1}
                       handleClick={(event) => handleClick(event, row.name)}
                       handleDelete={handleDelete}
+                      handleDonorClick={handleDonorClick}
                     />
                   ))}
 
