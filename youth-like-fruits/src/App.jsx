@@ -27,6 +27,7 @@ import DonationPickupForm from "./DonorPage/DonationPickupForm.jsx"
 import DonorSecondStepDoctor from "./RegisterPage/DonorSecondStepDoctor.jsx"
 import DonorSecondStepTeacher from "./RegisterPage/DonorSecondStepTeacher.jsx"
 import SuccessPage2 from "./DonorPage/requestedItems/success2.jsx"
+import Organizations from "./DonorPage/Organizations.jsx"
 function App() {
   return (
     // <DonationPickupForm />
@@ -73,6 +74,7 @@ function App() {
         <Route path='/forgot-password' element={<ForgotPassword />} />
         <Route path='/about' element={<Aboutt />} />
         <Route path='/DonationPickupForm' element={<DonationPickupForm />} />
+        <Route path="/donor/registered-organizations" element={<Organizations />} />
       </Routes>
     </>
   )
