@@ -30,7 +30,7 @@ function OrganizationPage() {
     const listOfIcons = [
         <Stack direction="row" alignItems="center" spacing={1}>
             <NotificationsPopover />
-            <AccountPopover />
+            <AccountPopover dir={'/OrganizationPage'} dir2={'/Settings7'} />
         </Stack>
     ]
 
@@ -75,7 +75,7 @@ function OrganizationPage() {
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
 
                     <SideBar menuItem={menuItem} />
-                    <div style={{ display: 'flex', flexDirection: 'column', padding: '2% 4%', width:'100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', padding: '2% 4%', width: '100%' }}>
                         <p className='title' style={{
                             fontSize: '44px',
                             fontFamily: 'Josefin Sans',
@@ -83,26 +83,26 @@ function OrganizationPage() {
                             color: '#292F33',
                         }}>Create Donation Post</p>
 
-                        
 
 
-                            <div style={{
-                                width: '100%',
-                                backgroundColor: '#D5E0E6',
-                                borderRadius: '5px',
-                                boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)',
-                                padding: '20px'
-                            }}>
-                                <p style={{
-                                    fontSize: '24px',
-                                    fontFamily: 'Josefin Sans',
-                                    fontWeight: 'bold',
-                                    color: '#000000',
-                                    marginBottom: '10px'
-                                }}>Select</p>
-                               
-                            </div>
-                       
+
+                        <div style={{
+                            width: '100%',
+                            backgroundColor: '#D5E0E6',
+                            borderRadius: '5px',
+                            boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)',
+                            padding: '20px'
+                        }}>
+                            <p style={{
+                                fontSize: '24px',
+                                fontFamily: 'Josefin Sans',
+                                fontWeight: 'bold',
+                                color: '#000000',
+                                marginBottom: '10px'
+                            }}>Select</p>
+
+                        </div>
+
                     </div>
                 </div>
                 <Footer />

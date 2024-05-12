@@ -19,6 +19,9 @@ import requested from './DonorPage/requestedItems/RegisteredItems.jsx'
 import Settings from './DonorPage/Settings.jsx'
 import RegisteredItems from "./DonorPage/requestedItems/RegisteredItems.jsx"
 import OrganizationList from "./AdminPage/RegOrganizations/OrganizationList.jsx"
+import Settings2 from './DonorPage/Settings2.jsx'
+import Settings7 from './DonorPage/Settings7.jsx'
+
 function App() {
   return (
     <>
@@ -43,7 +46,7 @@ function App() {
         <Route path='/register/donor' element={<DonorReg />} />
         <Route path='/admin/donors-list' element={<NewDonorsList />} />
         <Route path='/admin/account-management' element={<AccountManagement />} />
-        <Route path='/admin/organizations-list' element={<OrganizationList/>} />
+        <Route path='/admin/organizations-list' element={<OrganizationList />} />
         <Route path='/success' element={<SuccessPage />} />
         <Route path='/form_page' element={<FormPage />} />
         <Route path='/donor/donor-home' element={<DashBoard />} />
@@ -52,6 +55,10 @@ function App() {
         <Route path='/Donorrequested' element={<requested />} />
         <Route path='/Settings' element={<Settings />} />
         <Route path='/RegisteredItems' element={<RegisteredItems />} />
+        <Route path='/Settings2' element={<Settings2 />} />
+        <Route path='/Settings7' element={<Settings7 />} />
+        <Route path='/OrganizationPage' element={<OrganizationPage />} />
+
       </Routes>
     </>
   )
