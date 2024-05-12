@@ -16,7 +16,7 @@ function RegisteredItems() {
   const listOfIcons = [
     <Stack direction="row" alignItems="center" spacing={1}>
       <NotificationsPopover />
-      <AccountPopover />
+      <AccountPopover dir={'/donor/donor-home'} dir2={'/Settings2'} />
     </Stack>
   ]
   const fontSize = '3vh';
