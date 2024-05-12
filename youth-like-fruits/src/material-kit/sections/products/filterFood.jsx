@@ -20,45 +20,18 @@ import Scrollbar from '../.././components/scrollbar';
 import { ColorPicker } from '../.././components/color-utils';
 import { useState } from 'react';
 
-export default function FilterClothes({ openFilter, onOpenFilter, onCloseFilter, set }) {
+export default function FilterFood({ openFilter, onOpenFilter, onCloseFilter, set }) {
 
-    const [ageRange , setAgeRange] = useState({
-        minAge: null,
-        maxAge: null,
-    });
-
-    const [curentAge , setCurrentAge] = useState('1 100');
-
-    const [gender , setGender] = useState('none');
-    const [season , setSeason] = useState('none');
+    const [subtype , setSubtype] = useState('none');
 
     const apply = () => {
         set({
-            minAge: ageRange.minAge,
-            maxAge: ageRange.maxAge,
-            gender: gender === 'none' ? null : gender,
-            season: season === 'none' ? null : season,
+            subtype: subtype === 'none' ? null : subtype
         });
     }
 
-    const handleAgeChange = (e) => {
-        setCurrentAge(e.target.value);
-        const [minAge , maxAge] = e.target.value.split(' ').map(s => Number(s));
-        console.log(`min is ${minAge} and max is ${maxAge}`);
-        setAgeRange({
-            minAge: minAge,
-            maxAge: maxAge,
-        })
-    }
-
-    const handleGenderChange = (e) => {
-        console.log(`gender is ${e.target.value}`);
-        setGender(e.target.value);
-    }
-
-    const handleSeasonChange = (e) => {
-        console.log(`season is ${e.target.value}`);
-        setSeason(e.target.value);
+    const handleTypeChange = (e) => {
+        setSubtype(e.target.value);
     }
 
   return (
@@ -106,45 +79,18 @@ export default function FilterClothes({ openFilter, onOpenFilter, onCloseFilter,
         <Scrollbar>
           <Stack spacing={3} sx={{ p: 3 }}>
             {
-                // select age
+                // select type
                 <Select
-                value={curentAge}
-                onChange={handleAgeChange}
+                value={subtype}
+                onChange={handleTypeChange}
                 variant="outlined"
                 sx={{color: '#fff'}}
               >
-                <MenuItem value='1 100'>All</MenuItem>
-                <MenuItem value='1 5'>{`1 - 5 years`}</MenuItem>
-                <MenuItem value='6 10'>{`6 - 10 years`}</MenuItem>
-                <MenuItem value='11 15'>{`11 - 15 years`}</MenuItem>
-              </Select>
-            }
-            {
-                // select gender
-                <Select
-                value={gender}
-                onChange={handleGenderChange}
-                variant="outlined"
-                sx={{color: '#fff'}}
-              >
-                <MenuItem value='none'>All Genders</MenuItem>
-                <MenuItem value='Male'>Male</MenuItem>
-                <MenuItem value="Female">Female</MenuItem>    
-              </Select>
-            }
-            {
-                // select season
-                <Select
-                value={season}
-                onChange={handleSeasonChange}
-                variant="outlined"
-                sx={{color: '#fff'}}
-              >
-                <MenuItem value="none">All Seasons</MenuItem>
-                <MenuItem value="Winter">Winter</MenuItem>
-                <MenuItem value="Fall">Fall</MenuItem>
-                <MenuItem value="Spring">Spring</MenuItem>
-                <MenuItem value="Summer">Summer</MenuItem>    
+                <MenuItem value='none'>All</MenuItem>
+                <MenuItem value='fruits and vegetables'>{`Fruits and Vegetables`}</MenuItem>
+                <MenuItem value='canned foods'>{`Canned Foods`}</MenuItem>
+                <MenuItem value='fresh meals'>{`Fresh Meals`}</MenuItem>
+                <MenuItem value='baked goods'>{`Baked Goods`}</MenuItem>
               </Select>
             }
           </Stack>
@@ -167,7 +113,7 @@ export default function FilterClothes({ openFilter, onOpenFilter, onCloseFilter,
   );
 }
 
-FilterClothes.propTypes = {
+FilterFood.propTypes = {
   openFilter: PropTypes.bool,
   onOpenFilter: PropTypes.func,
   onCloseFilter: PropTypes.func,

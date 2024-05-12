@@ -21,7 +21,7 @@ function RegisteredOrganizations() {
       <ElevateAppBar iconsList={listOfIcons} />
       <div style={{ display: 'flex', flexDirection: 'row', minHeight: '90vh' }}>
         <SideBar />
-        <RegisteredView title="Registered Organizations" search={true} filter={false} sort={true} />
+        <RegisteredView title="Registered Organizations" search={true} filter={true} sort={true} />
       </div>
       <Footer />
     </div>

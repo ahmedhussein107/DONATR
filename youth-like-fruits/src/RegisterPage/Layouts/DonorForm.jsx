@@ -15,7 +15,7 @@ const DonorForm = () => {
         password: '',
         passwordConfirmation: '',
         address: '',
-        role: '0',
+        role: 0,
         pdfDoc: null
     });
     const classes = {
@@ -26,7 +26,7 @@ const DonorForm = () => {
         }
     }
 
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState(0);
     const [uploadedFileName, setUploadedFileName] = useState('');
 
     const handleOptionClick = (event) => {
@@ -142,7 +142,8 @@ const DonorForm = () => {
                    <div>
                         <FormControl variant="filled" sx={{ minWidth: '11.7vw' }}>
                             <InputLabel>Volunteer Role</InputLabel>
-                            <Select value={formData.role} onChange={handleOptionClick}>    
+                            <Select value={formData.role} onChange={handleOptionClick}>
+                                <MenuItem value={0}>Regular</MenuItem>    
                                 <MenuItem value={1}>Teacher</MenuItem>
                                 <MenuItem value={2}>Doctor</MenuItem>
                             </Select>
@@ -151,7 +152,7 @@ const DonorForm = () => {
                     
                 </div>  
 
-                {selectedOption && (
+                {(selectedOption !== 0) && (
                     <div className='same-line-input' style={{right: '5%', display: 'flex', flexDirection: 'column', paddingLeft : '320px'}}>   
                         <Button
                             variant="contained"
@@ -172,7 +173,21 @@ const DonorForm = () => {
                 )}
 
                 <div className='register-button-container'>
-                    <Button  className='register-button-style' type='submit' variant="contained" style={{minWidth : '40%' , minHeight:'50px' ,marginBottom : '20%'}}>Register </Button>
+                    <Button 
+                        className='register-button-style' 
+                        type='submit' 
+                        variant="contained" 
+                        style={{minWidth : '40%' , minHeight:'50px' ,marginBottom : '20%'}}
+                        onClick={()=>{
+                            if(selectedOption === 0){
+                                window.location.href = '/login';
+                            }else if(selectedOption === 2){
+                                window.location.href = '/second-step-doctor';
+                            }else {
+                                window.location.href = '/second-step-teacher';
+                            }
+                        }}
+                    >Register </Button>
                 </div>
             </form>
         </div>

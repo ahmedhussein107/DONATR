@@ -12,15 +12,16 @@ import Popup from '../../../../AdminPage/Popup';
 import RequestedItemsCard from '../../../../DonorPage/requestedItems/RequestedItemsCard';
 
 import {items} from '../../../_mock/requests';
+import FilterClothes from '../filterClothes';
+import FilterSchool from '../filterSchool';
+import FilterToys from '../filterToys';
+import FilterFood from '../filterFood';
+import FilterMedicalSupplies from '../filterMedicalSupplies';
+import FilterBloodDonations from '../filterBloodDonations';
 
 export default function RequestedItemsView(props) {
   const pageTitle = props.title;
-  const sort = props.sort;
-  const filter = props.filter;
-  const search = props.search;
   const [openFilter, setOpenFilter] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [sorting, setSorting] = useState('newest');
   const [openPopup, setOpenPopup] = useState(false);
   const [currentInfo, setCurrentInfo] = useState(null);
 
@@ -31,24 +32,16 @@ export default function RequestedItemsView(props) {
   const onPopupOpen = () => {
     setOpenPopup(true);
   }
-
-  // const cards = [
-  //   { date: '20/02/2020', name: 'Dr. Hamada', image: img, id: 1 },
-  //   { date: '20/02/2020', name: 'Dr. Ahmed Hamada', image: img, id: 2 },
-  //   { date: '20/02/2020', name: 'Dr. Ahmed Mohamed Hamada', image: img, id: 3 },
-  //   { date: '20/02/2020', name: 'Dr. Wael', image: img, id: 4 },
-  //   { date: '20/02/2020', name: 'Dr. Gohary', image: img, id: 5 },
-  //   { date: '20/02/2020', name: 'Prof Yasser', image: img, id: 6 },
-  //   { date: '20/02/2020', name: 'Dr. Tawfik', image: img, id: 7 },
-  //   { date: '20/02/2020', name: 'Prof Slim', image: img, id: 8 },
-  // ];
-
+  
   const [cards, setCards] = useState(items);
   const [selectedId, setSelectedId] = useState(null);
-  const [currentCategory, setCurrentCategory] = useState(null);
+  const [currentFilters, setCurrentFilters] = useState(null);
+  const [currentCategory, setCurrentCategory] = useState('All');
+  const [filter, setFilter] = useState(false);
 
   const isGood = (card) => {
-    if (currentFilters === null) return true;
+    if (currentCategory !== 'All' && card.generalType !== currentCategory) return false;
+    if (currentFilters === null) return true; 
     switch (currentCategory) {
         case 'Clothes':
             if (currentFilters.maxAge !== null && (card.details.age > currentFilters.maxAge || card.details.age < currentFilters.minAge)) return false;
@@ -66,9 +59,9 @@ export default function RequestedItemsView(props) {
         case 'Food':
             if (currentFilters.subtype !== null && card.details.subtype !== currentFilters.subtype) return false;
             return true;
-        case 'Medical Supplies':
+        case 'Medical Suplies':
             if (currentFilters.subtype !== null && card.details.subtype !== currentFilters.subtype) return false;
-            if (card.details.subtype === 'Medications' && currentFilters.medicalUse !== null && card.details.medicalUse !== currentFilters.medicalUse) return false;
+            if (card.details.subtype === 'Medication' && currentFilters.medicalUse !== null && card.details.medicalUse !== currentFilters.medicalUse) return false;
             return true;
         case 'Blood Donations':
             if (currentFilters.hospitalName !== null && card.details.hospitalName !== currentFilters.hospitalName) return false;
@@ -78,33 +71,37 @@ export default function RequestedItemsView(props) {
         default:
             return true;
     }
-  };
+  }
 
-  const filteredCards = searchTerm
-    ? sortedCards().filter((card) =>
-      card.name.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    : sortedCards();
+  const [ok , setOk] = useState(false);
+
+  const filteredCards = ok ? items.filter((card) => isGood(card)) : items;
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
+    setOk(true);
   };
 
   const handleCloseFilter = () => {
     setOpenFilter(false);
+    setOk(true);
+    console.log(currentFilters);
   };
 
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
 
-  const handleSortingChange = (event) => {
-    setSorting(event.target.value);
+  const handleCategoryChange = (event) => {
+    setFilter(event.target.value !== 'All');
+    setCurrentCategory(event.target.value);
+    setOk(true);
+    setCurrentFilters(null);
+    console.log(currentFilters);
   };
 
   const handleDelete = (event) => {
     const newCardList = cards.filter(card => card.id !== selectedId);
     setCards(newCardList);
+    console.log(currentFilters);
+
   }
 
   const [showAlert, setShowAlert] = useState(false);
@@ -157,19 +154,14 @@ export default function RequestedItemsView(props) {
           {pageTitle}
         </Typography>
         <Stack direction="row" alignItems="center" spacing={1}>
-          {search && <TextField
-            name="search"
-            label="Search Donor"  
-            onChange={handleChange}
-            type="text"
-            variant="outlined"
-          />}
+         
             
-          {sort && <Select
-            value={sorting}
-            onChange={handleSortingChange}
+          {<Select
+            value={currentCategory}
+            onChange={handleCategoryChange}
             variant="outlined"
           >
+            <MenuItem value="All">All</MenuItem>
             <MenuItem value="Clothes">Clothes</MenuItem>
             <MenuItem value="Toys">Toys</MenuItem>
             <MenuItem value="Food">Food</MenuItem>
@@ -179,16 +171,53 @@ export default function RequestedItemsView(props) {
 
           </Select>}
           
-          {filter && <ProductFilters
+          {
+            filter && currentCategory === 'Clothes' && <FilterClothes
             openFilter={openFilter}
             onOpenFilter={handleOpenFilter}
             onCloseFilter={handleCloseFilter}
-          />}
+            set={setCurrentFilters}/>
+          }
+          {
+            filter && currentCategory === 'School Supplies' && <FilterSchool
+            openFilter={openFilter}
+            onOpenFilter={handleOpenFilter}
+            onCloseFilter={handleCloseFilter}
+            set={setCurrentFilters}/>
+          }
+          {
+            filter && currentCategory === 'Toys' && <FilterToys
+            openFilter={openFilter}
+            onOpenFilter={handleOpenFilter}
+            onCloseFilter={handleCloseFilter}
+            set={setCurrentFilters}/>
+          }
+          {
+            filter && currentCategory === 'Food' && <FilterFood
+            openFilter={openFilter}
+            onOpenFilter={handleOpenFilter}
+            onCloseFilter={handleCloseFilter}
+            set={setCurrentFilters}/>
+          }
+          {
+            filter && currentCategory === 'Medical Suplies' && <FilterMedicalSupplies
+            openFilter={openFilter}
+            onOpenFilter={handleOpenFilter}
+            onCloseFilter={handleCloseFilter}
+            set={setCurrentFilters}/>
+          }
+          {
+            filter && currentCategory === 'Blood Donations' && <FilterBloodDonations
+            openFilter={openFilter}
+            onOpenFilter={handleOpenFilter}
+            onCloseFilter={handleCloseFilter}
+            set={setCurrentFilters}/>
+          }
         </Stack>
       </Stack>
 
       <Grid container spacing={3} mb={2}>
-        {items.map((card) => (
+        {filteredCards.map((card) => (
           <Grid key={card.id} xs={12} sm={6} md={3}>
             <RequestedItemsCard 
             day={card.day}

@@ -7,7 +7,7 @@ import {Alert} from '@mui/material';
 import img from '../../../../assets/donor_icon.png';
 import RequestCard from '../../../../AdminPage/DonorsList/RequestCard';
 import { Box, TextField, MenuItem, Select, FormControl, FormLabel } from '@mui/material';
-import OrganizationFilters from '../organization-filters';
+import FilterOrganizations from '../../products/filterOrganization';
 import Popup from '../../../../AdminPage/OrganizationsLists/Popup';
 import { organization } from '../../../_mock/organization';
 
@@ -49,7 +49,7 @@ export default function RegisteredView(props) {
   const sortedCards = () => {
     switch (sorting) {
       case 'newest':
-        return cards.slice().sort((a, b) => {
+        return cards.filter(card => isGood(card)).slice().sort((a, b) => {
           const dayA = a.day;
           const monthA = a.month;
           const yearA = a.year;
@@ -59,7 +59,7 @@ export default function RegisteredView(props) {
           return new Date(yearB, monthB - 1, dayB) - new Date(yearA, monthA - 1, dayA);
         });
       case 'oldest':
-        return cards.slice().sort((a, b) => {
+        return cards.filter(card => isGood(card)).slice().sort((a, b) => {
           const dayA = a.day;
           const monthA = a.month;
           const yearA = a.year;
@@ -69,19 +69,28 @@ export default function RegisteredView(props) {
           return new Date(yearA, monthA - 1, dayA) - new Date(yearB, monthB - 1, dayB);
         });
       case 'lexicalAscending':
-        return cards.slice().sort((a, b) => a.name.localeCompare(b.name));
+        return cards.filter(card => isGood(card)).slice().sort((a, b) => a.name.localeCompare(b.name));
       case 'lexicalDescending':
-        return cards.slice().sort((a, b) => b.name.localeCompare(a.name));
+        return cards.filter(card => isGood(card)).slice().sort((a, b) => b.name.localeCompare(a.name));
       default:
-        return cards;
+        return cards.filter(card => isGood(card));
     }
   };
 
+  const [currentFilters , setCurrentFilters] = useState(null);
+
+  const isGood = (card) => {
+    console.log(currentFilters);
+    console.log(card.type);
+    if (currentFilters === null ||currentFilters.type === null) return true;
+    return card.type === currentFilters.type;
+  }
+
   const filteredCards = searchTerm
     ? sortedCards().filter((card) =>
-      card.name.toLowerCase().includes(searchTerm.toLowerCase())
+      card.name.toLowerCase().includes(searchTerm.toLowerCase()) && isGood(card)
     )
-    : sortedCards();
+    : sortedCards().filter(card => isGood(card));
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
@@ -148,10 +157,11 @@ export default function RegisteredView(props) {
             <MenuItem value="lexicalDescending">Lexicographical Descending</MenuItem>
           </Select>}
           
-          {filter && <OrganizationFilters
+          {filter && <FilterOrganizations
             openFilter={openFilter}
             onOpenFilter={handleOpenFilter}
             onCloseFilter={handleCloseFilter}
+            set={setCurrentFilters}
           />}
         </Stack>
       </Stack>

@@ -20,7 +20,7 @@ import Scrollbar from '../.././components/scrollbar';
 import { ColorPicker } from '../.././components/color-utils';
 import { useState } from 'react';
 
-export default function FilterClothes({ openFilter, onOpenFilter, onCloseFilter, set }) {
+export default function FilterToys({ openFilter, onOpenFilter, onCloseFilter, set }) {
 
     const [ageRange , setAgeRange] = useState({
         minAge: null,
@@ -28,22 +28,21 @@ export default function FilterClothes({ openFilter, onOpenFilter, onCloseFilter,
     });
 
     const [curentAge , setCurrentAge] = useState('1 100');
-
     const [gender , setGender] = useState('none');
-    const [season , setSeason] = useState('none');
+    const [subtype , setSubtype] = useState('none');
 
     const apply = () => {
         set({
             minAge: ageRange.minAge,
             maxAge: ageRange.maxAge,
             gender: gender === 'none' ? null : gender,
-            season: season === 'none' ? null : season,
+            subtype: subtype === 'none' ? null : subtype,
         });
     }
 
     const handleAgeChange = (e) => {
         setCurrentAge(e.target.value);
-        const [minAge , maxAge] = e.target.value.split(' ').map(s => Number(s));
+        let [minAge , maxAge] = e.target.value.split(' ').map(s => Number(s));
         console.log(`min is ${minAge} and max is ${maxAge}`);
         setAgeRange({
             minAge: minAge,
@@ -56,9 +55,9 @@ export default function FilterClothes({ openFilter, onOpenFilter, onCloseFilter,
         setGender(e.target.value);
     }
 
-    const handleSeasonChange = (e) => {
+    const handleCategoryChange = (e) => {
         console.log(`season is ${e.target.value}`);
-        setSeason(e.target.value);
+        setSubtype(e.target.value);
     }
 
   return (
@@ -135,16 +134,19 @@ export default function FilterClothes({ openFilter, onOpenFilter, onCloseFilter,
             {
                 // select season
                 <Select
-                value={season}
-                onChange={handleSeasonChange}
+                value={subtype}
+                onChange={handleCategoryChange}
                 variant="outlined"
                 sx={{color: '#fff'}}
               >
-                <MenuItem value="none">All Seasons</MenuItem>
-                <MenuItem value="Winter">Winter</MenuItem>
-                <MenuItem value="Fall">Fall</MenuItem>
-                <MenuItem value="Spring">Spring</MenuItem>
-                <MenuItem value="Summer">Summer</MenuItem>    
+                <MenuItem value="none">All Categories</MenuItem>
+                <MenuItem value="board games">Board Games</MenuItem>
+                <MenuItem value="stuffed toys">Stuffed Toys</MenuItem>
+                <MenuItem value="dolls">Dolls</MenuItem>
+                <MenuItem value="sports">Sports</MenuItem>
+                <MenuItem value="cars">Cars</MenuItem>
+                <MenuItem value="outdoor">Outdoor</MenuItem>
+
               </Select>
             }
           </Stack>
@@ -167,7 +169,7 @@ export default function FilterClothes({ openFilter, onOpenFilter, onCloseFilter,
   );
 }
 
-FilterClothes.propTypes = {
+FilterToys.propTypes = {
   openFilter: PropTypes.bool,
   onOpenFilter: PropTypes.func,
   onCloseFilter: PropTypes.func,
