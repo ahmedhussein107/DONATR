@@ -4,18 +4,15 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import {Alert} from '@mui/material';
-import img from '../../../../assets/donor_icon.png';
-import RequestCard from '../../../../AdminPage/DonorsList/RequestCard';
-import { Box, TextField, MenuItem, Select, FormControl, FormLabel } from '@mui/material';
+import { MenuItem, Select } from '@mui/material';
 import ProductFilters from '../product-filters';
-import Popup from '../../../../AdminPage/Popup';
 import RequestedItemsCard from '../../../../DonorPage/requestedItems/RequestedItemsCard';
 
 import {items} from '../../../_mock/requests';
+import RequestedItemsPopup from '../../../../DonorPage/requestedItems/RequestedItemsPopup';
 
 export default function RequestedItemsView(props) {
   const pageTitle = props.title;
-  const search = props.search;
   const [openFilter, setOpenFilter] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [openPopup, setOpenPopup] = useState(false);
@@ -102,34 +99,11 @@ export default function RequestedItemsView(props) {
 
   return (
     <Container>
-      {openPopup && <Popup 
-        onClose={onPopupClose} 
-        info={currentInfo} 
-        save={false} 
-        accept={true} 
-        reject={true} 
-        download={true} 
-        onClickAccept={
-          () => {
-            handleDelete();
-            onPopupClose();
-            setAlertType('accept');
-            showThatAlert();
-          }
-        }
-        onClickReject={
-          () => {
-            handleDelete();
-            onPopupClose();
-            setAlertType('reject');
-            showThatAlert();
-          }
-        }
-        onClickDownload={
-          () => {
-            
-          }
-        }
+      {openPopup && <RequestedItemsPopup
+        onClose={onPopupClose}
+        info={currentInfo.details}
+        type={currentInfo.type}
+
       />}
       <Stack direction="row" justifyContent="space-between" m={2}>
         <Typography
@@ -177,12 +151,14 @@ export default function RequestedItemsView(props) {
             type={card.type}
             onClick={() => {
               setSelectedId(card.id);
-              setCurrentInfo(
-              {   orgName: card.orgName ,
-                  type: card.type ,
-                  id: card.id ,
-                });
-              onPopupOpen();
+              setCurrentInfo({   
+                orgName: card.orgName ,
+                type: card.type ,
+                id: card.id ,
+                details: card.details,
+                image: card.image,
+            });
+            onPopupOpen();
             }} />
           </Grid>
         ))}

@@ -1,12 +1,13 @@
 import React from 'react';
 import privacyPolicyPDF from '../../assets/PP.pdf'; // Adjust the path as needed
+import termsOfUsePDF from '../../assets/TOU.pdf'; // Adjust the path as needed
 
 function Footer() {
-  const downloadPdf = () => {
+  const downloadPdf = (pdfFile, fileName) => {
     // Create a temporary link element
     const link = document.createElement('a');
-    link.href = privacyPolicyPDF;
-    link.download = 'PrivacyPolicy.pdf';
+    link.href = pdfFile;
+    link.download = fileName;
 
     // Simulate click on the link to trigger download
     link.click();
@@ -17,7 +18,7 @@ function Footer() {
       <div style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
         <a 
           href="#"
-          onClick={downloadPdf} // Call downloadPdf function on click
+          onClick={() => downloadPdf(privacyPolicyPDF, 'PrivacyPolicy.pdf')} // Call downloadPdf function with Privacy Policy PDF
           style={{ 
             color: 'rgba(255, 255, 255, 0.7)',
             textDecoration: 'underline',
@@ -26,7 +27,17 @@ function Footer() {
         >
           Privacy Policy
         </a> | 
-        <a href="/terms-of-use" style={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'underline', fontSize: 'smaller' }}> Terms of Use </a>
+        <a 
+          href="#"
+          onClick={() => downloadPdf(termsOfUsePDF, 'TOU.pdf')} // Call downloadPdf function with Terms of Use PDF
+          style={{ 
+            color: 'rgba(255, 255, 255, 0.7)',
+            textDecoration: 'underline',
+            fontSize: 'smaller'
+          }}
+        >
+          Terms of Use
+        </a>
       </div>
       <div style={{ fontSize: 'smaller', textDecoration: 'underline' , color: 'rgba(255, 255, 255, 0.7)'}}>
         &copy; {new Date().getFullYear()} YouthLikeFruit. All rights reserved.
