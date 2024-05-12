@@ -117,20 +117,10 @@ function Layout1() {
         </IconButton>
       </Box>
 
-      <Link to = '/forgot-password'
-        style={{
-          marginLeft: '195px',
-          textDecoration: 'none',
-          marginTop: '10px',
-          color: '#666',
-          fontSize: '16px',
-          marginBottom: '30px',
-        }}
-      >
-        Forgot your password?
-      </Link>
+
 
       <MyButton
+        marginTop={'10%'}
         label="Login"
         directory=""
         normalColor="#1D8AC5"
@@ -139,16 +129,16 @@ function Layout1() {
         paddingHeight={20}
         minimumWidth={200}
         clickHandler={() => {
-          if(username === 'admin' && password === 'pass'){
+          if (username === 'admin' && password === 'pass') {
             window.location.href = '/admin';
-          } else if(username === 'donor' && password === 'pass'){
+          } else if (username === 'donor' && password === 'pass') {
             window.location.href = '/donor/donor-home';
-          } else if(username === 'organization' && password === 'pass'){
+          } else if (username === 'organization' && password === 'pass') {
             window.location.href = '/organization';
-          } 
+          }
         }}
       />
-      
+
       <div
         style={{
           position: 'absolute',
@@ -163,12 +153,12 @@ function Layout1() {
         }}
       >
         <span style={{ color: 'black' }}>New to our platform?
-        <Link to="/register" style={{ textDecoration: 'underline', marginLeft: '10px', color: 'black' }}>
-          Register
-                  </Link>
-                  &nbsp;
-        to start making a difference!
-         </span>
+          <Link to="/register" style={{ textDecoration: 'underline', marginLeft: '10px', color: 'black' }}>
+            Register
+          </Link>
+          &nbsp;
+          to start making a difference!
+        </span>
       </div>
     </div>
   );
