@@ -28,8 +28,8 @@ import avatar_11 from '../.././assets/avatar_11.jpg';
 const NOTIFICATIONS = [
   {
     id: faker.string.uuid(),
-    title: 'order is placed',
-    description: 'waiting for shipping',
+    title: 'Delivery processing',
+    description: 'order has Arrived',
     avatar: null,
     type: 'order_placed',
     createdAt: set(new Date(), { hours: 10, minutes: 30 }),
@@ -46,8 +46,8 @@ const NOTIFICATIONS = [
   },
   {
     id: faker.string.uuid(),
-    title: 'You have new mail',
-    description: 'sent from masr Elkheir',
+    title: 'Your post has been fulfiled',
+    description: 'you can check it now',
     avatar: null,
     type: 'mail',
     createdAt: sub(new Date(), { days: 2, hours: 3, minutes: 30 }),
@@ -56,7 +56,7 @@ const NOTIFICATIONS = [
   {
     id: faker.string.uuid(),
     title: 'Delivery processing',
-    description: 'order will be arrived in 5 min',
+    description: 'order will be arrived in 2 days',
     avatar: null,
     type: 'order_shipped',
     createdAt: sub(new Date(), { days: 3, hours: 3, minutes: 30 }),

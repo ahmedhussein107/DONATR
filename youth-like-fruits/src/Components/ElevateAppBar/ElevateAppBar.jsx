@@ -30,37 +30,37 @@ ElevationScroll.propTypes = {
 };
 
 export default function ElevateAppBar(props) {
-  const actionsList = <Box sx={{ display: 'flex', justifyContent: 'center'}}>
-                        <Link to = '/'>
-                        <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}> Home</Button>
-                        </Link>
-                        <Link to = '/about'>
-                        <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}>About</Button>
-                        </Link>
-                        <Link to = '/event'>
-                        <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}>Events</Button>
-                        </Link>
-                       <Link to = '/contact'> 
-                        <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}>Contact</Button>
-                       </Link>
-                      </Box>;
+  const actionsList = <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+    <Link to='/'>
+      <Button sx={{ fontSize: '18px', fontFamily: 'Roboto', marginLeft: '10px', color: '#fff' }}> Home</Button>
+    </Link>
+    <Link to='/about'>
+      <Button sx={{ fontSize: '18px', fontFamily: 'Roboto', marginLeft: '10px', color: '#fff' }}>About</Button>
+    </Link>
+    <Link to='/event'>
+      <Button sx={{ fontSize: '18px', fontFamily: 'Roboto', marginLeft: '10px', color: '#fff' }}>Events</Button>
+    </Link>
+    <Link to="/form_page">
+      <Button sx={{ fontSize: '18px', fontFamily: 'Roboto', marginLeft: '10px', color: '#fff' }}>Contact</Button>
+    </Link>
+  </Box>;
   const listOfButtons = [props.buttonsList.map(
-                item => <MyButton 
-                          label={item.label}
-                          directory={item.directory}
-                          normalColor={item.normalColor}
-                          hoverColor={item.hoverColor}
-                        />)]
-                      
-  
+    item => <MyButton
+      label={item.label}
+      directory={item.directory}
+      normalColor={item.normalColor}
+      hoverColor={item.hoverColor}
+    />)]
+
+
   const listOfIcons = props.iconsList;
 
   const emptyButtonsList = props.buttonsList.length === 0;
   const emptyIconsList = props.iconsList.length === 0;
 
   const buttonsList = <Box sx={{ display: 'flex', alignItems: 'center' }}>{listOfButtons}</Box>
-  
-  const iconsList = <Box sx={{ display: 'flex', alignItems: 'center' , gap: '1vw'}}>{listOfIcons}</Box>
+
+  const iconsList = <Box sx={{ display: 'flex', alignItems: 'center', gap: '1vw' }}>{listOfIcons}</Box>
 
   return (
     <React.Fragment>
@@ -69,11 +69,12 @@ export default function ElevateAppBar(props) {
         <AppBar style={{ backgroundColor: '#292F33' }}>
           <Toolbar>
             <Typography variant="h6" component="div" sx=
-            {{  flexGrow: 0 ,
-                fontFamily: 'sans-serif' , 
-                fontWeight: 'bold' ,
+              {{
+                flexGrow: 0,
+                fontFamily: 'sans-serif',
+                fontWeight: 'bold',
                 color: '#fff'
-             }}>
+              }}>
               DONATR
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
@@ -91,11 +92,11 @@ export default function ElevateAppBar(props) {
 }
 
 ElevateAppBar.defaultProps = {
-  buttonsList : [],
-  iconsList : []
+  buttonsList: [],
+  iconsList: []
 };
 
 ElevateAppBar.propTypes = {
-  buttonsList : PropTypes.array,
-  iconsList : PropTypes.array,
+  buttonsList: PropTypes.array,
+  iconsList: PropTypes.array,
 }

@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import {Alert} from '@mui/material';
+import { Alert } from '@mui/material';
 import img from '../../../../assets/donor_icon.png';
 import RequestCard from '../../../../AdminPage/DonorsList/RequestCard';
 import { Box, TextField, MenuItem, Select, FormControl, FormLabel } from '@mui/material';
@@ -43,8 +43,8 @@ export default function OrganizationView(props) {
   // ];
 
   // const cards = donors;
-  const [cards , setCards] = useState(organization);
-  const [selectedId , setSelectedId] = useState(null);
+  const [cards, setCards] = useState(organization);
+  const [selectedId, setSelectedId] = useState(null);
 
   // Sorting function based on the selected sorting option
   const sortedCards = () => {
@@ -106,7 +106,7 @@ export default function OrganizationView(props) {
   }
 
   const [showAlert, setShowAlert] = useState(false);
-  
+
   const showThatAlert = () => {
     setShowAlert(true);
     setTimeout(() => {
@@ -114,17 +114,17 @@ export default function OrganizationView(props) {
     }, 2000);
   }
 
-  const [alertType , setAlertType] = useState(null);
+  const [alertType, setAlertType] = useState(null);
 
   return (
     <Container>
-      {openPopup && <Popup 
-        onClose={onPopupClose} 
-        info={currentInfo} 
-        save={false} 
-        accept={true} 
-        reject={true} 
-        download={true} 
+      {openPopup && <Popup
+        onClose={onPopupClose}
+        info={currentInfo}
+        save={false}
+        accept={true}
+        reject={true}
+        download={true}
         onClickAccept={
           () => {
             handleDelete();
@@ -143,7 +143,7 @@ export default function OrganizationView(props) {
         }
         onClickDownload={
           () => {
-              window.location.href = 'https://api32.ilovepdf.com/v1/download/b9jfk464q8j2prc5vAwsl4xrcgtt7281y5p4jks4kx842xxmwm8b1hg9kA11cvs21ft0w86pl89fnzsdzsfg73ls0g4c51s0b5bpjtq12581jqgwp00xp83yfpf7tj7gAt9n6z7g3bv81cv8j4k1y4s5k9pb3cn0yc19A4sx2spkzk828hl1';
+            window.location.href = 'https://drive.google.com/uc?export=download&id=1-0DYkL4w6BCjnMCLEf2yq9kEtxKb28BI';
           }
         }
       />}
@@ -157,12 +157,12 @@ export default function OrganizationView(props) {
         <Stack direction="row" alignItems="center" spacing={1}>
           {search && <TextField
             name="search"
-            label="Search Donor"  
+            label="Search Donor"
             onChange={handleChange}
             type="text"
             variant="outlined"
           />}
-            
+
           {sort && <Select
             value={sorting}
             onChange={handleSortingChange}
@@ -173,7 +173,7 @@ export default function OrganizationView(props) {
             <MenuItem value="lexicalAscending">Lexicographical Ascending</MenuItem>
             <MenuItem value="lexicalDescending">Lexicographical Descending</MenuItem>
           </Select>}
-          
+
           {filter && <OrganizationFilters
             openFilter={openFilter}
             onOpenFilter={handleOpenFilter}
@@ -185,38 +185,39 @@ export default function OrganizationView(props) {
       <Grid container spacing={3} mb={2}>
         {filteredCards.map((card) => (
           <Grid key={card.id} xs={12} sm={6} md={3}>
-            <RequestCard 
-            day={card.day}
-            month={card.month}
-            year={card.year}
-            name={card.name} 
-            image={card.image}
-            organization={card.company} 
-            onClick={() => {
-              setSelectedId(card.id);
-              setCurrentInfo(
-                { name: card.name ,
-                  age: card.age ,
-                  image: card.image , 
-                  date: `${card.day}/${card.month}/${card.year}` , 
-                  type: card.type ,
-                  phoneNumber: card.phoneNumber ,
-                  email: card.email ,
-                  organization: card.company,
-                  occupation: card.type,
-                  id: card.id ,
-                });
-              onPopupOpen();
-            }} />
+            <RequestCard
+              day={card.day}
+              month={card.month}
+              year={card.year}
+              name={card.name}
+              image={card.image}
+              organization={card.company}
+              onClick={() => {
+                setSelectedId(card.id);
+                setCurrentInfo(
+                  {
+                    name: card.name,
+                    age: card.age,
+                    image: card.image,
+                    date: `${card.day}/${card.month}/${card.year}`,
+                    type: card.type,
+                    phoneNumber: card.phoneNumber,
+                    email: card.email,
+                    organization: card.company,
+                    occupation: card.type,
+                    id: card.id,
+                  });
+                onPopupOpen();
+              }} />
           </Grid>
         ))}
       </Grid>
       {showAlert && (
-          <Alert severity={'success'} onClose={() => setShowAlert(false)}>
-            {alertType==='accept' ? 
-              'Donor Submession has been approved successfully!' : 
-              'Donor Submession has beed disapproved successfully!'}
-          </Alert>)}
+        <Alert severity={'success'} onClose={() => setShowAlert(false)}>
+          {alertType === 'accept' ?
+            'Donor Submession has been approved successfully!' :
+            'Donor Submession has beed disapproved successfully!'}
+        </Alert>)}
     </Container>
   );
 }

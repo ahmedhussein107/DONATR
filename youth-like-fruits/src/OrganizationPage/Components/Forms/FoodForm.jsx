@@ -1,33 +1,17 @@
-import React, { useRef, useState } from 'react'
-import { FormHelperText, TextField, Button, FormControl, Select, MenuItem, InputLabel, Tooltip } from '@mui/material';
-import './ClothesForm.css'
+import React, { useRef, useState } from 'react';
+import { TextField, Button, FormControl, Select, MenuItem, InputLabel } from '@mui/material';
+import './FoodForm.css';
+
 const FoodForm = () => {
   const [formData, setFormData] = useState({
     title: '',
-    targetAmount: '',
     description: '',
     image: null,
     deadline: '',
-    typeOfToys: '',
-    gender: '',
-    clothingType: '',
-    condition: '',
+    foodItems: '',
+    dietaryRestrictions: '',
+    quantityNeeded: '',
   });
-
-  const [isHovered, setIsHovered] = useState(false)
-
-  // Refs for tooltips
-  const tooltipRefs = {
-    title: useRef(null),
-    targetAmount: useRef(null),
-    description: useRef(null),
-    image: useRef(null),
-    deadline: useRef(null),
-    typeOfToys: useRef(null),
-    gender: useRef(null),
-    clothingType: useRef(null),
-    condition: useRef(null),
-  }
 
   const handleChange = (event) => {
     const { name, value, files } = event.target;
@@ -39,196 +23,108 @@ const FoodForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Submit form data to your backend logic here
-    console.log('Submitted Clothes Donation Form:', formData);
+    console.log('Submitted Food Donation Form:', formData);
   };
 
-  // Function to handle tooltip visibility
-  const handleTooltipVisibility = (refName, visibility) => {
-    if (tooltipRefs[refName].current) {
-      tooltipRefs[refName].current.style.visibility = visibility ? 'visible' : 'hidden';
-    }
-    if (refName === 'deadline') {
-      setIsHovered(visibility);
-    }
-
-  };
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Clothes Donation Post Details</h2>
+      <h2>Food Donation Post Details</h2>
 
-      <Tooltip
-        title="A clear and concise title describing the donation need. (e.g., Winter Clothes Drive for Children in Need)"
-        placement="right"
-      >
-        <TextField
-          margin="normal"
-          fullWidth
-          label="Donation Title"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-          onMouseEnter={() => handleTooltipVisibility('title', true)}
-          onMouseLeave={() => handleTooltipVisibility('title', false)}
-          inputRef={tooltipRefs.title}
-          variant='filled'
-        />
-      </Tooltip>
+      <TextField
+        margin="normal"
+        fullWidth
+        label="Donation Title"
+        name="title"
+        value={formData.title}
+        onChange={handleChange}
+        required
+        variant='filled'
+      />
 
-      <Tooltip
-        title="A detailed description of the donation need. Explain what the donation will be used for and the impact it will create."
-        placement="right"
-      >
-        <TextField
-          margin="normal"
-          fullWidth
-          label="Description"
-          multiline
-          rows={4}
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-          onMouseEnter={() => handleTooltipVisibility('description', true)}
-          onMouseLeave={() => handleTooltipVisibility('description', false)}
-          inputRef={tooltipRefs.description}
-          variant='filled'
-        />
-      </Tooltip>
+      <TextField
+        margin="normal"
+        fullWidth
+        label="Description"
+        multiline
+        rows={4}
+        name="description"
+        value={formData.description}
+        onChange={handleChange}
+        required
+        variant='filled'
+      />
 
-      <Tooltip
-        title="Upload relevant image to showcase the donation need visually. (Optional)"
-        placement="right" >
-        <Button variant="contained" component="label" style={{ marginRight: '10px' }}>
-          Upload Image (Optional)
-          <input accept="image/*" type="file" hidden multiple onChange={handleChange} name="image" />
-        </Button>
-        {formData.image && <p id='special-p'> {formData.image.name}</p>}
-      </Tooltip>
+      <Button variant="contained" component="label" style={{ marginRight: '10px' }}>
+        Upload Image (Optional)
+        <input accept="image/*" type="file" hidden multiple onChange={handleChange} name="image" />
+      </Button>
+      {formData.image && <p id='special-p'> {formData.image.name}</p>}
 
-      <Tooltip
-        title="If there's a specific deadline for collecting donations, include a date. (Optional)"
-        placement="right">
-        <TextField
-          margin="normal"
-          fullWidth
-          label={isHovered ? '' : 'Donation Deadline (Optional)'}
-          name="deadline"
-          type="date"
-          value={formData.targetAmount}
-          onChange={handleChange}
-          onMouseEnter={() => handleTooltipVisibility('deadline', true)}
-          onMouseLeave={() => handleTooltipVisibility('deadline', false)}
-          inputRef={tooltipRefs.deadline}
-
-        />
-      </Tooltip>
+      <TextField
+        margin="normal"
+        fullWidth
+        label=""
+        name="deadline"
+        value={formData.deadline}
+        type="date"
+        onChange={handleChange}
+        variant='filled'
+      />
+      <TextField
+        margin="normal"
+        fullWidth
+        label="Schedule time for Donation Drop-off"
+        name="timeSlot"
+        onChange={handleChange}
+        required
+        variant="filled"
+      />
+      <TextField
+        margin="normal"
+        fullWidth
+        label="Food Items Needed"
+        name="foodItems"
+        value={formData.foodItems}
+        onChange={handleChange}
+        variant='filled'
+      />
 
       <FormControl
         fullWidth margin="normal"
-        onMouseEnter={() => handleTooltipVisibility('sizeRange', true)}
-        onMouseLeave={() => handleTooltipVisibility('sizeRange', false)}>
-        <InputLabel id="typeOfToysLabel">Type of Toys</InputLabel>
-        <Tooltip
-          title="The type of the needed toys"
-          placement="right">
-          <Select
-            labelId="typeOfToysLabel"
-            name="typeOfToys"
-            value={formData.typeOfToys}
-            onChange={handleChange}
-            required
-            inputRef={tooltipRefs.typeOfToys}
-            variant='filled'
-          >
-            <MenuItem value="">educational</MenuItem>
-            <MenuItem value="infant">active play</MenuItem>
-            <MenuItem value="children">creative</MenuItem>
-          </Select>
-        </Tooltip>
-      </FormControl>
-
-      <FormControl
-        fullWidth margin="normal"
-        onMouseEnter={() => handleTooltipVisibility('gender', true)}
-        onMouseLeave={() => handleTooltipVisibility('gender', false)}>
-        <InputLabel id="genderLabel">Gender (Optional)</InputLabel>
-        <Tooltip
-          title="Specify the gender of clothing needed, or select 'All' if applicable. (Optional)"
-          placement="right">
-          <Select
-            labelId="genderLabel"
-            name="gender"
-            value={formData.gender}
-            onChange={handleChange}
-            inputRef={tooltipRefs.gender}
-            variant='filled'
-
-          >
-            <MenuItem value="">Select Gender (All)</MenuItem>
-            <MenuItem value="male">Male</MenuItem>
-            <MenuItem value="female">Female</MenuItem>
-          </Select>
-        </Tooltip>
-      </FormControl>
-
-
-      <Tooltip
-        title="Specify the types of clothing needed (e.g., coats, jackets, pants, shoes). (Required)"
-        placement="right"
       >
-        <TextField
-          margin="normal"
-          fullWidth
-          label="Type of Clothing"
-          name="clothingType"
-          value={formData.clothingType}
+        <InputLabel id="dietaryRestrictionsLabel">Dietary Restrictions</InputLabel>
+        <Select
+          labelId="dietaryRestrictionsLabel"
+          name="dietaryRestrictions"
+          value={formData.dietaryRestrictions}
           onChange={handleChange}
-          required
-          onMouseEnter={() => handleTooltipVisibility('clothingType', true)}
-          onMouseLeave={() => handleTooltipVisibility('clothingType', false)}
-          inputRef={tooltipRefs.clothingType}
           variant='filled'
-        />
-      </Tooltip>
-
-
-      <FormControl
-        fullWidth margin="normal"
-        onMouseEnter={() => handleTooltipVisibility('condition', true)}
-        onMouseLeave={() => handleTooltipVisibility('condition', false)}>
-        <InputLabel id="conditionLabel">Condition</InputLabel>
-        <Tooltip
-          title="Indicate the condition of the clothing donations accepted. (Required)"
-          placement="right" >
-          <Select
-            labelId="conditionLabel"
-            name="condition"
-            value={formData.condition}
-            onChange={handleChange}
-            required
-            inputRef={tooltipRefs.condition}
-            variant='filled'
-          >
-            <MenuItem value="">Select Condition</MenuItem>
-            <MenuItem value="new">New</MenuItem>
-            <MenuItem value="gentlyUsed">Gently Used</MenuItem>
-          </Select>
-        </Tooltip>
-
+        >
+          <MenuItem value="">No Dietary Restrictions</MenuItem>
+          <MenuItem value="glutenFree">Gluten-free</MenuItem>
+          <MenuItem value="nutFree">Nut-free</MenuItem>
+          <MenuItem value="dairyFree">Dairy-free</MenuItem>
+          {/* Add more dietary restrictions as needed */}
+        </Select>
       </FormControl>
 
-
+      <TextField
+        margin="normal"
+        fullWidth
+        label="Quantity Needed"
+        name="quantityNeeded"
+        value={formData.quantityNeeded}
+        onChange={handleChange}
+        variant='filled'
+      />
 
       <div className="button-container">
         <Button type="submit" variant="contained" className='button'>
           Submit Donation Post
         </Button>
       </div>
-
     </form>
   );
-}
+};
 
-export default FoodForm
+export default FoodForm;

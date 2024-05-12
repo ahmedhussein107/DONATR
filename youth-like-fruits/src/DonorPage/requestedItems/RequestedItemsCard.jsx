@@ -49,7 +49,7 @@ export default function RequestedItemsCard(props) {
             {day + "/" + month + "/" + year}
           </Typography>
         </CardContent>
-        <CardMedia sx={{ maxWidth: 150, marginLeft: "15%", marginTop: "1%", borderRadius: '100%'}}
+        <CardMedia sx={{ maxWidth: 150, marginLeft: "15%", marginTop: "1%"}}
           component="img"
           height="150" 
           width="100%" 

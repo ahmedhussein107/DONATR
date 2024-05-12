@@ -18,7 +18,7 @@ function Settings() {
     const listOfIcons = [
         <Stack direction="row" alignItems="center" spacing={1}>
             <NotificationsPopover />
-            <AccountPopover dir='/donor/donor-home' />
+            <AccountPopover dir='/admin' dir2={'/Settings'} />
         </Stack>
     ]
     const fontSize = '3vh';

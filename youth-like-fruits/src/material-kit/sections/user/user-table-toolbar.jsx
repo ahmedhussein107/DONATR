@@ -53,11 +53,7 @@ export default function UserTableToolbar({selected, handleDeleteAll, numSelected
           </IconButton>
         </Tooltip>
       ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <Iconify icon="ic:round-filter-list" />
-          </IconButton>
-        </Tooltip>
+        <></>
       )}
     </Toolbar>
   );

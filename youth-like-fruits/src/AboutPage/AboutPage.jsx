@@ -24,7 +24,7 @@ const About = () => {
       <section className="impact">
         <h2>Our Impact</h2>
         <p>
-          Since our founding in 20XX, DONATR has made a significant impact. 
+          Since our founding in 2010, DONATR has made a significant impact. 
           Here are some of our achievements:
         </p>
         <ul className="impact-list">
@@ -38,7 +38,7 @@ const About = () => {
         <h2>Our Team</h2>
         <p>
           DONATR is powered by a passionate team of dedicated individuals. 
-          Meet some of our key members:
+          Meet some of our key members: Ahmed Hussein, Ahmed Gohary, Ahmed Yasser, Ahmed Kamal, Rofael and Youssef Fouda
         </p>
         <div className="team-members">
           {/* Add team member profiles here (optional) */}

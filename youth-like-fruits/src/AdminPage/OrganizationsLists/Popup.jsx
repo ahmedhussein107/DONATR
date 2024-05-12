@@ -21,7 +21,7 @@ function Popup(props) {
         <div className="popup-content" onClick={(e) => e.stopPropagation()} >
         <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
             <IconButton onClick={onClose}>
-                <CloseIcon />
+                <CloseIcon style={{ color: 'red', height: '5vh', width: '5vh'}}/>
              </IconButton> 
         </div>  
           <Info  
