@@ -10,6 +10,7 @@ import img from '../../assets/icons/avatar_12.jpg';
 import ToysInfo from './ToysInfo';
 import FoodInfo from './FoodInfo';
 import MedicalInfo from './MedicalInfo';
+import BloodInfo from './BloodInfo';
 
 
 function RequestedItemsPopup(props) {
@@ -70,7 +71,7 @@ function RequestedItemsPopup(props) {
         />
         }
         {type === 'Medical Suplies' && <MedicalInfo
-            type={info.subtype}
+            subtype={info.type}
             medicalUse ={info.medicalUse}
             deviceType={info.deviceType}
             use={info.use}
@@ -79,20 +80,17 @@ function RequestedItemsPopup(props) {
             handleButtonClick={info.handleButtonClick}
             fulfilButton={<MyButton/>}
         />}
-        {/* {type === 'Blood Donations' && <SchoolInfo
-            type={info.type}
-            subtype={info.subtype}
-            bookName={info.bookName}
-            author={info.author}
-            language={info.language}
-            edition={info.edition}
-            shortSummary={info.shortSummary}
-            image={info.type === 'Book' ? bookIcon : img}
-            quantity={info.quantity}
+        {type === 'Blood Donations' && <BloodInfo
+            hospitalName = {info.hospitalName}
+            governorate = {info.governorate}
+            area = {info.area}
+            hospitalAddress = { info.hospitalAddress }
+            patientName = {info.patientName}
+            bloodType = {info.bloodType}
             date={info.date}
             handleButtonClick={info.handleButtonClick}
             fulfilButton={<MyButton/>}
-        />} */}
+        />}
         
       </div>
     </div>

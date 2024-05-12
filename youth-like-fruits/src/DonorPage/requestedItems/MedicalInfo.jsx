@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import TextField from '@mui/material/TextField';
 import MyButton from '../../Components/MyButton/MyButton';
 import { Alert, Typography } from '@mui/material';
-import img from '../../assets/car_toy.png'  
+import img from '../../assets/medicine.webp'  
 
 const MedicalInfo = (props) => {
   const user = {
-    type: info.type,
-    medicalUse: info.medicalUse,
-    deviceType: info.deviceType,
-    use: info.use,
-    quantity: info.quantity,
+    type: props.subtype,
+    medicalUse: props.medicalUse,
+    deviceType: props.deviceType,
+    use: props.use,
+    quantity: props.quantity,
     image: props.image,
     date: props.date,
     fulfilButton: props.fulfilButton,
