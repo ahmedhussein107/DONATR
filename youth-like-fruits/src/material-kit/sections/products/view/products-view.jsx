@@ -40,7 +40,8 @@ export default function ProductsView(props) {
   //   { date: '20/02/2020', name: 'Prof Slim', image: img, id: 8 },
   // ];
 
-  const cards = donors;
+  // const cards = donors;
+  const [cards , setCards] = useState(donors);
 
   // Sorting function based on the selected sorting option
   const sortedCards = () => {
@@ -157,7 +158,7 @@ export default function ProductsView(props) {
                 { name: card.name ,
                   age: card.age ,
                   image: card.image , 
-                  date: `${card.year}/${card.month}/${card.day}` , 
+                  date: `${card.day}/${card.month}/${card.year}` , 
                   type: card.type ,
                   phoneNumber: card.phoneNumber ,
                   email: card.email ,
