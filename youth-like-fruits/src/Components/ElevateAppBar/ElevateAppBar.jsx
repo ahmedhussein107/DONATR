@@ -35,7 +35,9 @@ export default function ElevateAppBar(props) {
                         <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}> Home</Button>
                         </Link>
                         <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}>About</Button>
-                        <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}>News</Button>
+                        <Link to = '/event'>
+                        <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}>Events</Button>
+                        </Link>
                        <Link to = '/contact'> 
                         <Button sx={{ fontSize: '18px' , fontFamily: 'Roboto' , marginLeft: '10px' , color: '#fff'}}>Contact</Button>
                        </Link>
