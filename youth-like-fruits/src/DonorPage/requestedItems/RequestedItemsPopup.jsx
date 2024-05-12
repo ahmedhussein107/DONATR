@@ -7,6 +7,9 @@ import MyButton from '../../Components/MyButton/MyButton';
 import SchoolInfo from './SchoolInfo';
 import bookIcon from '../../assets/serwayIcon.jpg';
 import img from '../../assets/icons/avatar_12.jpg';
+import ToysInfo from './ToysInfo';
+import FoodInfo from './FoodInfo';
+import MedicalInfo from './MedicalInfo';
 
 
 function RequestedItemsPopup(props) {
@@ -50,6 +53,48 @@ function RequestedItemsPopup(props) {
           handleButtonClick={info.handleButtonClick}
           fulfilButton={fulfilButton}
         />}
+
+
+        {type === 'Toys' && <ToysInfo
+          type={info.type}
+          subtype={info.subtype}
+          age={info.age}
+          gender={info.gender}
+          quantity={info.quantity}
+          date={info.date}
+          handleButtonClick={info.handleButtonClick}
+          fulfilButton={<MyButton />}
+        />}
+        {type === 'Food' && <FoodInfo
+          subtype={info.subtype}
+          itemName={info.itemName}
+          quantity={info.quantity}
+        />
+        }
+        {type === 'Medical Suplies' && <MedicalInfo
+          type={info.subtype}
+          medicalUse={info.medicalUse}
+          deviceType={info.deviceType}
+          use={info.use}
+          quantity={info.quantity}
+          date={info.date}
+          handleButtonClick={info.handleButtonClick}
+          fulfilButton={<MyButton />}
+        />}
+        {/* {type === 'Blood Donations' && <SchoolInfo
+            type={info.type}
+            subtype={info.subtype}
+            bookName={info.bookName}
+            author={info.author}
+            language={info.language}
+            edition={info.edition}
+            shortSummary={info.shortSummary}
+            image={info.type === 'Book' ? bookIcon : img}
+            quantity={info.quantity}
+            date={info.date}
+            handleButtonClick={info.handleButtonClick}
+            fulfilButton={<MyButton/>}
+        />} */}
 
       </div>
     </div>
