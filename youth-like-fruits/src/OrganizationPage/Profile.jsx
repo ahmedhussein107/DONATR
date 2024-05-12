@@ -137,11 +137,17 @@ const Profile = (props) => {
                     {/* <Label>Name:</Label> */}
                     <TextField id="filled-basic" label="Name" variant="filled" defaultValue={user.name} InputProps={{
                       readOnly: true,
+                      style: {
+                        pointerEvents: 'none',
+                      },
                     }} /> </DetailItem>
                   <DetailItem>
                     {/* <Label>Age:</Label> */}
                     <TextField id="filled-basic" label="Age" variant="filled" defaultValue={user.age} InputProps={{
                       readOnly: true,
+                      style: {
+                        pointerEvents: 'none',
+                      },
                     }} />
                   </DetailItem>
                 </div>
@@ -150,12 +156,18 @@ const Profile = (props) => {
                     {/* <Label>Email:</Label> */}
                     <TextField id="filled-basic" label="Email" variant="filled" defaultValue={user.email} InputProps={{
                       readOnly: true,
+                      style: {
+                        pointerEvents: 'none',
+                      },
                     }} />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>Phone Number:</Label> */}
                     <TextField id="filled-basic" label="Phone Number" variant="filled" defaultValue={user.phoneNumber} InputProps={{
                       readOnly: true,
+                      style: {
+                        pointerEvents: 'none',
+                      },
                     }} />
                   </DetailItem>
                 </div>
@@ -164,13 +176,19 @@ const Profile = (props) => {
                     {/* <Label>Address:</Label> */}
                     <TextField id="filled-basic" label="Address" variant="filled" defaultValue={user.address} InputProps={{
                       readOnly: true,
+                      style: {
+                        pointerEvents: 'none',
+                      },
                     }} />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>State:</Label> */}
-                    <TextField id="filled-basic" label="State" variant="filled" defaultValue={user.state} disa InputProps={{
+                    <TextField id="filled-basic" label="State" variant="filled" defaultValue={user.state} InputProps={{
                       readOnly: true,
-                    }} bled />
+                      style: {
+                        pointerEvents: 'none',
+                      },
+                    }} />
                   </DetailItem>
                 </div>
                 <div className='same-line-input'>
@@ -178,12 +196,18 @@ const Profile = (props) => {
                     {/* <Label>Country:</Label> */}
                     <TextField id="filled-basic" label="Country" variant="filled" defaultValue={user.country} InputProps={{
                       readOnly: true,
+                      style: {
+                        pointerEvents: 'none',
+                      },
                     }} />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>Occupation:</Label> */}
                     <TextField id="filled-basic" label="Role" variant="filled" defaultValue={user.occupation} InputProps={{
                       readOnly: true,
+                      style: {
+                        pointerEvents: 'none',
+                      },
                     }} />
                   </DetailItem>
                 </div>

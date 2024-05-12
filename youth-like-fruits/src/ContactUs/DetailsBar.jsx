@@ -111,7 +111,7 @@ const DetailsBar = () => {
 
         <ContactsWrapper href="mailto:aljay3334@gmail.com">
           <Icon.Mail size={15} color="rgb(252, 113, 137)" />
-          <ContactText>Donatr@gmail.com</ContactText>
+          <ContactText>aljay3334@gmail.com</ContactText>
         </ContactsWrapper>
       </div>
 
