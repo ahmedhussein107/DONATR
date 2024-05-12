@@ -23,11 +23,15 @@ import Settings7 from "./DonorPage/Settings7.jsx"
 import EventPage from './EventPage/EventPage.jsx'
 import ForgotPassword from "./ForgotPassword/ForgotPassword.jsx"
 import Aboutt from "./AboutPage/About.jsx"
+import DonationPickupForm from "./DonorPage/DonationPickupForm.jsx"
 import DonorSecondStepDoctor from "./RegisterPage/DonorSecondStepDoctor.jsx"
 import DonorSecondStepTeacher from "./RegisterPage/DonorSecondStepTeacher.jsx"
 import ProbonoView from "./material-kit/sections/products/view/probono-view.jsx"
+import SuccessPage2 from "./DonorPage/requestedItems/success2.jsx"
 function App() {
   return (
+    // <DonationPickupForm />
+    // <SuccessPage2 />
     <>
       <Routes>
         <Route path='/' element={<Home />} />
@@ -69,6 +73,7 @@ function App() {
         <Route path='/event' element={<EventPage />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
         <Route path='/about' element={<Aboutt />} />
+        <Route path='/DonationPickupForm' element={<DonationPickupForm />} />
       </Routes>
     </>
   )
