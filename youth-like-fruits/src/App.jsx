@@ -62,8 +62,8 @@ function App() {
         <Route path='/Settings7' element={<Settings7 />} />
         <Route path='/OrganizationPage' element={<OrganizationPage />} />
         <Route path='/event' element={<EventPage />} />
-        <Route path='/forgot-password' element={<ForgotPassword/>}/>
-        <Route path='/about' element={<Aboutt/>}/>
+        <Route path='/forgot-password' element={<ForgotPassword />} />
+        <Route path='/about' element={<Aboutt />} />
       </Routes>
     </>
   )

@@ -46,8 +46,8 @@ const NOTIFICATIONS = [
   },
   {
     id: faker.string.uuid(),
-    title: 'You have new mail',
-    description: 'sent from masr Elkheir',
+    title: 'Your post has been fulfiled',
+    description: 'you can check it now',
     avatar: null,
     type: 'mail',
     createdAt: sub(new Date(), { days: 2, hours: 3, minutes: 30 }),
