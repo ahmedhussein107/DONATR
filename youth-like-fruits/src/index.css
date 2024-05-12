@@ -50,7 +50,7 @@
   border-radius: 5px;
   text-align: center;
   margin-top: 2%;
-  justify-content: center;
+  justify-content: 'center';
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1000; /* Ensure it's above the overlay */
 }

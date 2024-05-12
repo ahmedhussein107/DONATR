@@ -62,7 +62,7 @@ const DonorForm = () => {
         <div className='form-container' >
             <form onSubmit={handleSubmit}  >
 
-                <div className='same-line-input'>
+                <div className='same-line-input' style={{marginBottom: '-4%'}}>
                     <TextField
                         name='firstName'
                         label='First Name'
@@ -140,7 +140,7 @@ const DonorForm = () => {
                         sx={classes.field}
                     />
                    <div>
-                        <FormControl variant="filled" sx={{ minWidth: '15vw' }}>
+                        <FormControl variant="filled" sx={{ minWidth: '11.7vw' }}>
                             <InputLabel>Volunteer Role</InputLabel>
                             <Select value={formData.role} onChange={handleOptionClick}>    
                                 <MenuItem value={1}>Teacher</MenuItem>
@@ -152,7 +152,7 @@ const DonorForm = () => {
                 </div>  
 
                 {selectedOption && (
-                    <div className='same-line-input' style={{right: '5%', position: 'absolute', display: 'flex', flexDirection: 'column'}}>   
+                    <div className='same-line-input' style={{right: '5%', display: 'flex', flexDirection: 'column', paddingLeft : '320px'}}>   
                         <Button
                             variant="contained"
                             component="label"
@@ -172,7 +172,7 @@ const DonorForm = () => {
                 )}
 
                 <div className='register-button-container'>
-                    <Button  className='register-button-style' type='submit' variant="contained">Register</Button>
+                    <Button  className='register-button-style' type='submit' variant="contained" style={{minWidth : '40%' , minHeight:'50px' ,marginBottom : '20%'}}>Register </Button>
                 </div>
             </form>
         </div>

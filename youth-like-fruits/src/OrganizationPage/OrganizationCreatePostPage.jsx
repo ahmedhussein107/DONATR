@@ -24,6 +24,7 @@ import BloodDonationsForm from './Components/Forms/BloodDonationsForm'
 import SchoolSuppliesForm from './Components/Forms/SchoolSuppliesForm'
 import ToyesForm from './Components/Forms/ToyesForm'
 import SelectPostType from './Components/SelectPostType'
+import { Alert } from '@mui/material';
 
 function OrganizationPage() {
 
@@ -40,6 +41,7 @@ function OrganizationPage() {
 
     // My states
     const [selectedOption, setSelectedOption] = useState(' ');
+    const [showAlert, setShowAlert] = useState(false);
 
     const listOfIcons = [
         <Stack direction="row" alignItems="center" spacing={1}>
@@ -47,6 +49,16 @@ function OrganizationPage() {
             <AccountPopover />
         </Stack>
     ]
+
+    const handleFormSubmit = () => {
+        setShowAlert(true);
+        setSelectedOption(' ');
+    }
+
+    const handleOptionSelection = (x) => {
+        setSelectedOption(x);
+        setShowAlert(false);
+    }
 
     const fontSize = '3vh';
     const menuItem = [
@@ -101,7 +113,7 @@ function OrganizationPage() {
 
                     <div className='overlay'>
                         <div className="dropdown-container">
-                            <SelectPostType selectedOption={selectedOption} onOptionSelection={setSelectedOption} />
+                            <SelectPostType selectedOption={selectedOption} onOptionSelection={handleOptionSelection} />
                         </div>
 
                         {
@@ -116,11 +128,16 @@ function OrganizationPage() {
                                             : (selectedOption === 'schoolSupplies') ?
                                                 <SchoolSuppliesForm />
                                                 : (selectedOption === 'toys') ?
-                                                    <ToyesForm />
+                                                    <ToyesForm onSubmit={handleFormSubmit} />
                                                     : <></>
 
                         }
+
                     </div>
+                    {showAlert && (
+                        <Alert severity="success" onClose={() => setShowAlert(false)}>
+                            Post created Successfully. You can create another or go to other section
+                        </Alert>)}
                 </div>
 
             </div>

@@ -3,12 +3,17 @@ import { faker} from '@faker-js/faker';
 
 // ----------------------------------------------------------------------
 
-export const donors = [...Array(8)].map((_, index) => {
+
+
+export const organization = [...Array(8)].map((_, index) => { 
     const name = faker.person.fullName();
+    const company = faker.company.name();
+    const email = faker.internet.email(name, company);
     return{
         id: faker.string.uuid(),
         name: name,
-        email: faker.internet.email(name),
+        email: email,
+        company: company,
         day: faker.number.int({min: 1 , max: 30}),
         month: faker.number.int({min: 1 , max: 12}),
         year: faker.number.int({min: 2018 , max: 2023}),
@@ -16,8 +21,11 @@ export const donors = [...Array(8)].map((_, index) => {
         birthdate: faker.date.birthdate(),
         contact: faker.phone.number(),
         type: sample([
-            'Teacher',
-            'Doctor',
+            'Charity',
+            'Medical',
+            'Education',
+            'Orphanage',
         ]),
     }
 });
+

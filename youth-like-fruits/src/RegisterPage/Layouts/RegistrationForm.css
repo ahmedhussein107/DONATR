@@ -2,25 +2,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 10px;
-    
+    margin-top: 1.5%;
 }
 form{
-    width: 90%;
+    width: '100vw';
 }
 
 .form-container{
     right: 0;
     top: 0;
-    width: 50%;
+    width: 120%;
     height: 100vh;
     background-color: #D5E0E6;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0%;
-    padding: 50px;
+   
 }
 .input-field{
 
@@ -30,15 +28,14 @@ form{
 }
 
 .register-button-container{
-    margin-top: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: '50%';
 }
 
 .register-button-style{
     width:17%;
-    height: 50px;
     /* background-color: # ; */
 }
 
