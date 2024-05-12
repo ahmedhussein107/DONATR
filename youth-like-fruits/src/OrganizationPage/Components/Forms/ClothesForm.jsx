@@ -90,7 +90,15 @@ const ClothesForm = () => {
                 onChange={handleChange}
                 variant='filled'
             />
-
+            <TextField
+                margin="normal"
+                fullWidth
+                label="Schedule time for Donation Drop-off"
+                name="timeSlot"
+                onChange={handleChange}
+                required
+                variant="filled"
+            />
             <FormControl
                 fullWidth margin="normal"
             >
