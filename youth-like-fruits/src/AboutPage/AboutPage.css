@@ -1,0 +1,63 @@
+.about-page {
+    padding: 20px; /* Adjust padding as needed */
+    max-width: 800px; /* Adjust max width as needed */
+    margin: 0 auto; /* Center the content horizontally */
+    background-color:#D5E0E6 ;
+  }
+  
+  .hero {
+    text-align: center;
+    margin-bottom: 30px; /* Adjust margin as needed */
+  }
+  
+  .hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .hero p {
+    font-size: 1.2em;
+    line-height: 1.5;
+  }
+  
+  .mission,
+  .impact,
+  .team,
+  .get-involved {
+    margin-bottom: 30px; /* Adjust margin as needed */
+  }
+  
+  .mission h2,
+  .impact h2,
+  .team h2,
+  .get-involved h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .mission p,
+  .impact p,
+  .team p,
+  .get-involved p {
+    font-size: 1.1em;
+    line-height: 1.5;
+  }
+  
+  .impact-list,
+  .get-involved-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  
+  .impact-list li,
+  .get-involved-list li {
+    margin-bottom: 5px;
+  }
+  
+  .team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
