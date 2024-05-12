@@ -21,7 +21,7 @@ export default function RequestCard(props) {
             {day + "/" + month + "/" + year}
           </Typography>
         </CardContent>
-        <CardMedia sx={{ maxWidth: 150, marginLeft: "15%", marginTop: "1%"}}
+        <CardMedia sx={{ maxWidth: 150, marginLeft: "15%", marginTop: "1%", borderRadius: '100%'}}
           component="img"
           height="auto" 
           width="100%" 
