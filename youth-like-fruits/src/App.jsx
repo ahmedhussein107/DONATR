@@ -22,6 +22,7 @@ import OrganizationList from "./AdminPage/OrganizationsLists/OrganizationList.js
 import RegisteredOrganizations from "./AdminPage/OrganizationsLists/RegisteredOrganizations.jsx"
 import EventPage from "./EventPage/EventPage.jsx"
 import Aboutt from "./AboutPage/About.jsx"
+import ForgotPassword from "./ForgotPassword/ForgotPassword.jsx"
 function App() {
   return (
     <>
@@ -58,6 +59,7 @@ function App() {
         <Route path='/RegisteredItems' element={<RegisteredItems />} />
         <Route path='/event' element={<EventPage/>}/>
         <Route path='/about' element={<Aboutt/>}/>
+        <Route path='/forgot-password' element={<ForgotPassword/>}/>
       </Routes>
     </>
   )

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import MyButton from '../../Components/MyButton/MyButton';
+import MyButton from '../Components/MyButton/MyButton';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import ForgotPassword from '../../ForgotPassword/ForgotPassword';
-
 function Layout1() {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -15,17 +13,9 @@ function Layout1() {
     setShowPassword(!showPassword);
   };
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
   return (
     <div
       style={{
@@ -70,8 +60,8 @@ function Layout1() {
 
       <Box style={{ position: 'relative' }}>
         <TextField
-          id="username"
-          label="Username"
+          id="email"
+          label="Email"
           variant="filled"
           sx={{
             borderRadius: '8px',
@@ -82,71 +72,21 @@ function Layout1() {
               borderColor: 'blue',
             },
           }}
-          onChange={handleUsernameChange}
+          onChange={handleEmailChange}
         />
         <br />
         <br />
-        <TextField
-          id="pass"
-          label="Password"
-          type={showPassword ? 'text' : 'password'}
-          variant="filled"
-          sx={{
-            borderRadius: '8px',
-            boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
-            width: 370,
-            maxWidth: '100%',
-            '&:focus': {
-              borderColor: 'blue',
-            },
-          }}
-          onChange={handlePasswordChange}
-        />
         {/* Toggle visibility button */}
-        <IconButton
-          onClick={handleTogglePasswordVisibility}
-          sx={{
-            position: 'absolute',
-            right: '10px',
-            top: '50%',
-            transform: 'translateY(50%)',
-            color: '#292F33',
-          }}
-        >
-          {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-        </IconButton>
       </Box>
 
-      <Link to = '/forgot-password'
-        style={{
-          marginLeft: '195px',
-          textDecoration: 'none',
-          marginTop: '10px',
-          color: '#666',
-          fontSize: '16px',
-          marginBottom: '30px',
-        }}
-      >
-        Forgot your password?
-      </Link>
-
       <MyButton
-        label="Login"
-        directory=""
+        label="Submit"
+        directory="/register"
         normalColor="#1D8AC5"
         hoverColor="#135E86"
         paddingWidth={14}
         paddingHeight={20}
         minimumWidth={200}
-        clickHandler={() => {
-          if(username === 'admin' && password === 'pass'){
-            window.location.href = '/admin';
-          } else if(username === 'donor' && password === 'pass'){
-            window.location.href = '/donor/donor-home';
-          } else if(username === 'organization' && password === 'pass'){
-            window.location.href = '/organization';
-          } 
-        }}
       />
       
       <div
