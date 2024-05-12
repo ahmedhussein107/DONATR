@@ -25,7 +25,7 @@ function Popup(props) {
              </IconButton> 
         </div>  
           <Info  
-            header='Request Information' 
+            header='Organization Information' 
             name={info.name}
             age={info.age}
             email={info.email}

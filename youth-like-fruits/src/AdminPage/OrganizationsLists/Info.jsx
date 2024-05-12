@@ -6,8 +6,6 @@ import Button from '@mui/material/Button';
 import MyButton from '../../Components/MyButton/MyButton.jsx';
 import { Alert, Typography } from '@mui/material';
 import { organization } from '../../material-kit/_mock/organization.js';
-import IconButton from '@mui/material/IconButton';  
-import CloseIcon from '@mui/icons-material/Close';
 
 const Info = (props) => {
   const header = props.header;
