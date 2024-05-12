@@ -5,7 +5,7 @@ import { faker} from '@faker-js/faker';
 
 
 
-export const organization = [...Array(8)].map((_, index) => { 
+export const organization = () => ([...Array(8)].map((_, index) => { 
     const name = faker.person.fullName();
     const company = faker.company.name();
     const email = faker.internet.email(name, company);
@@ -27,5 +27,5 @@ export const organization = [...Array(8)].map((_, index) => {
             'Orphanage',
         ]),
     }
-});
+}));
 
