@@ -34,7 +34,7 @@ function RegisteredItems() {
       icon: <ListIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
     },
     {
-      path: '/Donororg',
+      path: '/donor/registered-organizations',
       name: "Organizations List",
       icon: <ListIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
     },
