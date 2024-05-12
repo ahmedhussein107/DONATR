@@ -75,7 +75,7 @@ function Settings() {
                         <p style={{
                             fontSize: '44px',
                             fontFamily: 'Josefin Sans',
-                            fontWeight: '399',
+                            fontWeight: '398',
                             color: '#292F33',
                         }}>Settings</p>
                         <br />
