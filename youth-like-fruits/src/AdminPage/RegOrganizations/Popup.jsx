@@ -16,7 +16,7 @@ function Popup(props) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-        <div style={{marginTop: '7vh' , marginBottom: '-3vh'}}>
+        <div style={{marginTop: '7vh' , marginBottom: '3vh'}}>
           <Info  
             header='Request Information' 
             name={info.name}

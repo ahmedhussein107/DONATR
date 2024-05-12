@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import MyButton from '../../Components/MyButton/MyButton';
 import { Alert, Typography } from '@mui/material';
-import { organization } from '../../material-kit/_mock/organization';
+import { organization } from '../../material-kit/_mock/organization.js';
 
 const Info = (props) => {
   const header = props.header;
