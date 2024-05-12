@@ -21,6 +21,7 @@ import RegisteredItems from "./DonorPage/requestedItems/RegisteredItems.jsx"
 import OrganizationList from "./AdminPage/OrganizationsLists/OrganizationList.jsx"
 import RegisteredOrganizations from "./AdminPage/OrganizationsLists/RegisteredOrganizations.jsx"
 import EventPage from "./EventPage/EventPage.jsx"
+import Aboutt from "./AboutPage/About.jsx"
 function App() {
   return (
     <>
@@ -56,6 +57,7 @@ function App() {
         <Route path='/Settings' element={<Settings />} />
         <Route path='/RegisteredItems' element={<RegisteredItems />} />
         <Route path='/event' element={<EventPage/>}/>
+        <Route path='/about' element={<Aboutt/>}/>
       </Routes>
     </>
   )
