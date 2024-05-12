@@ -22,3 +22,12 @@
 .twitter:hover .icon {
     color: rgb(5, 59, 87);
 }
+.facebook:hover .icon{
+    color: rgb(5, 59, 87)
+}
+.instagram:hover .icon{
+    color: blueviolet
+}
+.linkedin:hover .icon{
+    color:rgb(5, 59, 87)
+}

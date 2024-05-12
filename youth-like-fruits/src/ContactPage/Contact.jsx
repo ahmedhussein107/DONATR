@@ -4,6 +4,7 @@ import DisplayIcons from './DisplayIcons.jsx';
 import ContactInfo from './ContactInfo.jsx';
 import ContactList from './ContactList.jsx';
 import LinkList from './ContactList.jsx';
+import Footer from '../Components/Footer/Footer.jsx';
 //import { Sidebar } from './Sidebar.jsx';
 //import styled from "@emotion/styled";
 //import classnames from "classnames";
@@ -22,6 +23,7 @@ function Contact() {
     <DisplayIcons/>
     <LinkList/>
     <TextLayoutt/>
+    <Footer/>
   </div>
   )
 }

@@ -85,7 +85,15 @@ const BloodDonationsForm = () => {
           <MenuItem value="O">Blood Type O</MenuItem>
         </Select>
       </FormControl>
-
+      <TextField
+        margin="normal"
+        fullWidth
+        label="Schedule time for Donation Drop-off"
+        name="timeSlot"
+        onChange={handleChange}
+        required
+        variant="filled"
+      />
       <TextField
         margin="normal"
         fullWidth

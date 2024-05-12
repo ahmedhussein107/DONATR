@@ -1,6 +1,16 @@
-import React, { useRef, useState } from 'react'
-import { FormHelperText, TextField, Button, FormControl, Select, MenuItem, InputLabel, Tooltip } from '@mui/material';
-import './ClothesForm.css'
+import React, { useRef, useState } from 'react';
+import {
+  FormHelperText,
+  TextField,
+  Button,
+  FormControl,
+  Select,
+  MenuItem,
+  InputLabel,
+  Tooltip,
+} from '@mui/material';
+import './ClothesForm.css';
+
 const MedicalSuppliesForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     title: '',
@@ -11,9 +21,10 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
     typeOfToys: '',
     ageGroup: '',
     condition: '',
+    timeSlot: '', // New state for time slot selection
   });
 
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
 
   // Refs for tooltips
   const tooltipRefs = {
@@ -25,7 +36,8 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
     typeOfToys: useRef(null),
     ageGroup: useRef(null),
     condition: useRef(null),
-  }
+    timeSlot: useRef(null), // Ref for time slot selection
+  };
 
   const handleChange = (event) => {
     const { name, value, files } = event.target;
@@ -50,14 +62,14 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
     if (refName === 'deadline') {
       setIsHovered(visibility);
     }
-
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <h2>Toys Donation Post Details</h2>
 
       <Tooltip
-        title="A clear and concise title describing the donation need.(required)"
+        title="A clear and concise title describing the donation need. (required)"
         placement="right"
       >
         <TextField
@@ -74,7 +86,7 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
       </Tooltip>
 
       <Tooltip
-        title="A detailed description of the donation need. Explain what the donation will be used for and the impact it will create.(required)"
+        title="A detailed description of the donation need. Explain what the donation will be used for and the impact it will create. (required)"
         placement="right"
       >
         <TextField
@@ -94,7 +106,7 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
       </Tooltip>
 
       <Tooltip
-        title="Provide the number of units you need from toys.(required)"
+        title="Provide the number of units you need from toys. (required)"
         placement="right"
       >
         <TextField
@@ -118,10 +130,10 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
       </Button>
       {formData.image && <p id='special-p'> {formData.image.name}</p>}
 
-
       <Tooltip
         title="If there's a specific deadline for collecting donations, include a date. (Optional)"
-        placement="right">
+        placement="right"
+      >
         <TextField
           margin="normal"
           fullWidth
@@ -132,11 +144,25 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
           onChange={handleChange}
           inputRef={tooltipRefs.deadline}
           variant='filled'
-
         />
       </Tooltip>
 
-
+      <Tooltip
+        title="Choose the time slot for donation drop-off"
+        placement="right"
+      >
+        <TextField
+          margin="normal"
+          fullWidth
+          label="Schedule Selection for Donation Drop-off"
+          name="timeSlot"
+          value={formData.timeSlot}
+          onChange={handleChange}
+          required
+          inputRef={tooltipRefs.timeSlot}
+          variant="filled"
+        />
+      </Tooltip>
 
       <FormControl
         fullWidth margin="normal"
@@ -144,7 +170,8 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
         <InputLabel id="typeOfToysLabel">Type of Toys</InputLabel>
         <Tooltip
           title="The type of the needed toys (required)"
-          placement="right">
+          placement="right"
+        >
           <Select
             labelId="typeOfToysLabel"
             name="typeOfToys"
@@ -168,7 +195,8 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
         <InputLabel id="ageGroupLabel">Age Group</InputLabel>
         <Tooltip
           title="Specify the Age group for which the toys are needed. (Optional)"
-          placement="right">
+          placement="right"
+        >
           <Select
             labelId="ageGroupLabel"
             name="ageGroup"
@@ -179,7 +207,7 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
           >
             <MenuItem value="">Select Gender (All)</MenuItem>
             <MenuItem value="newborn">Newborn (3–12 months)</MenuItem>
-            <MenuItem value="toddler"> Toddler (1–5 years)</MenuItem>
+            <MenuItem value="toddler">Toddler (1–5 years)</MenuItem>
             <MenuItem value="kids">Kids (5–13 years)</MenuItem>
             <MenuItem value="adults">Adult (Typically teens or older)</MenuItem>
           </Select>
@@ -192,7 +220,8 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
         <InputLabel id="conditionLabel">Condition</InputLabel>
         <Tooltip
           title="Indicate the condition of the clothing donations accepted. (Required)"
-          placement="right" >
+          placement="right"
+        >
           <Select
             labelId="conditionLabel"
             name="condition"
@@ -207,7 +236,6 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
             <MenuItem value="gentlyUsed">Gently Used</MenuItem>
           </Select>
         </Tooltip>
-
       </FormControl>
 
       <div className="button-container">
@@ -220,4 +248,4 @@ const MedicalSuppliesForm = ({ onSubmit }) => {
   );
 }
 
-export default MedicalSuppliesForm
+export default MedicalSuppliesForm;

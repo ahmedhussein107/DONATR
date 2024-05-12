@@ -12,7 +12,7 @@ import { every } from 'lodash';
 
 // ----------------------------------------------------------------------
 
-export default function UserTableToolbar({selected, handleDeleteAll, numSelected, filterName, onFilterName }) {
+export default function PostTableToolbar({selected, handleDeleteAll, numSelected, filterName, onFilterName }) {
   return (
     <Toolbar
       sx={{
@@ -52,14 +52,12 @@ export default function UserTableToolbar({selected, handleDeleteAll, numSelected
             <Iconify icon="eva:trash-2-fill" />
           </IconButton>
         </Tooltip>
-      ) : (
-        <></>
-      )}
+      ) : <></>}
     </Toolbar>
   );
 }
 
-UserTableToolbar.propTypes = {
+PostTableToolbar.propTypes = {
   selected: PropTypes.any,
   handleDeleteAll: PropTypes.func,
   numSelected: PropTypes.number,

@@ -41,6 +41,19 @@ const MessageInput = styled.textarea`
   outline: 0px transparent !important;
 `;
 
+const SubMitButton = styled.input`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color: rgb(8, 8, 63);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 25px 12px 24px;
+  cursor: pointer;
+`;
+
 const LoadingButton = styled.button`
   position: absolute;
   bottom: 20px;
@@ -100,13 +113,13 @@ const InputSide = () => {
     <InputSideWrapper onSubmit={handleSubmit}>
       <InputWrapper>
         <p>Name</p>
-        <Input type="text" required placeholder="UserName" value={name} onChange={nameHandler} />
+        <Input type="text" required placeholder="Allen Jones" value={name} onChange={nameHandler} />
       </InputWrapper>
       <InputWrapper>
         <p>Email</p>
         <Input
           type="email"
-          placeholder="Email Address"
+          placeholder="aljay126@gmail.com"
           value={email}
           onChange={emailHandler}
           required
@@ -117,7 +130,7 @@ const InputSide = () => {
         <Input
           type="tel"
           required
-          placeholder="Phone_Number"
+          placeholder="+233546227893"
           value={phone}
           onChange={phoneHandler}
         />
@@ -134,8 +147,7 @@ const InputSide = () => {
       {buttonLoading ? (
         <LoadingButton>Loading...</LoadingButton>
       ) : (
-        <MyButton label={"Submit"} directory={'/success'}  />
-        
+        <SubMitButton type="submit" value="Send Message" />
       )}
     </InputSideWrapper>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ahmed from '../assets/icons/avatar_12.jpg';
@@ -6,7 +7,7 @@ import Button from '@mui/material/Button';
 import MyButton from '../Components/MyButton/MyButton';
 import { Alert, Typography } from '@mui/material';
 
-const ProfilePage = (props) => {
+const Profile = (props) => {
   const header = props.header;
   const user = {
     name: props.name,
@@ -236,8 +237,7 @@ const ProfilePage = (props) => {
               minimumWidth={200}
               minimumHeight={45}
               marginLeft={2.7}
-              clickHandler={handleButtonClick}
-              directory={'/Settings2'}
+              directory={'/Settings7'}
             />}
             {!(user.downloadButton === null) && <MyButton
               label="Download official doc"
@@ -275,11 +275,17 @@ const ProfilePage = (props) => {
           </div>
         </div>
       </ProfileBox>
+      <div style={{ marginTop: '2%' }}>
+        {showAlert && (
+          <Alert severity="success" onClose={() => setShowAlert(false)}>
+            Informations Updated Successfully.
+          </Alert>)}
+      </div>
     </ProfileContainer>
   );
 };
 
-ProfilePage.defaultProps = {
+Profile.defaultProps = {
   header: 'User Profile',
   name: 'John Doe',
   age: 30,
@@ -300,4 +306,4 @@ ProfilePage.defaultProps = {
   downloadButton: null,
 }
 
-export default ProfilePage;
+export default Profile;
