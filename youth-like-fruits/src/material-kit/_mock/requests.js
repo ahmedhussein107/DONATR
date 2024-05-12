@@ -733,3 +733,141 @@ export const items = [...Array(16)].map((_, index) => {
     details: itemTypeList[types[idx]][Math.floor(Math.random() * 20)]
     }
 });
+
+export const items2 = [
+    {patientName: "Roberto Fermino",
+        age: 15,
+        gender: 'Male',
+        weight: 70,
+        organizationName: 'Orman Hospital',
+        speciality: 'sugery',
+        decription: 'needs heart surgery as quickly as possible' 
+    },
+    {patientName: "Roberto Fermino",
+        age: 15,
+        gender: 'Male',
+        weight: 70,
+        organizationName: 'Orman Hospital',
+        speciality: 'sugery',
+        decription: 'needs heart surgery as quickly as possible' 
+    },
+    {patientName: "Roberto Fermino",
+        age: 15,
+        gender: 'Male',
+        weight: 70,
+        organizationName: 'Orman Hospital',
+        speciality: 'sugery',
+        decription: 'needs heart surgery as quickly as possible' 
+    },
+    {patientName: "Roberto Fermino",
+        age: 15,
+        gender: 'Male',
+        weight: 70,
+        organizationName: 'Orman Hospital',
+        speciality: 'sugery',
+        decription: 'needs heart surgery as quickly as possible' 
+    },
+    {patientName: "Roberto Fermino",
+        age: 15,
+        gender: 'Male',
+        weight: 70,
+        organizationName: 'Orman Hospital',
+        speciality: 'sugery',
+        decription: 'needs heart surgery as quickly as possible' 
+    },
+    {patientName: "Roberto Fermino",
+        age: 15,
+        gender: 'Male',
+        weight: 70,
+        organizationName: 'Orman Hospital',
+        speciality: 'sugery',
+        decription: 'needs heart surgery as quickly as possible' 
+    },
+    {patientName: "Roberto Fermino",
+        age: 15,
+        gender: 'Male',
+        weight: 70,
+        organizationName: 'Orman Hospital',
+        speciality: 'sugery',
+        decription: 'needs heart surgery as quickly as possible' 
+    },
+    {patientName: "Roberto Fermino",
+        age: 15,
+        gender: 'Male',
+        weight: 70,
+        organizationName: 'Orman Hospital',
+        speciality: 'sugery',
+        decription: 'needs heart surgery as quickly as possible' 
+    },
+    {patientName: "Roberto Fermino",
+        age: 15,
+        gender: 'Male',
+        weight: 70,
+        organizationName: 'Orman Hospital',
+        speciality: 'sugery',
+        decription: 'needs heart surgery as quickly as possible' 
+    },
+    {patientName: "Roberto Fermino",
+        age: 15,
+        gender: 'Male',
+        weight: 70,
+        organizationName: 'Orman Hospital',
+        speciality: 'sugery',
+        decription: 'needs heart surgery as quickly as possible' 
+    }
+]
+
+export const items3 = [
+    {
+    numberStudents: '5',
+    address: '3rd district, 5th settlement, Cairo',
+    subject: 'Math'
+    },
+    {
+        numberStudents: '5',
+        address: '3rd district, 5th settlement, Cairo',
+        subject: 'Math'
+    },
+    {
+        numberStudents: '5',
+        address: '3rd district, 5th settlement, Cairo',
+        subject: 'Math'
+    },
+    {
+        numberStudents: '5',
+        address: '3rd district, 5th settlement, Cairo',
+        subject: 'Math'
+    },
+    {
+        numberStudents: '5',
+        address: '3rd district, 5th settlement, Cairo',
+        subject: 'Math'
+    },
+    {
+        numberStudents: '5',
+        address: '3rd district, 5th settlement, Cairo',
+        subject: 'Math'
+    },
+    {
+        numberStudents: '5',
+        address: '3rd district, 5th settlement, Cairo',
+        subject: 'Math'
+    },
+    {
+        numberStudents: '5',
+        address: '3rd district, 5th settlement, Cairo',
+        subject: 'Math'
+     },
+    {
+        numberStudents: '5',
+        address: '3rd district, 5th settlement, Cairo',
+        subject: 'Math'
+    }
+    {
+        numberStudents: '5',
+        address: '3rd district, 5th settlement, Cairo',
+        subject: 'Math'
+    }
+]
+
+
