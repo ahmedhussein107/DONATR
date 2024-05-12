@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Info from './Info';
+import { fa } from '@faker-js/faker';
 
 function Popup(props) {
   const onClose = props.onClose;
@@ -12,6 +13,7 @@ function Popup(props) {
   const onClickAccept = props.onClickAccept;
   const onClickReject = props.onClickReject;
   const onClickDownload = props.onClickDownload;
+  const onClickSave = props.onClickSave;
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -32,7 +34,8 @@ function Popup(props) {
             image={info.image}
             saveButton={save? {
               normalColor: "#1D8AC5",
-              hoverColor: "#135E86"
+              hoverColor: "#135E86",
+              onClick: onClickSave,
             }: null}
             acceptButton={accept ? {
               normalColor: "#20C585",
@@ -72,12 +75,13 @@ Popup.defaultProps = {
   onClose: () => {},
   info: [],
   save: true,
-  accept: true,
-  reject: true,
-  download: true,
+  accept: false,
+  reject: false,
+  download: false,
   onClickAccept: () => {},
   onClickReject: () => {},
   onClickDownload: () => {},
+  onClickSave: () => {},
 };
 
 export default Popup;
