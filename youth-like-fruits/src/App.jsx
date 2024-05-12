@@ -18,7 +18,12 @@ import org from './DonorPage/Organizations.jsx'
 import requested from './DonorPage/requestedItems/RegisteredItems.jsx'
 import Settings from './DonorPage/Settings.jsx'
 import RegisteredItems from "./DonorPage/requestedItems/RegisteredItems.jsx"
-import OrganizationList from "./AdminPage/RegOrganizations/OrganizationList.jsx"
+import OrganizationList from './AdminPage/OrganizationsLists/OrganizationList.jsx'
+import OrganizationViewPostPage from "./OrganizationPage/OrganizationViewPostPage.jsx"
+import RegisteredOrganizations from './AdminPage/OrganizationsLists/RegisteredOrganizations.jsx'
+import Settings2 from "./DonorPage/Settings2.jsx"
+import Settings7 from "./DonorPage/Settings7.jsx"
+import EventPage from './EventPage/EventPage.jsx'
 function App() {
   return (
     <>

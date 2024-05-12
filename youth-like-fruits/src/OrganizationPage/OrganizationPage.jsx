@@ -123,13 +123,8 @@ function OrganizationPage() {
 
                     <Profile />
                 </div>
-
+                <Footer />
             </div>
-
-
-            {/* Footer */}
-            <Footer />
-        </div>
     )
 }
 
