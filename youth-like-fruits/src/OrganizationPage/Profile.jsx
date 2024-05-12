@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ahmed from '../assets/icons/avatar_12.jpg';
@@ -6,7 +7,7 @@ import Button from '@mui/material/Button';
 import MyButton from '../Components/MyButton/MyButton';
 import { Alert, Typography } from '@mui/material';
 
-const ProfilePage = (props) => {
+const Profile = (props) => {
   const header = props.header;
   const user = {
     name: props.name,
@@ -136,17 +137,11 @@ const ProfilePage = (props) => {
                     {/* <Label>Name:</Label> */}
                     <TextField id="filled-basic" label="Name" variant="filled" defaultValue={user.name} InputProps={{
                       readOnly: true,
-                      style: {
-                        pointerEvents: 'none',
-                      },
                     }} /> </DetailItem>
                   <DetailItem>
                     {/* <Label>Age:</Label> */}
                     <TextField id="filled-basic" label="Age" variant="filled" defaultValue={user.age} InputProps={{
                       readOnly: true,
-                      style: {
-                        pointerEvents: 'none',
-                      },
                     }} />
                   </DetailItem>
                 </div>
@@ -155,18 +150,12 @@ const ProfilePage = (props) => {
                     {/* <Label>Email:</Label> */}
                     <TextField id="filled-basic" label="Email" variant="filled" defaultValue={user.email} InputProps={{
                       readOnly: true,
-                      style: {
-                        pointerEvents: 'none',
-                      },
                     }} />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>Phone Number:</Label> */}
                     <TextField id="filled-basic" label="Phone Number" variant="filled" defaultValue={user.phoneNumber} InputProps={{
                       readOnly: true,
-                      style: {
-                        pointerEvents: 'none',
-                      },
                     }} />
                   </DetailItem>
                 </div>
@@ -175,19 +164,13 @@ const ProfilePage = (props) => {
                     {/* <Label>Address:</Label> */}
                     <TextField id="filled-basic" label="Address" variant="filled" defaultValue={user.address} InputProps={{
                       readOnly: true,
-                      style: {
-                        pointerEvents: 'none',
-                      },
                     }} />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>State:</Label> */}
-                    <TextField id="filled-basic" label="State" variant="filled" defaultValue={user.state} InputProps={{
+                    <TextField id="filled-basic" label="State" variant="filled" defaultValue={user.state} disa InputProps={{
                       readOnly: true,
-                      style: {
-                        pointerEvents: 'none',
-                      },
-                    }} />
+                    }} bled />
                   </DetailItem>
                 </div>
                 <div className='same-line-input'>
@@ -195,18 +178,12 @@ const ProfilePage = (props) => {
                     {/* <Label>Country:</Label> */}
                     <TextField id="filled-basic" label="Country" variant="filled" defaultValue={user.country} InputProps={{
                       readOnly: true,
-                      style: {
-                        pointerEvents: 'none',
-                      },
                     }} />
                   </DetailItem>
                   <DetailItem>
                     {/* <Label>Occupation:</Label> */}
                     <TextField id="filled-basic" label="Role" variant="filled" defaultValue={user.occupation} InputProps={{
                       readOnly: true,
-                      style: {
-                        pointerEvents: 'none',
-                      },
                     }} />
                   </DetailItem>
                 </div>
@@ -236,8 +213,7 @@ const ProfilePage = (props) => {
               minimumWidth={200}
               minimumHeight={45}
               marginLeft={2.7}
-              clickHandler={handleButtonClick}
-              directory={'/Settings2'}
+              directory={'/Settings7'}
             />}
             {!(user.downloadButton === null) && <MyButton
               label="Download official doc"
@@ -275,11 +251,17 @@ const ProfilePage = (props) => {
           </div>
         </div>
       </ProfileBox>
+      <div style={{ marginTop: '2%' }}>
+        {showAlert && (
+          <Alert severity="success" onClose={() => setShowAlert(false)}>
+            Informations Updated Successfully.
+          </Alert>)}
+      </div>
     </ProfileContainer>
   );
 };
 
-ProfilePage.defaultProps = {
+Profile.defaultProps = {
   header: 'User Profile',
   name: 'John Doe',
   age: 30,
@@ -300,4 +282,4 @@ ProfilePage.defaultProps = {
   downloadButton: null,
 }
 
-export default ProfilePage;
+export default Profile;

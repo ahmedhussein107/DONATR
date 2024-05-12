@@ -13,15 +13,14 @@ import SuccessPage from "./ContactUs/SuccessPage.jsx"
 import DashBoard from "./DonorPage/DashBoard.jsx"
 import OrganizationPage from "./OrganizationPage/OrganizationPage.jsx"
 import OrganizationCreatePostPage from "./OrganizationPage/OrganizationCreatePostPage.jsx"
-import probono from "./DonorPage/probono.jsx"
-import org from './DonorPage/Organizations.jsx'
-import requested from './DonorPage/requestedItems/RegisteredItems.jsx'
 import Settings from './DonorPage/Settings.jsx'
 import RegisteredItems from "./DonorPage/requestedItems/RegisteredItems.jsx"
-import OrganizationList from "./AdminPage/OrganizationsLists/OrganizationList.jsx"
-import RegisteredOrganizations from "./AdminPage/OrganizationsLists/RegisteredOrganizations.jsx"
-import EventPage from "./EventPage/EventPage.jsx"
-import Aboutt from "./AboutPage/About.jsx"
+import OrganizationList from './AdminPage/OrganizationsLists/OrganizationList.jsx'
+import OrganizationViewPostPage from "./OrganizationPage/OrganizationViewPostPage.jsx"
+import RegisteredOrganizations from './AdminPage/OrganizationsLists/RegisteredOrganizations.jsx'
+import Settings2 from "./DonorPage/Settings2.jsx"
+import Settings7 from "./DonorPage/Settings7.jsx"
+import EventPage from './EventPage/EventPage.jsx'
 import ForgotPassword from "./ForgotPassword/ForgotPassword.jsx"
 function App() {
   return (
@@ -33,6 +32,7 @@ function App() {
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/organization' element={<OrganizationPage />} />
         <Route path='/organization/create-post' element={<OrganizationCreatePostPage />} />
+        <Route path='/organization/view-posts' element={<OrganizationViewPostPage />} />
         <Route path='/contact' element={<ContactPage />} />
         <Route path='/register/organization' element={<OrganizationReg />} />
         <Route path='/register/donor' element={<DonorReg />} />
@@ -47,8 +47,8 @@ function App() {
         <Route path='/register/donor' element={<DonorReg />} />
         <Route path='/admin/donors-list' element={<NewDonorsList />} />
         <Route path='/admin/account-management' element={<AccountManagement />} />
-        <Route path='/admin/organizations-list' element={<OrganizationList/>} />
-        <Route path='/admin/registered-organizations' element={<RegisteredOrganizations/>} />
+        <Route path='/admin/organizations-list' element={<OrganizationList />} />
+        <Route path='/admin/registered-organizations' element={<RegisteredOrganizations />} />
         <Route path='/success' element={<SuccessPage />} />
         <Route path='/form_page' element={<FormPage />} />
         <Route path='/donor/donor-home' element={<DashBoard />} />
@@ -57,8 +57,10 @@ function App() {
         <Route path='/Donorrequested' element={<requested />} />
         <Route path='/Settings' element={<Settings />} />
         <Route path='/RegisteredItems' element={<RegisteredItems />} />
-        <Route path='/event' element={<EventPage/>}/>
-        <Route path='/about' element={<Aboutt/>}/>
+        <Route path='/Settings2' element={<Settings2 />} />
+        <Route path='/Settings7' element={<Settings7 />} />
+        <Route path='/OrganizationPage' element={<OrganizationPage />} />
+        <Route path='/event' element={<EventPage />} />
         <Route path='/forgot-password' element={<ForgotPassword/>}/>
       </Routes>
     </>

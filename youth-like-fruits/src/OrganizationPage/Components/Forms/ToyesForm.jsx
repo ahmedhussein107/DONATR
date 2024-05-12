@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { FormHelperText, TextField, Button, FormControl, Select, MenuItem, InputLabel, Tooltip } from '@mui/material';
 import './ClothesForm.css'
-const ToyesForm = ({onSubmit}) => {
+const MedicalSuppliesForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     title: '',
     targetAmount: '',
@@ -70,7 +70,6 @@ const ToyesForm = ({onSubmit}) => {
           required
           inputRef={tooltipRefs.title}
           variant='filled'
-
         />
       </Tooltip>
 
@@ -113,15 +112,11 @@ const ToyesForm = ({onSubmit}) => {
         />
       </Tooltip>
 
-      <Tooltip
-        title="Upload relevant image to showcase the donation need visually. (Optional)"
-        placement="right" >
-        <Button variant="contained" component="label" style={{ marginRight: '10px' }}>
-          Upload Image (Optional)
-          <input accept="image/*" type="file" hidden multiple onChange={handleChange} name="image" />
-        </Button>
-        {formData.image && <p id='special-p'> {formData.image.name}</p>}
-      </Tooltip>
+      <Button variant="contained" component="label" style={{ marginRight: '10px' }}>
+        Upload Image (Optional)
+        <input accept="image/*" type="file" hidden multiple onChange={handleChange} name="image" />
+      </Button>
+      {formData.image && <p id='special-p'> {formData.image.name}</p>}
 
 
       <Tooltip
@@ -130,7 +125,7 @@ const ToyesForm = ({onSubmit}) => {
         <TextField
           margin="normal"
           fullWidth
-          label={isHovered ? '' : 'Donation Deadline '}
+          label={''}
           name="deadline"
           value={formData.deadline}
           type="date"
@@ -225,4 +220,4 @@ const ToyesForm = ({onSubmit}) => {
   );
 }
 
-export default ToyesForm
+export default MedicalSuppliesForm
