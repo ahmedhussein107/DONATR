@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Info from './Info';
+import IconButton from '@mui/material/IconButton';  
+import CloseIcon from '@mui/icons-material/Close';
 
 function Popup(props) {
   const onClose = props.onClose;
@@ -16,7 +18,11 @@ function Popup(props) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-        <div style={{marginTop: '7vh' , marginBottom: '-3vh'}}>
+      <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+            <IconButton onClick={onClose}>
+                <CloseIcon />
+             </IconButton> 
+        </div>
           <Info
             header='Request Information' 
             name={info.name}
@@ -49,7 +55,6 @@ function Popup(props) {
               onClick: onClickDownload,
             }: null}
           />
-        </div>
       </div>
     </div>
   );

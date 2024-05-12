@@ -7,11 +7,11 @@ import {Alert} from '@mui/material';
 import img from '../../../../assets/donor_icon.png';
 import RequestCard from '../../../../AdminPage/DonorsList/RequestCard';
 import { Box, TextField, MenuItem, Select, FormControl, FormLabel } from '@mui/material';
-import ProductFilters from '../product-filters';
-import Popup from '../../../../AdminPage/DonorsList/PopUp';
-import { donors } from '../../../_mock/donor';
+import OrganizationFilters from '../organization-filters';
+import Popup from '../../../../AdminPage/OrganizationsLists/Popup';
+import { organization } from '../../../_mock/organization';
 
-export default function ProductsView(props) {
+export default function RegisteredView(props) {
   const pageTitle = props.title;
   const sort = props.sort;
   const filter = props.filter;
@@ -42,7 +42,7 @@ export default function ProductsView(props) {
   // ];
 
   // const cards = donors;
-  const [cards , setCards] = useState(donors);
+  const [cards , setCards] = useState(organization);
   const [selectedId , setSelectedId] = useState(null);
 
   // Sorting function based on the selected sorting option
@@ -120,31 +120,6 @@ export default function ProductsView(props) {
       {openPopup && <Popup 
         onClose={onPopupClose} 
         info={currentInfo} 
-        save={false} 
-        accept={true} 
-        reject={true} 
-        download={true} 
-        onClickAccept={
-          () => {
-            handleDelete();
-            onPopupClose();
-            setAlertType('accept');
-            showThatAlert();
-          }
-        }
-        onClickReject={
-          () => {
-            handleDelete();
-            onPopupClose();
-            setAlertType('reject');
-            showThatAlert();
-          }
-        }
-        onClickDownload={
-          () => {
-              window.location.href = 'https://api32.ilovepdf.com/v1/download/b9jfk464q8j2prc5vAwsl4xrcgtt7281y5p4jks4kx842xxmwm8b1hg9kA11cvs21ft0w86pl89fnzsdzsfg73ls0g4c51s0b5bpjtq12581jqgwp00xp83yfpf7tj7gAt9n6z7g3bv81cv8j4k1y4s5k9pb3cn0yc19A4sx2spkzk828hl1';
-          }
-        }
       />}
       <Stack direction="row" justifyContent="space-between" m={2}>
         <Typography
@@ -173,7 +148,7 @@ export default function ProductsView(props) {
             <MenuItem value="lexicalDescending">Lexicographical Descending</MenuItem>
           </Select>}
           
-          {filter && <ProductFilters
+          {filter && <OrganizationFilters
             openFilter={openFilter}
             onOpenFilter={handleOpenFilter}
             onCloseFilter={handleCloseFilter}
@@ -190,6 +165,7 @@ export default function ProductsView(props) {
             year={card.year}
             name={card.name} 
             image={card.image}
+            organization={card.company} 
             onClick={() => {
               setSelectedId(card.id);
               setCurrentInfo(
@@ -200,6 +176,8 @@ export default function ProductsView(props) {
                   type: card.type ,
                   phoneNumber: card.phoneNumber ,
                   email: card.email ,
+                  organization: card.company,
+                  occupation: card.type,
                   id: card.id ,
                 });
               onPopupOpen();

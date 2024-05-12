@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import ahmed from '../../assets/icons/avatar_12.jpg';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import MyButton from '../../Components/MyButton/MyButton';
+import MyButton from '../../Components/MyButton/MyButton.jsx';
 import { Alert, Typography } from '@mui/material';
 import { organization } from '../../material-kit/_mock/organization.js';
 
 const Info = (props) => {
   const header = props.header;
+  const close = props.close;
   const user = {
     name: props.name,
     age: props.age,
@@ -31,7 +32,7 @@ const Info = (props) => {
     justify-content: center;
     align-items: flex-start;
     margin-top: 0.5vh;
-    min-height: 80vh; /* Ensure the container takes up at least the full height of the viewport */
+    min-height: 70vh; /* Ensure the container takes up at least the full height of the viewport */
   `;
 
   const ProfileBox = styled.div`
@@ -126,12 +127,15 @@ const Info = (props) => {
   return (
     <ProfileContainer>
       <ProfileBox>
+        
         <div style={{ justifyContent: 'center' }}>
           <div style={{ display: 'flex', flexDirection: 'row' }}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div></div>
-              <ProfileHeader >{header}</ProfileHeader>
-              <></>
+              <div>
+              <ProfileHeader >
+                {header}
+              </ProfileHeader>
+              </div>  
               <br />
               <div style={{ marginleft: '100px' }}>
                 <div className='same-line-input'>
@@ -207,7 +211,7 @@ const Info = (props) => {
           <br /> 
           <div style={{display: 'flex' , flexDirection: 'row'}}>
             {!(user.saveButton === null) && <MyButton
-                label="Save"
+                label="Close"
                 normalColor={user.saveButton.normalColor}
                 hoverColor={user.saveButton.hoverColor}
                 paddingWidth={14}
@@ -215,7 +219,7 @@ const Info = (props) => {
                 minimumWidth={200}
                 minimumHeight={45}
                 marginLeft={2.7}
-                clickHandler={handleButtonClick}
+                clickHandler={user.saveButton.onClick}
               />}
             {!(user.downloadButton === null) && <MyButton
                 label="Download official doc"
@@ -283,6 +287,7 @@ Info.defaultProps = {
   acceptButton: null,
   rejectButton: null,
   downloadButton: null,
+  close: () => {},
 }
 
 export default Info;

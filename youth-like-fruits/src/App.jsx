@@ -18,10 +18,11 @@ import org from './DonorPage/Organizations.jsx'
 import requested from './DonorPage/requestedItems/RegisteredItems.jsx'
 import Settings from './DonorPage/Settings.jsx'
 import RegisteredItems from "./DonorPage/requestedItems/RegisteredItems.jsx"
-import OrganizationList from "./AdminPage/RegOrganizations/OrganizationList.jsx"
 import Settings2 from './DonorPage/Settings2.jsx'
 import Settings7 from './DonorPage/Settings7.jsx'
-
+import OrganizationList from "./AdminPage/OrganizationsLists/OrganizationList.jsx"
+import RegisteredOrganizations from "./AdminPage/OrganizationsLists/RegisteredOrganizations.jsx"
+import EventPage from "./EventPage/EventPage.jsx"
 function App() {
   return (
     <>
@@ -47,6 +48,7 @@ function App() {
         <Route path='/admin/donors-list' element={<NewDonorsList />} />
         <Route path='/admin/account-management' element={<AccountManagement />} />
         <Route path='/admin/organizations-list' element={<OrganizationList />} />
+        <Route path='/admin/registered-organizations' element={<RegisteredOrganizations />} />
         <Route path='/success' element={<SuccessPage />} />
         <Route path='/form_page' element={<FormPage />} />
         <Route path='/donor/donor-home' element={<DashBoard />} />
@@ -58,7 +60,7 @@ function App() {
         <Route path='/Settings2' element={<Settings2 />} />
         <Route path='/Settings7' element={<Settings7 />} />
         <Route path='/OrganizationPage' element={<OrganizationPage />} />
-
+        <Route path='/event' element={<EventPage />} />
       </Routes>
     </>
   )
