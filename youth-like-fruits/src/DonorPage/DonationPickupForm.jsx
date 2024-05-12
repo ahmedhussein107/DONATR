@@ -19,7 +19,7 @@ const DonationPickupForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Submitted Donation Pickup Form:', formData);
+        window.location.href = '/SuccessPage2';
     };
 
     return (

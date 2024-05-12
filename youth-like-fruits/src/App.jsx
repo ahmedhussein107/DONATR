@@ -73,6 +73,8 @@ function App() {
         <Route path='/forgot-password' element={<ForgotPassword />} />
         <Route path='/about' element={<Aboutt />} />
         <Route path='/DonationPickupForm' element={<DonationPickupForm />} />
+        <Route path='/SuccessPage2' element={<SuccessPage2 />} />
+
       </Routes>
     </>
   )

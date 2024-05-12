@@ -46,7 +46,7 @@ const SuccessPage2 = () => {
                     <MyButton
                         marginTop={'10%'}
                         label="Continue Donating"
-                        directory=""
+                        directory='/RegisteredItems'
                         normalColor="#1D8AC5"
                         hoverColor="#135E86"
                         paddingWidth={14}
