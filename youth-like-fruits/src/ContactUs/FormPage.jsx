@@ -27,7 +27,6 @@ const FormContainer = styled.div`
   background-color: #fff;
   padding: 5px;
   border-radius: 5px;
-  height: auto;
   grid-gap: 10px;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -52,8 +51,8 @@ const TextTwo = styled.p`
 
 const FormPage = () => {
   return (
-    <PageWrapper style={{ backgroundColor: '#D5E0E6' }}>
-      <PageHeadingWrapper>
+    <PageWrapper style={{ backgroundColor: '#D5E0E6' }} >
+      <PageHeadingWrapper sy={{ minHeight: '20vh' }}>
         <TextOne>Contact US</TextOne>
         <TextTwo>Any Question or remarks? Just write us a message</TextTwo>
       </PageHeadingWrapper>

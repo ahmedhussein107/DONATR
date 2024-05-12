@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
+import {Alert} from '@mui/material';
 import img from '../../../../assets/donor_icon.png';
 import RequestCard from '../../../../AdminPage/DonorsList/RequestCard';
 import { Box, TextField, MenuItem, Select, FormControl, FormLabel } from '@mui/material';
@@ -40,7 +41,9 @@ export default function ProductsView(props) {
   //   { date: '20/02/2020', name: 'Prof Slim', image: img, id: 8 },
   // ];
 
-  const cards = donors;
+  // const cards = donors;
+  const [cards , setCards] = useState(donors);
+  const [selectedId , setSelectedId] = useState(null);
 
   // Sorting function based on the selected sorting option
   const sortedCards = () => {
@@ -96,19 +99,54 @@ export default function ProductsView(props) {
     setSorting(event.target.value);
   };
 
+  const handleDelete = (event) => {
+    const newCardList = cards.filter(card => card.id !== selectedId);
+    setCards(newCardList);
+  }
+
+  const [showAlert, setShowAlert] = useState(false);
+  
+  const showThatAlert = () => {
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 2000);
+  }
+
+  const [alertType , setAlertType] = useState(null);
+
   return (
     <Container>
-      {openPopup && <Popup onClose={onPopupClose} info={currentInfo} />}
+      {openPopup && <Popup 
+        onClose={onPopupClose} 
+        info={currentInfo} 
+        save={false} 
+        accept={true} 
+        reject={true} 
+        download={true} 
+        onClickAccept={
+          () => {
+            handleDelete();
+            onPopupClose();
+            setAlertType('accept');
+            showThatAlert();
+          }
+        }
+        onClickReject={
+          () => {
+            handleDelete();
+            onPopupClose();
+            setAlertType('reject');
+            showThatAlert();
+          }
+        }
+        onClickDownload={
+          () => {
+            
+          }
+        }
+      />}
       <Stack direction="row" justifyContent="space-between" m={2}>
-      <Box
-        sx={{
-          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-          padding: '20px',
-          borderRadius: '8px',
-          backgroundColor: '#fff',
-          textAlign: 'center',
-        }}
-      />
         <Typography
           variant="h5"
           sx={{ color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold' }}
@@ -151,20 +189,20 @@ export default function ProductsView(props) {
             month={card.month}
             year={card.year}
             name={card.name} 
-            image={card.image} 
+            image={card.image}
             onClick={() => {
+              setSelectedId(card.id);
               setCurrentInfo(
                 { name: card.name ,
                   age: card.age ,
                   image: card.image , 
-                  date: `${card.year}/${card.month}/${card.day}` , 
+                  date: `${card.day}/${card.month}/${card.year}` , 
                   type: card.type ,
                   phoneNumber: card.phoneNumber ,
                   email: card.email ,
                   address: 'Helwan' ,
                   state: 'Helwan' ,
                   country: 'Egypt' ,
-                  image: card.image ,
                   id: card.id ,
                 });
               onPopupOpen();
@@ -172,6 +210,12 @@ export default function ProductsView(props) {
           </Grid>
         ))}
       </Grid>
+      {showAlert && (
+          <Alert severity={'success'} onClose={() => setShowAlert(false)}>
+            {alertType==='accept' ? 
+              'Donor Submession has been approved successfully!' : 
+              'Donor Submession has beed disapproved successfully!'}
+          </Alert>)}
     </Container>
   );
 }
