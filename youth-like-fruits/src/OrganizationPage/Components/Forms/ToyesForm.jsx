@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { FormHelperText, TextField, Button, FormControl, Select, MenuItem, InputLabel, Tooltip } from '@mui/material';
 import './ClothesForm.css'
-const ToyesForm = () => {
+const ToyesForm = ({onSubmit}) => {
   const [formData, setFormData] = useState({
     title: '',
     targetAmount: '',
@@ -37,8 +37,9 @@ const ToyesForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    onSubmit();
     // Submit form data to your backend logic here
-    console.log('Submitted Clothes Donation Form:', formData);
+    console.log('Submitted Toys Donation Form:', formData);
   };
 
   // Function to handle tooltip visibility
@@ -67,10 +68,9 @@ const ToyesForm = () => {
           value={formData.title}
           onChange={handleChange}
           required
-          onMouseEnter={() => handleTooltipVisibility('title', true)}
-          onMouseLeave={() => handleTooltipVisibility('title', false)}
           inputRef={tooltipRefs.title}
           variant='filled'
+
         />
       </Tooltip>
 
@@ -88,10 +88,9 @@ const ToyesForm = () => {
           value={formData.description}
           onChange={handleChange}
           required
-          onMouseEnter={() => handleTooltipVisibility('description', true)}
-          onMouseLeave={() => handleTooltipVisibility('description', false)}
           inputRef={tooltipRefs.description}
           variant='filled'
+          sx={{ visibility: 'visible' }}
         />
       </Tooltip>
 
@@ -108,8 +107,6 @@ const ToyesForm = () => {
           value={formData.targetAmount}
           onChange={handleChange}
           required
-          onMouseEnter={() => handleTooltipVisibility('targetAmount', true)}
-          onMouseLeave={() => handleTooltipVisibility('targetAmount', false)}
           inputRef={tooltipRefs.targetAmount}
           variant='filled'
           type='number'
@@ -126,6 +123,7 @@ const ToyesForm = () => {
         {formData.image && <p id='special-p'> {formData.image.name}</p>}
       </Tooltip>
 
+
       <Tooltip
         title="If there's a specific deadline for collecting donations, include a date. (Optional)"
         placement="right">
@@ -134,20 +132,20 @@ const ToyesForm = () => {
           fullWidth
           label={isHovered ? '' : 'Donation Deadline '}
           name="deadline"
+          value={formData.deadline}
           type="date"
-          value={formData.targetAmount}
           onChange={handleChange}
-          onMouseEnter={() => handleTooltipVisibility('deadline', true)}
-          onMouseLeave={() => handleTooltipVisibility('deadline', false)}
           inputRef={tooltipRefs.deadline}
           variant='filled'
+
         />
       </Tooltip>
 
+
+
       <FormControl
         fullWidth margin="normal"
-        onMouseEnter={() => handleTooltipVisibility('typeOfToys', true)}
-        onMouseLeave={() => handleTooltipVisibility('typeOfToys', false)}>
+      >
         <InputLabel id="typeOfToysLabel">Type of Toys</InputLabel>
         <Tooltip
           title="The type of the needed toys (required)"
@@ -160,7 +158,6 @@ const ToyesForm = () => {
             required
             inputRef={tooltipRefs.typeOfToys}
             variant='filled'
-            
           >
             <MenuItem value="">educational</MenuItem>
             <MenuItem value="infant">active play</MenuItem>
@@ -172,8 +169,7 @@ const ToyesForm = () => {
 
       <FormControl
         fullWidth margin="normal"
-        onMouseEnter={() => handleTooltipVisibility('ageGroup', true)}
-        onMouseLeave={() => handleTooltipVisibility('ageGroup', false)}>
+      >
         <InputLabel id="ageGroupLabel">Age Group</InputLabel>
         <Tooltip
           title="Specify the Age group for which the toys are needed. (Optional)"
@@ -185,7 +181,6 @@ const ToyesForm = () => {
             onChange={handleChange}
             inputRef={tooltipRefs.ageGroup}
             variant='filled'
-
           >
             <MenuItem value="">Select Gender (All)</MenuItem>
             <MenuItem value="newborn">Newborn (3–12 months)</MenuItem>
@@ -196,14 +191,9 @@ const ToyesForm = () => {
         </Tooltip>
       </FormControl>
 
-
-
-
-
       <FormControl
         fullWidth margin="normal"
-        onMouseEnter={() => handleTooltipVisibility('condition', true)}
-        onMouseLeave={() => handleTooltipVisibility('condition', false)}>
+      >
         <InputLabel id="conditionLabel">Condition</InputLabel>
         <Tooltip
           title="Indicate the condition of the clothing donations accepted. (Required)"
@@ -225,15 +215,13 @@ const ToyesForm = () => {
 
       </FormControl>
 
-
-
       <div className="button-container">
         <Button type="submit" variant="contained" className='button'>
           Submit Donation Post
         </Button>
       </div>
 
-    </form>
+    </form >
   );
 }
 
