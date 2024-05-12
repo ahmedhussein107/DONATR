@@ -6,7 +6,9 @@ import { ProductsView } from '../../material-kit/sections/products/view';
 import NotificationsPopover from '../../AdminPage/Dashboard/Notifications';
 import AccountPopover from '../../AdminPage/Dashboard/profile';
 import Stack from '@mui/material/Stack';
-
+import HomeIcon from '@mui/icons-material/Home';
+import ListIcon from '@mui/icons-material/List';
+import HailIcon from '@mui/icons-material/Hail';
 function RegisteredItems() {
 
   const listOfIcons = [
@@ -15,12 +17,36 @@ function RegisteredItems() {
       <AccountPopover />
     </Stack>
   ]
+  const fontSize = '3vh';
 
+
+  const menuItem = [
+    {
+      path: '/donor/donor-home',
+      name: "Profile",
+      icon: <HomeIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
+    },
+    {
+      path: '/RegisteredItems',
+      name: "Requested Items",
+      icon: <ListIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
+    },
+    {
+      path: '/Donororg',
+      name: "Organizations List",
+      icon: <ListIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
+    },
+    {
+      path: '/Donorbropono',
+      name: "Probono services",
+      icon: <HailIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
+    },
+  ]
   return (
     <div className='container'>
       <ElevateAppBar iconsList={listOfIcons} />
       <div style={{ display: 'flex', flexDirection: 'row', minHeight: '90vh' }}>
-        <SideBar />
+        <SideBar menuItem={menuItem} />
         <ProductsView title="Donors Submissions" search={true} filter={false} sort={true} />
       </div>
       <Footer />

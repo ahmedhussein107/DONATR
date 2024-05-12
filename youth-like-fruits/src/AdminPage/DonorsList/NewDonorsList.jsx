@@ -11,19 +11,19 @@ function DonorsList() {
 
   const listOfIcons = [
     <Stack direction="row" alignItems="center" spacing={1}>
-    <NotificationsPopover />
-    <AccountPopover />
-  </Stack>
+      <NotificationsPopover />
+      <AccountPopover />
+    </Stack>
   ]
 
   return (
     <div className='container'>
-      <ElevateAppBar iconsList={listOfIcons}/>
-      <div style = {{display: 'flex' , flexDirection: 'row' , minHeight: '90vh'}}>
-        <SideBar/>
-        <ProductsView title="Donors Submissions" search={true} filter={false} sort={true}/>
+      <ElevateAppBar iconsList={listOfIcons} />
+      <div style={{ display: 'flex', flexDirection: 'row', minHeight: '90vh' }}>
+        <SideBar />
+        <ProductsView title="Donors Submissions" search={true} filter={false} sort={true} />
       </div>
-      <Footer/>
+      <Footer />
 
     </div>
   )
