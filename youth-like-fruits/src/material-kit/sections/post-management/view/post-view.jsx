@@ -68,8 +68,8 @@ export default function PostView() {
     setSelected(newSelected);
   };
 
-  const handleDelete = (name) => {
-    const updatedUsers = users.filter(user => user.name !== name);
+  const handleDelete = (id) => {
+    const updatedUsers = users.filter(user => user.id !== id);
     setUsers(updatedUsers);
     setSelected([]);
   };
@@ -140,7 +140,7 @@ export default function PostView() {
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => (
                     <PostTableRow
-                      key={row.id}
+                      id={row.id}
                       type={row.type}
                       status={row.status}
                       date={row.day + '/' + row.month + '/' + row.year}

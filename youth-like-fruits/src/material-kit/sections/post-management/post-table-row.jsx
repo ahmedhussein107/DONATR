@@ -20,6 +20,7 @@ import MenuItem from '@mui/material/MenuItem';
 export default function PostTableRow({
   selected,
   name,
+  id,
   avatarUrl,
   type,
   date,
@@ -39,7 +40,7 @@ export default function PostTableRow({
   };
 
   const handleDeleteClick = () => {
-    handleDelete(name);
+    handleDelete(id);
   };
 
   return (
@@ -90,7 +91,10 @@ export default function PostTableRow({
               Edit
             </MenuItem>
 
-            <MenuItem onClick={handleDeleteClick} sx={{ color: 'error.main' }}>
+            <MenuItem onClick={() => {
+              handleDeleteClick();
+              handleCloseMenu();
+            }} sx={{ color: 'error.main' }}>
               <Iconify icon="eva:trash-2-outline" sx={{ mr: 2 }} />
               Delete
             </MenuItem>

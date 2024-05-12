@@ -42,7 +42,7 @@ const Info = (props) => {
     flex-direction: column; /* Align items in a column */
     min-height : 65vh
   `;
-
+  
   const ProfileHeader = styled.h2`
     font-size: 28px; /* Increased font size */
     margin-left: 20px; /* Increased margin */
