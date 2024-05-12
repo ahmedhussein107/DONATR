@@ -157,6 +157,7 @@ const BloodInfo = (props) => {
           <div style={{display: 'flex' , flexDirection: 'row'}}>
           {<MyButton
                 label="Fulfil"
+                directory={'/DonationPickupForm'}
                 normalColor={user.fulfilButton.normalColor}
                 hoverColor={user.fulfilButton.hoverColor}
                 paddingWidth={14}

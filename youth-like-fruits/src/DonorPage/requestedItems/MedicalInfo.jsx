@@ -143,6 +143,7 @@ const MedicalInfo = (props) => {
             
             {<MyButton
                 label="Fulfil"
+                directory={'/DonationPickupForm'}
                 normalColor={user.fulfilButton.normalColor}
                 hoverColor={user.fulfilButton.hoverColor}
                 paddingWidth={14}
