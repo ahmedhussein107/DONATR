@@ -100,15 +100,6 @@ export default function ProductsView(props) {
     <Container>
       {openPopup && <Popup onClose={onPopupClose} info={currentInfo} />}
       <Stack direction="row" justifyContent="space-between" m={2}>
-      <Box
-        sx={{
-          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-          padding: '20px',
-          borderRadius: '8px',
-          backgroundColor: '#fff',
-          textAlign: 'center',
-        }}
-      />
         <Typography
           variant="h5"
           sx={{ color: '#000', fontFamily: 'sans-serif', fontWeight: 'bold' }}
@@ -164,7 +155,6 @@ export default function ProductsView(props) {
                   address: 'Helwan' ,
                   state: 'Helwan' ,
                   country: 'Egypt' ,
-                  image: card.image ,
                   id: card.id ,
                 });
               onPopupOpen();
