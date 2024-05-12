@@ -18,11 +18,12 @@ import org from './DonorPage/Organizations.jsx'
 import requested from './DonorPage/requestedItems/RegisteredItems.jsx'
 import Settings from './DonorPage/Settings.jsx'
 import RegisteredItems from "./DonorPage/requestedItems/RegisteredItems.jsx"
-import Settings2 from './DonorPage/Settings2.jsx'
-import Settings7 from './DonorPage/Settings7.jsx'
-import OrganizationList from "./AdminPage/OrganizationsLists/OrganizationList.jsx"
-import RegisteredOrganizations from "./AdminPage/OrganizationsLists/RegisteredOrganizations.jsx"
-import EventPage from "./EventPage/EventPage.jsx"
+import OrganizationList from './AdminPage/OrganizationsLists/OrganizationList.jsx'
+import OrganizationViewPostPage from "./OrganizationPage/OrganizationViewPostPage.jsx"
+import RegisteredOrganizations from './AdminPage/OrganizationsLists/RegisteredOrganizations.jsx'
+import Settings2 from "./DonorPage/Settings2.jsx"
+import Settings7 from "./DonorPage/Settings7.jsx"
+import EventPage from './EventPage/EventPage.jsx'
 function App() {
   return (
     <>
@@ -33,6 +34,7 @@ function App() {
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/organization' element={<OrganizationPage />} />
         <Route path='/organization/create-post' element={<OrganizationCreatePostPage />} />
+        <Route path='/organization/view-posts' element={<OrganizationViewPostPage />} />  
         <Route path='/contact' element={<ContactPage />} />
         <Route path='/register/organization' element={<OrganizationReg />} />
         <Route path='/register/donor' element={<DonorReg />} />

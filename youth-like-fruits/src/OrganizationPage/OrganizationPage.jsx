@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable react/jsx-key */
 import React, { useState } from 'react'
 import ElevateAppBar from '../Components/ElevateAppBar/ElevateAppBar'
 import SideBar from './SideBar'
@@ -9,33 +12,44 @@ import HomeIcon from '@mui/icons-material/Home';
 import ListIcon from '@mui/icons-material/List';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import ChecklistRoundedIcon from '@mui/icons-material/ChecklistRounded';
-import ProfileOrganization from './ProfileOrganization';
+import SelectVariants from '../AdminPage/Dashboard/SelectVariants'
+import OutlinedCard from '../AdminPage/Dashboard/OutlinedCard'
+import StackBars from '../AdminPage/Dashboard/StackBars'
 
 function OrganizationPage() {
 
-    const [isOpen, setIsOpen] = useState(false);
 
-    const togglePopup = () => setIsOpen(!isOpen);
 
-    const [menu, setMenu] = useState(false);
 
-    const toggleMenu = () => setMenu(!menu);
 
-    const closeMenu = () => setMenu(false);
+    // My states
+    const [selectedOption, setSelectedOption] = useState(' ');
+    const [showAlert, setShowAlert] = useState(false);
 
     const listOfIcons = [
+
         <Stack direction="row" alignItems="center" spacing={1}>
             <NotificationsPopover />
-            <AccountPopover dir={'/OrganizationPage'} dir2={'/Settings7'} />
+            <AccountPopover />
         </Stack>
     ]
+
+    const handleFormSubmit = () => {
+        setShowAlert(true);
+        setSelectedOption(' ');
+    }
+
+    const handleOptionSelection = (x) => {
+        setSelectedOption(x);
+        setShowAlert(false);
+    }
 
     const fontSize = '3vh';
     const menuItem = [
         {
 
             path: "/organization",
-            name: "Main",
+            name: "Dashboard",
             icon: <HomeIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
         },
         {
@@ -44,68 +58,69 @@ function OrganizationPage() {
             icon: <ListIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
         },
         {
-            path: "/admin/organizations-list",
-            name: "Organizations List",
+            path: "/organization/view-posts",
+            name: "View donation posts",
             icon: <ListIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
         },
-        {
-            path: "/admin/account-management",
-            name: "Account Management",
-            icon: <PersonRemoveIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
-        },
-        {
-            path: "/admin/registered-organizations",
-            name: "Registered Organizations",
-            icon: <ChecklistRoundedIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
-        }
+
     ]
 
     return (
 
         <div className='container'  >
+
+            {/* Header */}
             <ElevateAppBar iconsList={listOfIcons} />
 
 
+            {/* Body */}
+            <div className='body' style={{}}>
 
-            <div onClick={closeMenu}>
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <SideBar menuItem={menuItem} />
+                <div style={{ display: 'flex', flexDirection: 'column', padding: '2% 4%', width: '100%' }}>
+                    <p className='title' style={{
+                        fontSize: '44px',
+                        fontFamily: 'Josefin Sans',
+                        fontWeight: '400',
+                        color: '#292F33',
+                    }}>Create Donation Post</p>
 
-                    <SideBar menuItem={menuItem} />
-                    <div style={{ display: 'flex', flexDirection: 'column', padding: '2% 4%', width: '100%' }}>
-                        <p className='title' style={{
-                            fontSize: '44px',
+
+
+
+                    <div style={{
+                        width: '100%',
+                        backgroundColor: '#D5E0E6',
+                        borderRadius: '5px',
+                        boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)',
+                        padding: '20px'
+                    }}>
+                        <p style={{
+                            fontSize: '24px',
                             fontFamily: 'Josefin Sans',
-                            fontWeight: '400',
-                            color: '#292F33',
-                        }}>Create Donation Post</p>
-
-
-                        <ProfileOrganization />
-
-
-                        <div style={{
-                            width: '100%',
-                            backgroundColor: '#D5E0E6',
-                            borderRadius: '5px',
-                            boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)',
-                            padding: '20px'
-                        }}>
-                            <p style={{
-                                fontSize: '24px',
-                                fontFamily: 'Josefin Sans',
-                                fontWeight: 'bold',
-                                color: '#000000',
-                                marginBottom: '10px'
-                            }}>Select</p>
-
-                        </div>
+                            fontWeight: 'bold',
+                            color: '#000000',
+                            marginBottom: '10px'
+                        }}>Select</p>
 
                     </div>
+
                 </div>
-                <Footer />
+
+
+                <Profile />
             </div>
+            <Footer />
         </div>
     )
 }
 
 export default OrganizationPage
+
+
+const pageTitleStyle = {
+    fontSize: '44px',
+    fontFamily: 'Josefin Sans',
+    fontWeight: '400',
+    color: '#292F33',
+}

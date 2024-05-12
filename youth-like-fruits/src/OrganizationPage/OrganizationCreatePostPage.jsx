@@ -61,34 +61,7 @@ function OrganizationPage() {
     }
 
     const fontSize = '3vh';
-    const menuItem = [
-        {
-
-            path: "/organization",
-            name: "Main",
-            icon: <HomeIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
-        },
-        {
-            path: "/organization/create-post",
-            name: "Create donation posts",
-            icon: <ListIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
-        },
-        {
-            path: "/admin/organizations-list",
-            name: "Organizations List",
-            icon: <ListIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
-        },
-        {
-            path: "/admin/account-management",
-            name: "Account Management",
-            icon: <PersonRemoveIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
-        },
-        {
-            path: "/admin/registered-organizations",
-            name: "Registered Organizations",
-            icon: <ChecklistRoundedIcon style={{ fontSize: fontSize, fill: '#D5E0E6' }} />
-        }
-    ]
+     
 
     return (
 
@@ -101,7 +74,7 @@ function OrganizationPage() {
             {/* Body */}
             <div className='body' onClick={closeMenu} style={{}}>
 
-                <SideBar menuItem={menuItem} sx />
+                <SideBar />
 
                 <div style={{ display: 'flex', flexDirection: 'column', padding: '2% 4%', width: '100%', minHeight: '90%' }}>
                     <p style={{
