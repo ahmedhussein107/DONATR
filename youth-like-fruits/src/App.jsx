@@ -23,8 +23,10 @@ import Settings7 from "./DonorPage/Settings7.jsx"
 import EventPage from './EventPage/EventPage.jsx'
 import ForgotPassword from "./ForgotPassword/ForgotPassword.jsx"
 import Aboutt from "./AboutPage/About.jsx"
+import DonationPickupForm from "./DonorPage/DonationPickupForm.jsx"
 function App() {
   return (
+    // <DonationPickupForm />
     <>
       <Routes>
         <Route path='/' element={<Home />} />
