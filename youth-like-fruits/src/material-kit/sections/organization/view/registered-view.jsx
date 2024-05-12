@@ -120,8 +120,6 @@ export default function RegisteredView(props) {
       {openPopup && <Popup 
         onClose={onPopupClose} 
         info={currentInfo} 
-        save={true} 
-        onClickSave={onPopupClose}
       />}
       <Stack direction="row" justifyContent="space-between" m={2}>
         <Typography

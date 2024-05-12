@@ -6,9 +6,12 @@ import Button from '@mui/material/Button';
 import MyButton from '../../Components/MyButton/MyButton.jsx';
 import { Alert, Typography } from '@mui/material';
 import { organization } from '../../material-kit/_mock/organization.js';
+import IconButton from '@mui/material/IconButton';  
+import CloseIcon from '@mui/icons-material/Close';
 
 const Info = (props) => {
   const header = props.header;
+  const close = props.close;
   const user = {
     name: props.name,
     age: props.age,
@@ -126,12 +129,15 @@ const Info = (props) => {
   return (
     <ProfileContainer>
       <ProfileBox>
+        
         <div style={{ justifyContent: 'center' }}>
           <div style={{ display: 'flex', flexDirection: 'row' }}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div></div>
-              <ProfileHeader >{header}</ProfileHeader>
-              <></>
+              <div>
+              <ProfileHeader >
+                {header}
+              </ProfileHeader>
+              </div>  
               <br />
               <div style={{ marginleft: '100px' }}>
                 <div className='same-line-input'>
@@ -283,6 +289,7 @@ Info.defaultProps = {
   acceptButton: null,
   rejectButton: null,
   downloadButton: null,
+  close: () => {},
 }
 
 export default Info;

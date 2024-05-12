@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Info from './Info';
 import { fa } from '@faker-js/faker';
-
+import IconButton from '@mui/material/IconButton';  
+import CloseIcon from '@mui/icons-material/Close';
 function Popup(props) {
   const onClose = props.onClose;
   const info = props.info;
@@ -17,8 +18,12 @@ function Popup(props) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-        <div style={{marginTop: '7vh' , marginBottom: '3vh'}}>
+        <div className="popup-content" onClick={(e) => e.stopPropagation()} >
+        <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+            <IconButton onClick={onClose}>
+                <CloseIcon />
+             </IconButton> 
+        </div>  
           <Info  
             header='Request Information' 
             name={info.name}
@@ -52,8 +57,8 @@ function Popup(props) {
               hoverColor: "#135E86",
               onClick: onClickDownload,
             }: null}
+            close={onClose}
           />
-        </div>
       </div>
     </div>
   );
@@ -74,7 +79,7 @@ Popup.propTypes = {
 Popup.defaultProps = {
   onClose: () => {},
   info: [],
-  save: true,
+  save: false,
   accept: false,
   reject: false,
   download: false,
