@@ -22,6 +22,7 @@ import Settings2 from "./DonorPage/Settings2.jsx"
 import Settings7 from "./DonorPage/Settings7.jsx"
 import EventPage from './EventPage/EventPage.jsx'
 import ForgotPassword from "./ForgotPassword/ForgotPassword.jsx"
+import Aboutt from "./AboutPage/About.jsx"
 function App() {
   return (
     <>
@@ -62,6 +63,7 @@ function App() {
         <Route path='/OrganizationPage' element={<OrganizationPage />} />
         <Route path='/event' element={<EventPage />} />
         <Route path='/forgot-password' element={<ForgotPassword/>}/>
+        <Route path='/about' element={<Aboutt/>}/>
       </Routes>
     </>
   )
