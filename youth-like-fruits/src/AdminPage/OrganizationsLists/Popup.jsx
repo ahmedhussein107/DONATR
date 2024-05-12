@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Info from './Info';
-
+import { fa } from '@faker-js/faker';
+import IconButton from '@mui/material/IconButton';  
+import CloseIcon from '@mui/icons-material/Close';
 function Popup(props) {
   const onClose = props.onClose;
   const info = props.info;
@@ -12,13 +14,18 @@ function Popup(props) {
   const onClickAccept = props.onClickAccept;
   const onClickReject = props.onClickReject;
   const onClickDownload = props.onClickDownload;
+  const onClickSave = props.onClickSave;
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-        <div style={{marginTop: '7vh' , marginBottom: '3vh'}}>
+        <div className="popup-content" onClick={(e) => e.stopPropagation()} >
+        <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+            <IconButton onClick={onClose}>
+                <CloseIcon style={{ color: 'red', height: '5vh', width: '5vh'}}/>
+             </IconButton> 
+        </div>  
           <Info  
-            header='Request Information' 
+            header='Organization Information' 
             name={info.name}
             age={info.age}
             email={info.email}
@@ -32,7 +39,8 @@ function Popup(props) {
             image={info.image}
             saveButton={save? {
               normalColor: "#1D8AC5",
-              hoverColor: "#135E86"
+              hoverColor: "#135E86",
+              onClick: onClickSave,
             }: null}
             acceptButton={accept ? {
               normalColor: "#20C585",
@@ -49,8 +57,8 @@ function Popup(props) {
               hoverColor: "#135E86",
               onClick: onClickDownload,
             }: null}
+            close={onClose}
           />
-        </div>
       </div>
     </div>
   );
@@ -71,13 +79,14 @@ Popup.propTypes = {
 Popup.defaultProps = {
   onClose: () => {},
   info: [],
-  save: true,
-  accept: true,
-  reject: true,
-  download: true,
+  save: false,
+  accept: false,
+  reject: false,
+  download: false,
   onClickAccept: () => {},
   onClickReject: () => {},
   onClickDownload: () => {},
+  onClickSave: () => {},
 };
 
 export default Popup;

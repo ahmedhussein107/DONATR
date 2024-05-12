@@ -8,9 +8,9 @@ import img from '../../../../assets/donor_icon.png';
 import RequestCard from '../../../../AdminPage/DonorsList/RequestCard';
 import { Box, TextField, MenuItem, Select, FormControl, FormLabel } from '@mui/material';
 import OrganizationFilters from '../organization-filters';
-import Popup from '../../../../AdminPage/RegOrganizations/Popup';
+import Popup from '../../../../AdminPage/OrganizationsLists/Popup';
 import { donors } from '../../../_mock/donor';
-import { organization } from '../../../_mock/organization.js';
+import { organization } from '../../../_mock/organization';
 
 export default function OrganizationView(props) {
   const pageTitle = props.title;

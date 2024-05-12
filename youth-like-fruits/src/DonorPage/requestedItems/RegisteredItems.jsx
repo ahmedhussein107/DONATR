@@ -9,6 +9,8 @@ import Stack from '@mui/material/Stack';
 import HomeIcon from '@mui/icons-material/Home';
 import ListIcon from '@mui/icons-material/List';
 import HailIcon from '@mui/icons-material/Hail';
+import RegisteredItemsView from '../../material-kit/sections/products/view/requested-items-view'
+
 function RegisteredItems() {
 
   const listOfIcons = [
@@ -47,7 +49,7 @@ function RegisteredItems() {
       <ElevateAppBar iconsList={listOfIcons} />
       <div style={{ display: 'flex', flexDirection: 'row', minHeight: '90vh' }}>
         <SideBar menuItem={menuItem} />
-        <ProductsView title="Donors Submissions" search={true} filter={false} sort={true} />
+        <RegisteredItemsView title="Requested Items" search={true} filter={true} sort={true} />
       </div>
       <Footer />
 

@@ -29,7 +29,7 @@ const Info = (props) => {
     justify-content: center;
     align-items: flex-start;
     margin-top: 0.5vh;
-    min-height: 80vh; /* Ensure the container takes up at least the full height of the viewport */
+    min-height: 70vh; /* Ensure the container takes up at least the full height of the viewport */
   `;
 
   const ProfileBox = styled.div`

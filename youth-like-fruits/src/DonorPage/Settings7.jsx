@@ -10,7 +10,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import ListIcon from '@mui/icons-material/List';
 import HailIcon from '@mui/icons-material/Hail';
 import SettingsProfile from './SettingsProfile'
-function Settings() {
+function Settings7() {
 
     const [menu, setMenu] = useState(false);
     const closeMenu = () => setMenu(false);
@@ -18,7 +18,7 @@ function Settings() {
     const listOfIcons = [
         <Stack direction="row" alignItems="center" spacing={1}>
             <NotificationsPopover />
-            <AccountPopover dir='/admin' dir2={'/Settings'} />
+            <AccountPopover dir='/OrganizationPage' dir2={'/Settings7'} />
         </Stack>
     ]
     const fontSize = '3vh';
@@ -89,4 +89,4 @@ function Settings() {
     )
 }
 
-export default Settings
+export default Settings7
