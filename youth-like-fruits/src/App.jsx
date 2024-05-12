@@ -19,6 +19,7 @@ import requested from './DonorPage/requestedItems/RegisteredItems.jsx'
 import Settings from './DonorPage/Settings.jsx'
 import RegisteredItems from "./DonorPage/requestedItems/RegisteredItems.jsx"
 import OrganizationList from "./AdminPage/RegOrganizations/OrganizationList.jsx"
+import OrganizationViewPostPage from "./OrganizationPage/OrganizationViewPostPage.jsx"
 function App() {
   return (
     <>
@@ -29,6 +30,7 @@ function App() {
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/organization' element={<OrganizationPage />} />
         <Route path='/organization/create-post' element={<OrganizationCreatePostPage />} />
+        <Route path='/organization/view-posts' element={<OrganizationViewPostPage />} />  
         <Route path='/contact' element={<ContactPage />} />
         <Route path='/register/organization' element={<OrganizationReg />} />
         <Route path='/register/donor' element={<DonorReg />} />
