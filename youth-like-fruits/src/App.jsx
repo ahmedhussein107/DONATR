@@ -26,6 +26,7 @@ import Aboutt from "./AboutPage/About.jsx"
 import DonationPickupForm from "./DonorPage/DonationPickupForm.jsx"
 import DonorSecondStepDoctor from "./RegisterPage/DonorSecondStepDoctor.jsx"
 import DonorSecondStepTeacher from "./RegisterPage/DonorSecondStepTeacher.jsx"
+import ProbonoView from "./material-kit/sections/products/view/probono-view.jsx"
 import SuccessPage2 from "./DonorPage/requestedItems/success2.jsx"
 import Organizations from "./DonorPage/Organizations.jsx"
 function App() {
@@ -62,7 +63,7 @@ function App() {
         <Route path='/success' element={<SuccessPage />} />
         <Route path='/form_page' element={<FormPage />} />
         <Route path='/donor/donor-home' element={<DashBoard />} />
-        <Route path='/Donorbropono' element={<probono />} />
+        <Route path='/Donorbropono' element={<ProbonoView />} />
         <Route path='/Donororg' element={<org />} />
         <Route path='/Donorrequested' element={<requested />} />
         <Route path='/Settings' element={<Settings />} />
@@ -75,6 +76,8 @@ function App() {
         <Route path='/about' element={<Aboutt />} />
         <Route path='/DonationPickupForm' element={<DonationPickupForm />} />
         <Route path="/donor/registered-organizations" element={<Organizations />} />
+        <Route path='/SuccessPage2' element={<SuccessPage2 />} />
+
       </Routes>
     </>
   )
