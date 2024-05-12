@@ -73,7 +73,7 @@ const RegistrationForm = () => {
         <div className='form-container' >
             <form onSubmit={handleSubmit}  >
 
-                <div className='same-line-input'>
+                <div className='same-line-input' style={{marginBottom: '-4%'}}>
                     <TextField
                         name='firstName'
                         label='First Name'
@@ -165,7 +165,7 @@ const RegistrationForm = () => {
                     />
                 </div>
 
-                <div className='same-line-input'>
+                <div className='same-line-input' style={{marginTop :'-11%'}}>
                     <TextField
                         name="address"
                         label="Organization address"
@@ -177,7 +177,7 @@ const RegistrationForm = () => {
                         required
                     />
 
-                    <div className="upload-file-container">
+                    <div className="upload-file-container" >
 
                         <Button
                             variant="contained"
@@ -200,7 +200,7 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className='register-button-container'>
-                    <Button className='register-button-style' type='submit' variant="contained">Register</Button>
+                    <Button className='register-button-style' type='submit' variant="contained" style={{minWidth : '40%' , minHeight:'50px' ,marginBottom : '20%'}}>Register</Button>
                 </div>
 
             </form>

@@ -142,7 +142,7 @@ export default function ProductsView(props) {
         }
         onClickDownload={
           () => {
-            
+              window.location.href = 'https://api32.ilovepdf.com/v1/download/b9jfk464q8j2prc5vAwsl4xrcgtt7281y5p4jks4kx842xxmwm8b1hg9kA11cvs21ft0w86pl89fnzsdzsfg73ls0g4c51s0b5bpjtq12581jqgwp00xp83yfpf7tj7gAt9n6z7g3bv81cv8j4k1y4s5k9pb3cn0yc19A4sx2spkzk828hl1';
           }
         }
       />}
