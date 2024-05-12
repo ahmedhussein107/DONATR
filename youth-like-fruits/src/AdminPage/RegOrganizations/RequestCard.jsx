@@ -12,7 +12,7 @@ export default function RequestCard(props) {
   const name = props.name;
   const image = props.image;
   const onClick = props.onClick;
-  const organization = props.organization;
+
   const type = props.type;
   const age = props.age;
   const season = props.season;
