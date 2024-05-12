@@ -862,7 +862,7 @@ export const items3 = [
         numberStudents: '5',
         address: '3rd district, 5th settlement, Cairo',
         subject: 'Math'
-    }
+    },
     {
         numberStudents: '5',
         address: '3rd district, 5th settlement, Cairo',
