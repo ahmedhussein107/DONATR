@@ -16,6 +16,13 @@ import OutlinedCard from '../AdminPage/Dashboard/OutlinedCard'
 import StackBars from '../AdminPage/Dashboard/StackBars'
 
 import './OrganizationCreatePostPage.css'
+// import { ClothesForm, FoodForm, MedicalSuppliesForm, BloodDonationsForm, SchoolSuppliesForm, ToyesForm} from './Components/Forms'
+import ClothesForm from './Components/Forms/ClothesForm'
+import FoodForm from './Components/Forms/FoodForm'
+import MedicalSuppliesForm from './Components/Forms/MedicalSuppliesForm'
+import BloodDonationsForm from './Components/Forms/BloodDonationsForm'
+import SchoolSuppliesForm from './Components/Forms/SchoolSuppliesForm'
+import ToyesForm from './Components/Forms/ToyesForm'
 import SelectPostType from './Components/SelectPostType'
 
 function OrganizationPage() {
@@ -93,8 +100,26 @@ function OrganizationPage() {
                     }}>Create Donation Post</p>
 
                     <div className='overlay'>
-                        {/* <p style={{fontFamily: 'Josefin Sans',}}>Select Post Type</p> */}
-                        <SelectPostType selectedOption={selectedOption} onOptionSelection={setSelectedOption}/>
+                        <div className="dropdown-container">
+                            <SelectPostType selectedOption={selectedOption} onOptionSelection={setSelectedOption} />
+                        </div>
+
+                        {
+                            (selectedOption === 'clothes') ?
+                                <ClothesForm />
+                                : (selectedOption === 'food') ?
+                                    <FoodForm />
+                                    : (selectedOption === 'medicalSupplies') ?
+                                        <MedicalSuppliesForm />
+                                        : (selectedOption === 'bloodDonations') ?
+                                            <BloodDonationsForm />
+                                            : (selectedOption === 'schoolSupplies') ?
+                                                <SchoolSuppliesForm />
+                                                : (selectedOption === 'toys') ?
+                                                    <ToyesForm />
+                                                    : <></>
+
+                        }
                     </div>
                 </div>
 
