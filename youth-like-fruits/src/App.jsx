@@ -13,9 +13,6 @@ import SuccessPage from "./ContactUs/SuccessPage.jsx"
 import DashBoard from "./DonorPage/DashBoard.jsx"
 import OrganizationPage from "./OrganizationPage/OrganizationPage.jsx"
 import OrganizationCreatePostPage from "./OrganizationPage/OrganizationCreatePostPage.jsx"
-import probono from "./DonorPage/probono.jsx"
-import org from './DonorPage/Organizations.jsx'
-import requested from './DonorPage/requestedItems/RegisteredItems.jsx'
 import Settings from './DonorPage/Settings.jsx'
 import RegisteredItems from "./DonorPage/requestedItems/RegisteredItems.jsx"
 import OrganizationList from './AdminPage/OrganizationsLists/OrganizationList.jsx'
@@ -34,7 +31,7 @@ function App() {
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/organization' element={<OrganizationPage />} />
         <Route path='/organization/create-post' element={<OrganizationCreatePostPage />} />
-        <Route path='/organization/view-posts' element={<OrganizationViewPostPage />} />  
+        <Route path='/organization/view-posts' element={<OrganizationViewPostPage />} />
         <Route path='/contact' element={<ContactPage />} />
         <Route path='/register/organization' element={<OrganizationReg />} />
         <Route path='/register/donor' element={<DonorReg />} />

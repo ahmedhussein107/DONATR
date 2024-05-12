@@ -5,9 +5,12 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import MyButton from '../Components/MyButton/MyButton';
 import { Alert } from '@mui/material';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import { TbBackground } from 'react-icons/tb';
 // Sample user data
 const user = {
     name: 'John Doe',
@@ -122,15 +125,15 @@ const SettingsProfile = () => {
     };
 
     const [showPassword, setShowPassword] = useState(false);
+    const [open, setOpen] = React.useState(false);
 
-    const handleTogglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
+    const handleClickOpen = () => {
+        setOpen(true);
     };
 
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
+    const handleClose = () => {
+        setOpen(false);
     };
-
     return (
         <ProfileContainer>
             <ProfileBox>
@@ -199,18 +202,57 @@ const SettingsProfile = () => {
                             marginLeft={2.7}
                             clickHandler={handleButtonClick}
                         />
-                        <MyButton
-                            label="Delete My Account"
-                            normalColor="#8B0000"
-                            hoverColor="#135E86"
-                            paddingWidth={14}
-                            paddingHeight={30}
-                            minimumWidth={200}
-                            minimumHeight={45}
-                            marginLeft={2.7}
-                            clickHandler={handleButtonClick}
+                        <React.Fragment>
+                            <MyButton
+                                label="Delete My Account"
+                                normalColor="#8B0000"
+                                hoverColor="#6B0000"
+                                paddingWidth={14}
+                                paddingHeight={30}
+                                minimumWidth={200}
+                                minimumHeight={45}
+                                marginLeft={2.7}
+                                clickHandler={handleClickOpen}
+                            />
+                            <Dialog
+                                open={open}
+                                onClose={handleClose}
+                                aria-labelledby="alert-dialog-title"
+                                aria-describedby="alert-dialog-description"
+                            >
+                                <DialogTitle id="alert-dialog-title">
+                                    {"Delete Account?"}
+                                </DialogTitle>
+                                <DialogContent>
+                                    <DialogContentText id="alert-dialog-description">
+                                        Are you sure you want to delete your account? This action is irreversible
+                                        and all your data will be lost.
+                                    </DialogContentText>
+                                </DialogContent>
+                                <DialogActions>
+                                    <MyButton
+                                        clickHandler={handleClose}
+                                        label="Disagree"
+                                        directory=""
+                                        normalColor="#292F33"
+                                        hoverColor="#135E86"
+                                        paddingWidth={14}
+                                        paddingHeight={7}
+                                        minimumWidth={70}
+                                    />
+                                    <MyButton
+                                        label="Agree"
+                                        directory='/login'
+                                        normalColor="#292F33"
+                                        hoverColor="#135E86"
+                                        paddingWidth={14}
+                                        paddingHeight={7}
+                                        minimumWidth={90}
+                                    />
+                                </DialogActions>
+                            </Dialog>
+                        </React.Fragment>
 
-                        />
                     </div>
                 </div>
             </ProfileBox>
