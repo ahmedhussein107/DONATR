@@ -39,27 +39,29 @@ export default function RequestedItemsView(props) {
     if (currentFilters === null) return true;
     switch (currentCategory) {
         case 'Clothes':
-            if (card.details.age > currentFilters.maxAge || card.details.age < minAge) return false;
-            if (card.details.gender !== currentFilters.gender) return false;
-            if (card.details.season !== currentFilters.season) return false;
+            if (currentFilters.maxAge !== null && (card.details.age > currentFilters.maxAge || card.details.age < currentFilters.minAge)) return false;
+            if (currentFilters.gender !== null && card.details.gender !== currentFilters.gender) return false;
+            if (currentFilters.season !== null && card.details.season !== currentFilters.season) return false;
             return true;
         case 'School Supplies':
-            return card.details.type ===  currentFilters.type;
+            if (currentFilters.type !== null && card.details.type !== currentFilters.type) return false;
+            return true;
         case 'Toys':
-            if (card.details.age > currentFilters.maxAge || card.details.age < minAge) return false;
-            if (card.details.gender !== currentFilters.gender) return false;
-            if (card.details.subtype !== currentFilters.subtype) return false;
+            if (currentFilters.maxAge !== null && (card.details.age > currentFilters.maxAge || card.details.age < currentFilters.minAge)) return false;
+            if (currentFilters.gender !== null && card.details.gender !== currentFilters.gender) return false;
+            if (currentFilters.subtype !== null && card.details.subtype !== currentFilters.subtype) return false;
             return true;
         case 'Food':
-            return card.details.subtype === currentFilters.subtype;
+            if (currentFilters.subtype !== null && card.details.subtype !== currentFilters.subtype) return false;
+            return true;
         case 'Medical Supplies':
-            if (card.details.subtype !== currentFilters.subtype) return false;
-            if (card.details.subtype === 'Medications' && card.details.medicalUse !== currentFilters.medicalUse) return false;
+            if (currentFilters.subtype !== null && card.details.subtype !== currentFilters.subtype) return false;
+            if (card.details.subtype === 'Medications' && currentFilters.medicalUse !== null && card.details.medicalUse !== currentFilters.medicalUse) return false;
             return true;
         case 'Blood Donations':
-            if (card.details.hospitalName !== currentFilters.hospitalName) return false;
-            if (card.details.governorate !== currentFilters.governorate) return false;
-            if (card.details.area !== currentFilters.area) return false;
+            if (currentFilters.hospitalName !== null && card.details.hospitalName !== currentFilters.hospitalName) return false;
+            if (currentFilters.governorate !== null && card.details.governorate !== currentFilters.governorate) return false;
+            if (currentFilters.area !== null && card.details.area !== currentFilters.area) return false;
             return true;
         default:
             return true;
@@ -172,6 +174,7 @@ export default function RequestedItemsView(props) {
             month={card.month}
             year={card.year}
             orgName={card.orgName} 
+            type={card.type}
             onClick={() => {
               setSelectedId(card.id);
               setCurrentInfo(
