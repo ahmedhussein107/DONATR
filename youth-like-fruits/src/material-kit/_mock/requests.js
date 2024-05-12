@@ -3,7 +3,7 @@ import { faker} from '@faker-js/faker';
 
 // ----------------------------------------------------------------------
 
-const types = ['Clothes', 'Toys', 'Food', 'Medical Supplies', 'School Supplies', 'Blood Donations'];
+const types = ['Clothes', 'Toys', 'Food', 'Medical Suplies', 'School Supplies', 'Blood Donations'];
 const itemTypeList = {
     'Clothes': [
         {age: 10,
@@ -465,7 +465,7 @@ const itemTypeList = {
             },
     ],
 
-    'Medical Supplies': [
+    'Medical Suplies': [
         {type: "Medical Equipment",
         deviceType: "Imaging",
         use: "surgery",
@@ -723,6 +723,7 @@ const itemTypeList = {
 export const items = [...Array(16)].map((_, index) => {
     const idx = Math.floor(Math.random() * types.length);
     return {
+    generalType: types[idx],
     id: faker.string.uuid(),
     orgName: faker.company.name(),
     day: faker.number.int({min: 1 , max: 30}),

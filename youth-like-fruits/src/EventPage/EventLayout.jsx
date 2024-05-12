@@ -1,5 +1,4 @@
 import React from 'react';
-import './EventLayout.css';
 
 const items = [
   {
@@ -24,13 +23,13 @@ const items = [
 
 const Box = ({ imageUrl, title, description, formLink }) => {
   return (
-    <div className="box">
-      <img src={imageUrl} alt={title} className="image" />
+    <div className="box" style={{ margin: '20px', width: '300px' }}>
+      <img src={imageUrl} alt={title} className="image" style={{ width: '100%', borderRadius: '5px' }} />
       <div className="content">
-        <h3 className="title">{title}</h3>
-        <p className="description">{description}</p>
+        <h3 className="title" style={{ marginTop: '10px', fontSize: '1.2em' }}>{title}</h3>
+        <p className="description" style={{ marginTop: '10px' }}>{description}</p>
       </div>
-      <a href={formLink} target="_blank" rel="noopener noreferrer" className="register-button">
+      <a href={formLink} target="_blank" rel="noopener noreferrer" className="register-button" style={{ display: 'block', marginTop: '20px', padding: '10px 20px', backgroundColor: '#007bff', color: '#fff', textDecoration: 'none', borderRadius: '5px' }}>
         Register Here
       </a>
     </div>
@@ -39,7 +38,7 @@ const Box = ({ imageUrl, title, description, formLink }) => {
 
 const App = () => {
   return (
-    <div className="container">
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       {items.map((item) => (
         <Box
           key={item.title}

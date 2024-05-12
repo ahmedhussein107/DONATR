@@ -23,8 +23,12 @@ import Settings7 from "./DonorPage/Settings7.jsx"
 import EventPage from './EventPage/EventPage.jsx'
 import ForgotPassword from "./ForgotPassword/ForgotPassword.jsx"
 import Aboutt from "./AboutPage/About.jsx"
+import DonationPickupForm from "./DonorPage/DonationPickupForm.jsx"
+import DonorSecondStepDoctor from "./RegisterPage/DonorSecondStepDoctor.jsx"
+import DonorSecondStepTeacher from "./RegisterPage/DonorSecondStepTeacher.jsx"
 function App() {
   return (
+    // <DonationPickupForm />
     <>
       <Routes>
         <Route path='/' element={<Home />} />
@@ -41,6 +45,8 @@ function App() {
         <Route path='/admin/account-management' element={<AccountManagement />} />
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/second-step-doctor' element={<DonorSecondStepDoctor />} />
+        <Route path='/second-step-teacher' element={<DonorSecondStepTeacher />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/contact' element={<ContactPage />} />
@@ -62,8 +68,8 @@ function App() {
         <Route path='/Settings7' element={<Settings7 />} />
         <Route path='/OrganizationPage' element={<OrganizationPage />} />
         <Route path='/event' element={<EventPage />} />
-        <Route path='/forgot-password' element={<ForgotPassword/>}/>
-        <Route path='/about' element={<Aboutt/>}/>
+        <Route path='/forgot-password' element={<ForgotPassword />} />
+        <Route path='/about' element={<Aboutt />} />
       </Routes>
     </>
   )

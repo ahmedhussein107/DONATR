@@ -48,7 +48,7 @@ function ContactInfo() {
   };
 
   const linkStyle = {
-    color: 'white', // Link color
+    color: 'blue', // Change link color to blue
     textDecoration: 'underline',
   };
 
@@ -71,14 +71,14 @@ function ContactInfo() {
         </div>
         <div style={listItemStyle}>
           <FaMapMarkerAlt style={iconStyle} />
-          <span>Cairo branch Address: <a href="https://www.google.com/maps?q=Cairo" style={linkStyle}>Get Directions</a></span>
+          <span>Cairo branch Address: <a href="https://www.google.com/maps?q=57375 Cairo" style={linkStyle}>Get Directions</a></span>
         </div>
         <div style={{ ...listItemStyle, ...smallerTextStyle }}>
           <span>1 Seket Al-Emam Street – El-Madbah El-Kadeem Yard – El-Saida Zenab</span>
         </div>
         <div style={listItemStyle}>
           <FaMapMarkerAlt style={iconStyle} />
-          <span>Tanta branch Address: <a href="https://www.google.com/maps?q=Tanta,Egypt" style={linkStyle}>Get Directions</a></span>
+          <span>Tanta branch Address: <a href="https://www.google.com/maps?q=Tanta" style={linkStyle}>Get Directions</a></span>
         </div>
         <div style={{ ...listItemStyle, ...smallerTextStyle }}>
           <span>Othman Mohamad street adjacent to Al Helal Hospital</span>
