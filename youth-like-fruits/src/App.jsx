@@ -25,6 +25,7 @@ import ForgotPassword from "./ForgotPassword/ForgotPassword.jsx"
 import Aboutt from "./AboutPage/About.jsx"
 import DonorSecondStepDoctor from "./RegisterPage/DonorSecondStepDoctor.jsx"
 import DonorSecondStepTeacher from "./RegisterPage/DonorSecondStepTeacher.jsx"
+import ProbonoView from "./material-kit/sections/products/view/probono-view.jsx"
 function App() {
   return (
     <>
@@ -57,7 +58,7 @@ function App() {
         <Route path='/success' element={<SuccessPage />} />
         <Route path='/form_page' element={<FormPage />} />
         <Route path='/donor/donor-home' element={<DashBoard />} />
-        <Route path='/Donorbropono' element={<probono />} />
+        <Route path='/Donorbropono' element={<ProbonoView />} />
         <Route path='/Donororg' element={<org />} />
         <Route path='/Donorrequested' element={<requested />} />
         <Route path='/Settings' element={<Settings />} />
