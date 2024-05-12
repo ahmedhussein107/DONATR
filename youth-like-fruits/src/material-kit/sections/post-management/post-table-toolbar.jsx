@@ -52,13 +52,7 @@ export default function PostTableToolbar({selected, handleDeleteAll, numSelected
             <Iconify icon="eva:trash-2-fill" />
           </IconButton>
         </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <Iconify icon="ic:round-filter-list" />
-          </IconButton>
-        </Tooltip>
-      )}
+      ) : <></>}
     </Toolbar>
   );
 }

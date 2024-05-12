@@ -184,70 +184,70 @@ const Profile = (props) => {
                     {/* <Label>Occupation:</Label> */}
                     <TextField id="filled-basic" label="Role" variant="filled" defaultValue={user.occupation} InputProps={{
                       readOnly: true,
-                    }}/>
+                    }} />
                   </DetailItem>
                 </div>
               </div>
             </div>
             <div style={{}}>
               <ProfileImage src={user.image} alt="User's profile picture" />
-              {!(user.date==='') && <Typography 
+              {!(user.date === '') && <Typography
                 sx={{
-                  textAlign: 'center' , 
-                  marginLeft: '17vh' , 
+                  textAlign: 'center',
+                  marginLeft: '17vh',
                   marginTop: '2vh'
                 }}>
-              {`Published Date: ${user.date}`}
+                {`Published Date: ${user.date}`}
               </Typography>}
             </div>
           </div>
           <br />
-          <br /> 
-          <div style={{display: 'flex' , flexDirection: 'row'}}>
+          <br />
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
             {!(user.saveButton === null) && <MyButton
-                label="Save"
-                normalColor={user.saveButton.normalColor}
-                hoverColor={user.saveButton.hoverColor}
-                paddingWidth={14}
-                paddingHeight={30}
-                minimumWidth={200}
-                minimumHeight={45}
-                marginLeft={2.7}
-                clickHandler={handleButtonClick}
-              />}
+              label="Edit"
+              normalColor={user.saveButton.normalColor}
+              hoverColor={user.saveButton.hoverColor}
+              paddingWidth={14}
+              paddingHeight={30}
+              minimumWidth={200}
+              minimumHeight={45}
+              marginLeft={2.7}
+              directory={'/Settings7'}
+            />}
             {!(user.downloadButton === null) && <MyButton
-                label="Download official doc"
-                normalColor={user.downloadButton.normalColor}
-                hoverColor={user.downloadButton.hoverColor}
-                paddingWidth={14}
-                paddingHeight={30}
-                minimumWidth={200}
-                minimumHeight={45}
-                marginLeft={2.7}
-                clickHandler={user.downloadButton.onClick}
-              />} 
+              label="Download official doc"
+              normalColor={user.downloadButton.normalColor}
+              hoverColor={user.downloadButton.hoverColor}
+              paddingWidth={14}
+              paddingHeight={30}
+              minimumWidth={200}
+              minimumHeight={45}
+              marginLeft={2.7}
+              clickHandler={user.downloadButton.onClick}
+            />}
             {!(user.acceptButton === null) && <MyButton
-                label="Accept"
-                normalColor={user.acceptButton.normalColor}
-                hoverColor={user.acceptButton.hoverColor}
-                paddingWidth={14}
-                paddingHeight={30}
-                minimumWidth={200}
-                minimumHeight={45}
-                marginLeft={2.7}
-                clickHandler={user.acceptButton.onClick}
-              />}
+              label="Accept"
+              normalColor={user.acceptButton.normalColor}
+              hoverColor={user.acceptButton.hoverColor}
+              paddingWidth={14}
+              paddingHeight={30}
+              minimumWidth={200}
+              minimumHeight={45}
+              marginLeft={2.7}
+              clickHandler={user.acceptButton.onClick}
+            />}
             {!(user.rejectButton === null) && <MyButton
-                label="Reject"
-                normalColor={user.rejectButton.normalColor}
-                hoverColor={user.rejectButton.hoverColor}
-                paddingWidth={14}
-                paddingHeight={30}
-                minimumWidth={200}
-                minimumHeight={45}
-                marginLeft={2.7}
-                clickHandler={user.rejectButton.onClick}
-              />}
+              label="Reject"
+              normalColor={user.rejectButton.normalColor}
+              hoverColor={user.rejectButton.hoverColor}
+              paddingWidth={14}
+              paddingHeight={30}
+              minimumWidth={200}
+              minimumHeight={45}
+              marginLeft={2.7}
+              clickHandler={user.rejectButton.onClick}
+            />}
           </div>
         </div>
       </ProfileBox>
